@@ -1,6 +1,9 @@
 <template>
   <div class="layout">
     <slot/>
+    <footer class="footer">
+
+    </footer>
   </div>
 </template>
 
@@ -29,5 +32,10 @@ body {
 .layout {
   margin: 0 auto;
   display: flex;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 34px * 1.2;
 }
 </style>

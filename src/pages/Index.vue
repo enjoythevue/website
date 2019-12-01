@@ -11,15 +11,20 @@
           class="landing__logo" />
 
         <h1 class="landing__title">Enjoy the Vue</h1>
+
         <p class="landing__about-paragraph">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
-        <div class="panelists">
+        <div class="landing__panelists">
           <h2 class="landing__title">Our panelists</h2>
-          <div class="panelists__container">
-            
+          <div class="landing__panelists-container">
+            <panelist 
+              v-for="panelist in panelists"
+              :key="panelist.name"
+              v-bind="panelist"
+            />
           </div>
         </div>
       </section>
@@ -64,11 +69,42 @@
 </template>
 
 <script>
+import Panelist from '../components/Panelist.vue';
+
 export default {
   metaInfo: {
-    title: 'Hello, world!'
-  }
-}
+    title: 'Hello, world!',
+  },
+  components: {
+    Panelist,
+  },
+  data() {
+    return {
+      panelists: [
+        {
+          name: 'Chris Fritz',
+          img: 'images/chris-bio.jpeg',
+          website: 'https://twitter.com/chrisvfritz',
+        },
+        {
+          name: 'Ben Hong',
+          img: 'images/ben-bio.jpeg',
+          website: 'https://twitter.com/chrisvfritz',
+        },
+        {
+          name: 'Ari Clark',
+          img: 'images/ari-bio.jpeg',
+          website: 'https://twitter.com/chrisvfritz',
+        },
+        {
+          name: 'Elizabeth Fine',
+          img: 'images/elizabeth-bio.jpeg',
+          website: 'https://twitter.com/chrisvfritz',
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -97,6 +133,15 @@ export default {
 
   &__about-paragraph {
     max-width: 700px;
+  }
+
+  &__panelists {
+    width: 100%;
+  }
+
+  &__panelists-container {
+    display: flex;
+    justify-content: center;
   }
 
   &__form-section {
