@@ -25,7 +25,6 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
-  background-image: $gradient-dark;
   height: 100vh;
 }
 

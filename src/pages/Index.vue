@@ -62,14 +62,15 @@
                 type="submit">Send
             </button>
         </form>
-
       </section>
+      <social-links />
     </main>
   </Layout>
 </template>
 
 <script>
 import Panelist from '../components/Panelist.vue';
+import SocialLinks from '../components/SocialLinks.vue';
 
 export default {
   metaInfo: {
@@ -77,6 +78,7 @@ export default {
   },
   components: {
     Panelist,
+    SocialLinks,
   },
   data() {
     return {
@@ -120,6 +122,7 @@ export default {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    background-image: $gradient-dark;
   }
   
   &__logo { display: block; }
