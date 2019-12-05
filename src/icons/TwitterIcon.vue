@@ -14,7 +14,4 @@ export default {
     name: 'TwitterIcon',
 };
 </script>
-<style lang="scss">
-@import '../styles/social-icons.scss';
-</style>
 
