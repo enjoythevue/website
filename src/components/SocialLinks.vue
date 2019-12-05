@@ -4,6 +4,7 @@
         <instagram-icon></instagram-icon>
     </div>
 </template>
+
 <script>
 import TwitterIcon from '../icons/TwitterIcon.vue';
 import InstagramIcon from '../icons/InstagramIcon.vue';
@@ -28,13 +29,8 @@ export default {
 
 <style lang="scss">
 @import '../styles/variables.scss';
-.social-links {
-    width: 100%;
-    background: $secondary-green;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
 
+.social-links {
     svg:not(:last-child) {
         margin-right: 1rem;
     }
