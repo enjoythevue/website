@@ -10,11 +10,11 @@ import TwitterIcon from '../icons/TwitterIcon.vue';
 import InstagramIcon from '../icons/InstagramIcon.vue';
 
 export default {
-    name: 'SocialLinks',
-    components: {
-        TwitterIcon,
-        InstagramIcon,
-    }
+  name: 'SocialLinks',
+  components: {
+    TwitterIcon,
+    InstagramIcon,
+  }
 }
 </script>
 

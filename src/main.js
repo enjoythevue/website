@@ -10,6 +10,6 @@ export default function (Vue, { router, head, isClient }) {
   // Temp: add fonts here (per Gridsome docs we want to switch this to self hosted)
   head.link.push({
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Catamaran|Fira+Code|Karla|Oxygen&display=swap'
+    href: 'https://fonts.googleapis.com/css?family=Fira+Code'
   });
 }

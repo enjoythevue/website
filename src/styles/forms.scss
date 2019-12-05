@@ -3,18 +3,18 @@
 .form {
 
 	&__label {
-			display: inline-block;
-			margin-right: 1rem;
+		display: inline-block;
+		margin-right: 1rem;
 	}
 
 	&__input {
-			border: none;
-			border-radius: 4px;
-			padding: 0.4rem 0.2rem;
-			color: $text-dark;
-			background: transparent;
-			border: 2px solid $secondary-green;
-			font-size: inherit;
-			font-family: inherit;
+		border: none;
+		border-radius: 4px;
+		padding: 0.4rem 0.2rem;
+		color: $text-dark;
+		background: transparent;
+		border: 2px solid $secondary-green;
+		font-size: inherit;
+		font-family: inherit;
 	}
 }

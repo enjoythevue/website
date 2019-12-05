@@ -33,7 +33,7 @@ import EmailSignupForm from '../components/EmailSignupForm.vue';
 
 export default {
   metaInfo: {
-    title: 'Hello, world!',
+    title: 'Enjoy the Vue Podcast',
   },
   components: {
     Panelists,

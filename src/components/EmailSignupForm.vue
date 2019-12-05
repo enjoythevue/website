@@ -1,39 +1,39 @@
 <template>
-    <form
-			name="contact"
-			method="POST"
-			class="form landing__form-container"
-			data-netlify="true"
-			data-netlify-honeypot="bot-field" >
+	<form
+		name="contact"
+		method="POST"
+		class="form landing__form-container"
+		data-netlify="true"
+		data-netlify-honeypot="bot-field" >
+		<input
+		type="hidden"
+		name="form-name"
+		value="contact" />
+		<label class="form__label">Your Name:
 			<input
-			type="hidden"
-			name="form-name"
-			value="contact" />
-			<label class="form__label">Your Name:
-				<input
-						type="text"
-						name="name"
-						class="form__input" />
-			</label>
+				type="text"
+				name="name"
+				class="form__input" />
+		</label>
 
-			<label class="form__label">Your Email:
-				<input
-						type="email"
-						name="email"
-						class="form__input"
-						required />
-			</label>
+		<label class="form__label">Your Email:
+			<input
+				type="email"
+				name="email"
+				class="form__input"
+				required />
+		</label>
 
-			<button
-					class="btn btn--primary"
-					type="submit">Send
-			</button>
-    </form>
+		<button
+			class="btn btn--primary"
+			type="submit">Send
+		</button>
+	</form>
 </template>
 
 <script>
 export default {
-    name: 'EmailSignupForm',
+	name: 'EmailSignupForm',
 }
 </script>
 
