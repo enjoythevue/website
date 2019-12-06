@@ -2,11 +2,9 @@
   <Layout>  
     <main class="landing">
       <section class="landing__content">
-        <!-- TODO: Replace this with the ETV logo -->
         <g-image 
           alt="Enjoy the Vue Logo" 
-          src="~/favicon.png" 
-          width="135"
+          :src="`/images/enjoythevue-logo-300.png`" 
           class="landing__logo" />
 
         <h1 class="landing__title">{{ pageTitle }}</h1>
