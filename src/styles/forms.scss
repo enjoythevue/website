@@ -4,7 +4,14 @@
 
 	&__label {
 		display: inline-block;
-		margin-right: 1rem;
+		margin-bottom: 1rem;
+		width: 100%;
+
+		@media(min-width: 900px) {
+			margin-bottom: 0;
+			margin-right: 1rem;
+			width: auto;
+		}
 	}
 
 	&__input {
@@ -16,5 +23,12 @@
 		border: 2px solid $secondary-green;
 		font-size: inherit;
 		font-family: inherit;
+		width: 100%;
+		display: block;
+
+		@media(min-width: 900px) {
+			display: inline-block;
+			width: auto;
+		}
 	}
 }

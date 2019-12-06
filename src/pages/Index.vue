@@ -78,18 +78,22 @@ export default {
 @import '../styles/variables.scss';
 
 .landing {
+
+  section {
+    padding: 4rem 1rem;
+  }
   
   &__content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 4rem 0;
     color: $text-light;
     background-image: $gradient-dark;
   }
   
   &__logo { 
+    width: 120px;
     display: block;
   }
 
@@ -112,7 +116,6 @@ export default {
 
   &__form {
     margin: 0 auto;
-    padding: 4rem 0;
     background: white;
     display: flex;
     flex-wrap: wrap;

@@ -2,7 +2,7 @@
 	<form
 		name="contact"
 		method="POST"
-		class="form landing__form-container"
+		class="form"
 		data-netlify="true"
 		data-netlify-honeypot="bot-field" >
 		<input
@@ -40,4 +40,13 @@ export default {
 <style lang="scss">
 @import '../styles/forms.scss';
 @import '../styles/buttons.scss';
+.form {
+	.btn--primary {
+		margin-left: auto;
+
+		@media(min-width: 900px) {
+			margin-left: initial;
+		}
+	}
+}
 </style>
