@@ -2,7 +2,7 @@
 	<form
 		name="contact"
 		method="POST"
-		class="form landing__form-container"
+		class="form"
 		data-netlify="true"
 		data-netlify-honeypot="bot-field" >
 		<input

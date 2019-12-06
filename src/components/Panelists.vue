@@ -42,6 +42,7 @@ export default {
 	&__container {
 		display: flex;
 		justify-content: center;
+		flex-wrap: wrap;
 	}
 
 	&__person {
@@ -49,8 +50,22 @@ export default {
 		align-items: center;
 		flex-direction: column;
 		position: relative;
+		width: 50%;
 
-		&:not(:last-child) { margin-right: 1rem; }
+		&:nth-child(1),
+		&:nth-child(2) {
+			margin-bottom: 2rem;
+		}
+
+		@media(min-width: 500px) {
+			width: auto;
+			&:not(:last-child) { margin-right: 1rem; }
+
+			&:nth-child(1),
+			&:nth-child(2) {
+				margin-bottom: 0;
+			}
+		}
 	}
 
 	&__person-img-container {
