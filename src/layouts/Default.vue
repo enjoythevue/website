@@ -16,11 +16,13 @@ query {
 </static-query>
 
 <script>
+import SiteNav from '../components/SiteNav.vue';
 import SocialLinks from '../components/SocialLinks.vue';
 
 export default {
   name: 'Default',
   components: {
+    SiteNav,
     SocialLinks,
   },
 };
@@ -32,13 +34,18 @@ export default {
 
 .layout {
   margin: 0 auto;
+  background-image: $gradient-dark;
 }
 
+header,
 footer {
   width: 100%;
-  background: $secondary-green;
   padding: 2rem;
   display: flex;
   justify-content: center;
+}
+
+footer {
+  background: $secondary-green;
 }
 </style>
