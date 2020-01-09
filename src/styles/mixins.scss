@@ -1,0 +1,12 @@
+@mixin link-primary {
+  &,
+  &:visited {
+    color: $primary-green;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: white;
+  }
+}

@@ -21,6 +21,12 @@
         <h2 class="landing__title">Stay updated</h2>
         <email-signup-form />
       </section>
+
+      <section class="landing__suggest-an-episode">
+        <h2>We welcome your suggestions!</h2>
+        <p>Have a guest or a topic in mind that you'd like to hear on Enjoy The Vue?</p>
+        <p>Let us know and <g-link to="/suggest-an-episode">suggest an episode.</g-link></p>
+      </section>
     </main>
   </Layout>
 </template>
@@ -73,6 +79,7 @@ export default {
 
 <style lang="scss">
 @import '../styles/variables.scss';
+@import '../styles/mixins.scss';
 
 .landing {
 
@@ -86,7 +93,6 @@ export default {
     flex-wrap: wrap;
     margin: 0 auto;
     color: $text-light;
-    background-image: $gradient-dark;
   }
   
   &__logo { 
@@ -119,7 +125,23 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
 
+    @media (min-width: $breakpoint-sm) {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+
     h2 { margin-top: 0; }
+  }
+
+  &__suggest-an-episode {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+
+    a {
+      @include link-primary;
+    }
   }
 }
 </style>
