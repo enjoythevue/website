@@ -48,6 +48,10 @@
               name="name"
               class="form__input" />
           </label>
+          <button
+            class="btn btn--primary"
+            type="submit">Send
+          </button>
 
         </form>
       </section>
