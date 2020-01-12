@@ -1,12 +1,33 @@
 <template>
-  <!-- <strong>
-    <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-  </strong> -->
   <nav class="site-nav">
-    <g-link class="site-nav__link" to="/suggest-an-episode">Suggest an episode</g-link>
+    <strong>
+      <g-link 
+        to="/"
+        class="site-nav__link"
+      >
+        Enjoy the Vue
+      </g-link>
+    </strong>
+    <ul class="site-nav__list">
+      <li class="site-nav__list-item">
+        <g-link class="site-nav__link" to="/suggest-an-episode">About</g-link>
+      </li>
+      <li class="site-nav__list-item">
+        <g-link class="site-nav__link" to="/suggest-an-episode">Contact</g-link>
+      </li>
+      <li class="site-nav__list-item">
+        <g-link class="site-nav__link" to="/suggest-an-episode">Suggest an episode</g-link>
+      </li>
+    </ul>   
   </nav>
 </template>
-
+<static-query>
+query {
+  metadata {
+    siteName
+  }
+}
+</static-query>
 <script>
 export default {
 	name: 'SiteNav',
@@ -15,6 +36,20 @@ export default {
 
 <style lang="scss">
 .site-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__list-item {
+    padding: 0 1rem;
+  }
   
   &__link { 
     color: white;

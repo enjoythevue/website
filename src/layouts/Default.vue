@@ -1,19 +1,12 @@
 <template>
   <div class="layout">
+    <site-nav />
     <slot/>
     <footer class="footer">
       <social-links />
     </footer>
   </div>
 </template>
-
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
 
 <script>
 import SiteNav from '../components/SiteNav.vue';

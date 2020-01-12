@@ -2,7 +2,8 @@
   <Layout>
     <main class="suggest-an-episode">
       <section class="suggest-an-episode__content">
-        <h1>Have an idea for an episode topic or a guest?</h1>
+        <h1 class="suggest-an-episode__title">Have an idea for an episode topic or a guest?
+        </h1>
         <p>Fill out this form to let us know what you'd like to hear, and we will do our best to make it happen!</p>
 
         <form 
@@ -48,11 +49,12 @@
               name="name"
               class="form__input" />
           </label>
-          <button
+          <div class="suggest-an-episode__button-container">
+            <button
             class="btn btn--primary"
             type="submit">Send
           </button>
-
+          </div>
         </form>
       </section>
     </main>
@@ -68,17 +70,27 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../styles/variables.scss';
 @import '../styles/forms.scss';
 @import '../styles/buttons.scss';
 
 .suggest-an-episode {
   
-  section { padding: 4rem 1rem; }
+  section { 
+    padding: 4rem 1rem; 
+    max-width: 780px;
+  }
 
   textarea {
     display: block;
     width: 100%;
     margin-top: 1rem;
+    padding: 1rem;
+    color: white;
+  }
+
+  &__title {
+    text-align: center;
   }
 
   &__content {
@@ -87,6 +99,11 @@ export default {
     flex-wrap: wrap;
     margin: 0 auto;
     color: $text-light;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: flex-end;
   }
 
   .form__label {

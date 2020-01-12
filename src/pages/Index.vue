@@ -142,6 +142,12 @@ export default {
     a {
       @include link-primary;
     }
+
+    h2,
+    p {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 </style>
