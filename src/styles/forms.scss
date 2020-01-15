@@ -6,12 +6,18 @@
 		display: inline-block;
 		margin-bottom: 1rem;
 		width: 100%;
+		font-family: $font-secondary;
+		font-size: $body-font-md;
 
 		@media(min-width: 900px) {
 			margin-bottom: 0;
 			margin-right: 1rem;
 			width: auto;
 		}
+	}
+
+	&__label--subtle {
+		opacity: 0.7;
 	}
 
 	&__input {

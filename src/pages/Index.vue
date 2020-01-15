@@ -4,9 +4,8 @@
       <section class="landing__content">
         <g-image 
           alt="Enjoy the Vue Logo" 
-          :src="`/images/enjoythevue-logo-300.png`" 
+          :src="`/images/1000x1000_ETV-Cover-Art_Transparent-BG.png`" 
           class="landing__logo" />
-
         <h1 class="landing__title">{{ pageTitle }}</h1>
 
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
@@ -24,8 +23,8 @@
 
       <section class="landing__suggest-an-episode">
         <h2>We welcome your suggestions!</h2>
-        <p>Have a guest or a topic in mind that you'd like to hear on Enjoy The Vue?</p>
-        <p>Let us know and <g-link to="/suggest-an-episode">suggest an episode.</g-link></p>
+        <span>Have a guest or a topic in mind that you'd like to hear on Enjoy The Vue?</span>
+        <span>Let us know and <g-link to="/suggest-an-episode">suggest an episode.</g-link></span>
       </section>
     </main>
   </Layout>
@@ -85,6 +84,10 @@ export default {
 
   section {
     padding: 4rem 1rem;
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 8rem 1rem;
+    }
   }
   
   &__content {
@@ -112,6 +115,9 @@ export default {
 
   &__about-paragraph {
     max-width: 700px;
+    font-family: $font-secondary;
+    font-size: 1.8rem;
+    margin-top: 0;
   }
 
   &__panelists {
@@ -139,14 +145,22 @@ export default {
     justify-content: center;
     color: white;
 
+    h2 { margin-top: 0; }
+
     a {
       @include link-primary;
     }
 
     h2,
-    p {
+    span {
       width: 100%;
       text-align: center;
+    }
+
+    a,
+    span {
+      font-family: $font-secondary;
+      font-size: $body-font-lg;
     }
   }
 }

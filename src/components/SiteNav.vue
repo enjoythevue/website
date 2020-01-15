@@ -4,17 +4,10 @@
       <g-link 
         to="/"
         class="site-nav__link"
-      >
-        Enjoy the Vue
+      >Enjoy the Vue
       </g-link>
     </strong>
     <ul class="site-nav__list">
-      <li class="site-nav__list-item">
-        <g-link class="site-nav__link" to="/suggest-an-episode">About</g-link>
-      </li>
-      <li class="site-nav__list-item">
-        <g-link class="site-nav__link" to="/suggest-an-episode">Contact</g-link>
-      </li>
       <li class="site-nav__list-item">
         <g-link class="site-nav__link" to="/suggest-an-episode">Suggest an episode</g-link>
       </li>
@@ -35,10 +28,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
 .site-nav {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 2rem;
 
   &__list {
     display: flex;
@@ -52,7 +48,8 @@ export default {
   }
   
   &__link { 
-    color: white;
+    @include link-primary;
+    font-size: $body-font-md;
 
     &,
     &:hover,

@@ -97,6 +97,8 @@ export default {
 	&__person-name {
 		@include link-primary;
 		cursor: pointer;
+		font-size: $body-font-md;
+		font-family: $font-secondary;
 
 		&::after {
 			content: '';

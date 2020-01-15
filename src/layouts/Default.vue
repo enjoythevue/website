@@ -25,6 +25,10 @@ export default {
 @import '../styles/variables.scss';
 @import '../styles/globals.scss';
 
+html {
+  font-size: 10px;
+}
+
 .layout {
   margin: 0 auto;
   background-image: $gradient-dark;

@@ -2,11 +2,13 @@
   &,
   &:visited {
     color: $primary-green;
+    text-decoration: none;
   }
 
   &:hover,
   &:active,
   &:focus {
     color: white;
+    text-decoration: none;
   }
 }
