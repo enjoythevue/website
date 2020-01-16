@@ -22,34 +22,50 @@
               name="form-name"
               value="suggest-an-episode" />
 
-            <label class="form__label">
+            <label 
+              class="form__label"
+              for="suggest-an-episode-topic"
+            >
               Do you have a topic you'd like to hear a discussion about?
               <span class="form__label--subtle">(optional)</span>
               <textarea
+                id="suggest-an-episode-topic"
                 name="name"
                 class="form__input" />
             </label>
 
-            <label class="form__label">
+            <label
+              class="form__label"
+              for="suggest-an-episode-guest"
+            >
               Do you have an awesome guest in mind who you'd like us to reach out to?
               <span class="form__label--subtle"> (optional)</span>
               <textarea
+                id="suggest-an-episode-guest"
                 name="name"
                 class="form__input" />
             </label>
 
-            <label class="form__label">
+            <label
+              class="form__label"
+              for="suggest-an-episode-additional-notes"
+            >
               Additional notes
               <span class="form__label--subtle"> (optional)</span>
               <textarea
+                id="suggest-an-episode-additional-notes"
                 name="name"
                 class="form__input" />
             </label>
 
-            <label class="form__label">
+            <label
+              class="form__label"
+              for="suggest-an-episode-name"
+            >
               Your name
               <span class="form__label--subtle"> (optional)</span>
               <input
+                id="suggest-an-episode-name"
                 type="text"
                 name="name"
                 class="form__input" />
