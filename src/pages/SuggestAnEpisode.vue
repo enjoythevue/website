@@ -26,7 +26,6 @@
               Do you have a topic you'd like to hear a discussion about?
               <span class="form__label--subtle">(optional)</span>
               <textarea
-                type="text"
                 name="name"
                 class="form__input" />
             </label>
@@ -35,7 +34,6 @@
               Do you have an awesome guest in mind who you'd like us to reach out to?
               <span class="form__label--subtle"> (optional)</span>
               <textarea
-                type="text"
                 name="name"
                 class="form__input" />
             </label>
@@ -44,7 +42,6 @@
               Additional notes
               <span class="form__label--subtle"> (optional)</span>
               <textarea
-                type="text"
                 name="name"
                 class="form__input" />
             </label>
@@ -140,6 +137,7 @@ export default {
   &__button-container {
     display: flex;
     justify-content: flex-end;
+    margin-top: 2rem;
 
     @media (min-width: $breakpoint-sm) {
       margin-top: 4rem;
