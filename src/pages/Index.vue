@@ -4,9 +4,9 @@
       <section class="landing__content">
         <g-image 
           alt="Enjoy the Vue Logo" 
-          :src="`/images/enjoythevue-logo-300`" 
+          :src="`/images/enjoythevue-logo-300.png`" 
           class="landing__logo" />
-          
+
         <h1 class="landing__title">{{ pageTitle }}</h1>
 
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
