@@ -9,14 +9,14 @@
 		type="hidden"
 		name="form-name"
 		value="contact" />
-		<label class="form__label">Your Name:
+		<label class="form__label form__label--half email-signup__label">Your Name:
 			<input
 				type="text"
 				name="name"
 				class="form__input" />
 		</label>
 
-		<label class="form__label">Your Email:
+		<label class="form__label form__label--half email-signup__label">Your Email:
 			<input
 				type="email"
 				name="email"
@@ -25,7 +25,7 @@
 		</label>
 
 		<button
-			class="btn btn--primary"
+			class="btn btn--primary email-signup__button"
 			type="submit">Send
 		</button>
 	</form>
@@ -40,4 +40,21 @@ export default {
 <style lang="scss">
 @import '../styles/forms.scss';
 @import '../styles/buttons.scss';
+
+.email-signup {
+	&__label {
+    @media (min-width: $breakpoint-sm) {
+			width: 220px;
+			margin-bottom: 0;
+    }
+	}
+	&__button {
+		margin-top: 2rem;
+		
+    @media (min-width: $breakpoint-sm) {
+			margin-left: 2rem;
+			margin-top: auto;
+    }
+  }
+}
 </style>

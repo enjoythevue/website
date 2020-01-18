@@ -1,6 +1,8 @@
 @import 'variables.scss';
 
 .form {
+	display: flex;
+	flex-wrap: wrap;
 
 	&__label {
 		display: inline-block;
@@ -8,12 +10,22 @@
 		width: 100%;
 		font-family: $font-secondary;
 		font-size: $body-font-md;
+	}
 
-		@media(min-width: 900px) {
-			margin-bottom: 0;
-			margin-right: 1rem;
-			width: auto;
+	&__label--half {
+		width: 100%;
+
+		@media (min-width: $breakpoint-sm) {
+			width: calc(50% - 1rem);
 		}
+
+		& + .form__label--half {
+			margin-left: 0;
+
+			@media (min-width: $breakpoint-sm) {
+				margin-left: 2rem;
+			}
+  	}
 	}
 
 	&__label--subtle {
@@ -23,7 +35,7 @@
 	&__input {
 		border: none;
 		border-radius: 4px;
-		padding: 0.4rem 0.2rem;
+		padding: 1rem;
 		color: $text-dark;
 		background: transparent;
 		border: 2px solid $secondary-green;
@@ -31,10 +43,6 @@
 		font-family: inherit;
 		width: 100%;
 		display: block;
-
-		@media(min-width: 900px) {
-			display: inline-block;
-			width: auto;
-		}
+		margin-top: 1rem;
 	}
 }

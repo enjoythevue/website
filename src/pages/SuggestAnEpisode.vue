@@ -59,7 +59,7 @@
             </label>
 
             <label
-              class="form__label"
+              class="form__label form__label--half"
               for="suggest-an-episode-name"
             >
               Your name
@@ -70,6 +70,20 @@
                 name="name"
                 class="form__input" />
             </label>
+
+            <label
+              class="form__label form__label--half"
+              for="suggest-an-episode-email"
+            >
+              Your email
+              <span class="form__label--subtle"> (optional)</span>
+              <input
+                id="suggest-an-episode-email"
+                type="email"
+                name="email"
+                class="form__input" />
+            </label>
+
             <div class="suggest-an-episode__button-container">
               <button
               class="btn btn--primary"
@@ -104,19 +118,9 @@ export default {
 
   textarea,
   input {
-    display: block;
     margin-top: 1rem;
     padding: 1rem;
     color: $text-dark;
-    width: 100%;
-
-    @media (min-width: $breakpoint-sm) {
-      width: 50%;
-    }
-  }
-
-  textarea {
-    width: 100%;
   }
 
   &__section-inner {
@@ -158,14 +162,6 @@ export default {
     @media (min-width: $breakpoint-sm) {
       margin-top: 4rem;
     }
-  }
-
-  .form__label {
-    width: 100%;
-  }
-
-  .form__label + .form__label {
-    margin-top: 2rem;
   }
 }
 </style>
