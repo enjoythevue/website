@@ -30,7 +30,7 @@
               <span class="form__label--subtle">(optional)</span>
               <textarea
                 id="suggest-an-episode-topic"
-                name="name"
+                name="topic"
                 class="form__input" />
             </label>
 
@@ -42,7 +42,7 @@
               <span class="form__label--subtle"> (optional)</span>
               <textarea
                 id="suggest-an-episode-guest"
-                name="name"
+                name="guest"
                 class="form__input" />
             </label>
 
@@ -54,7 +54,7 @@
               <span class="form__label--subtle"> (optional)</span>
               <textarea
                 id="suggest-an-episode-additional-notes"
-                name="name"
+                name="notes"
                 class="form__input" />
             </label>
 
