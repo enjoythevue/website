@@ -52,7 +52,7 @@ export default {
     font-size: $body-font-sm;
 
     @media (min-width: $breakpoint-md) {
-      font-size: $body-font-sm;
+      font-size: $body-font-md;
     }
 
     &,
