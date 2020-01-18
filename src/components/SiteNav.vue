@@ -49,7 +49,11 @@ export default {
   
   &__link { 
     @include link-primary;
-    font-size: $body-font-md;
+    font-size: $body-font-sm;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: $body-font-sm;
+    }
 
     &,
     &:hover,
