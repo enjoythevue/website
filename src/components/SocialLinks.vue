@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import TwitterIcon from '../icons/TwitterIcon.vue';
-import InstagramIcon from '../icons/InstagramIcon.vue';
+import TwitterIcon from '../image-components/TwitterIcon.vue';
+import InstagramIcon from '../image-components/InstagramIcon.vue';
 
 export default {
   name: 'SocialLinks',

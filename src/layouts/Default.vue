@@ -1,5 +1,6 @@
 <template>
   <div class="layout">
+    <site-nav />
     <slot/>
     <footer class="footer">
       <social-links />
@@ -7,20 +8,14 @@
   </div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <script>
+import SiteNav from '../components/SiteNav.vue';
 import SocialLinks from '../components/SocialLinks.vue';
 
 export default {
   name: 'Default',
   components: {
+    SiteNav,
     SocialLinks,
   },
 };
@@ -30,15 +25,24 @@ export default {
 @import '../styles/variables.scss';
 @import '../styles/globals.scss';
 
-.layout {
-  margin: 0 auto;
+html {
+  font-size: 10px;
 }
 
+.layout {
+  margin: 0 auto;
+  background-image: $gradient-dark;
+}
+
+header,
 footer {
   width: 100%;
-  background: $secondary-green;
   padding: 2rem;
   display: flex;
   justify-content: center;
+}
+
+footer {
+  background: $secondary-green;
 }
 </style>

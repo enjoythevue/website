@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss">
 @import '../styles/variables.scss';
+@import '../styles/mixins.scss';
 
 .panelists {
 	
@@ -94,12 +95,10 @@ export default {
 	}
 
 	&__person-name {
-		color: $primary-green;
+		@include link-primary;
 		cursor: pointer;
-
-		&:hover {
-			color: white;
-		}
+		font-size: $body-font-md;
+		font-family: $font-secondary;
 
 		&::after {
 			content: '';

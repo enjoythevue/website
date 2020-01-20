@@ -6,11 +6,9 @@
           alt="Enjoy the Vue Logo" 
           :src="`/images/enjoythevue-logo-300.png`" 
           class="landing__logo" />
-
+          
         <h1 class="landing__title">{{ pageTitle }}</h1>
-
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
-
         <div class="landing__panelists">
           <h2 class="landing__title">Our panelists</h2>
           <panelists :panelists="panelists" />
@@ -20,6 +18,12 @@
       <section class="landing__form">
         <h2 class="landing__title">Stay updated</h2>
         <email-signup-form />
+      </section>
+
+      <section class="landing__suggest-an-episode">
+        <h2>We welcome your suggestions!</h2>
+        <span>Have a guest or a topic in mind that you'd like to hear on Enjoy The Vue?</span>
+        <span>Let us know and <g-link to="/suggest-an-episode">suggest an episode.</g-link></span>
       </section>
     </main>
   </Layout>
@@ -73,11 +77,16 @@ export default {
 
 <style lang="scss">
 @import '../styles/variables.scss';
+@import '../styles/mixins.scss';
 
 .landing {
 
   section {
     padding: 4rem 1rem;
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 8rem 1rem;
+    }
   }
   
   &__content {
@@ -86,7 +95,6 @@ export default {
     flex-wrap: wrap;
     margin: 0 auto;
     color: $text-light;
-    background-image: $gradient-dark;
   }
   
   &__logo { 
@@ -106,6 +114,9 @@ export default {
 
   &__about-paragraph {
     max-width: 700px;
+    font-family: $font-secondary;
+    font-size: 1.8rem;
+    margin-top: 0;
   }
 
   &__panelists {
@@ -119,7 +130,37 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
 
+    @media (min-width: $breakpoint-sm) {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+
     h2 { margin-top: 0; }
+  }
+
+  &__suggest-an-episode {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+
+    h2 { margin-top: 0; }
+
+    a {
+      @include link-primary;
+    }
+
+    h2,
+    span {
+      width: 100%;
+      text-align: center;
+    }
+
+    a,
+    span {
+      font-family: $font-secondary;
+      font-size: $body-font-lg;
+    }
   }
 }
 </style>

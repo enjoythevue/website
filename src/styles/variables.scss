@@ -3,7 +3,7 @@ $primary-green: #4fc08d;
 $secondary-green: #3ba776;
 $light-grey: #f6f6f6;
 $mid-grey: #4f5959;
-$dark-grey: #35495d;
+$dark-grey: #35495d; 
 
 // gradients
 $gradient-dark: linear-gradient(to bottom, $dark-grey, #22303e);
@@ -12,3 +12,11 @@ $gradient-dark: linear-gradient(to bottom, $dark-grey, #22303e);
 $text-dark: $dark-grey;
 $text-light: white;
 $font-main: 'Fira Code', monospace;
+$font-secondary: 'Barlow', sans-serif;
+$body-font-sm: 1.4rem;
+$body-font-md: 1.6rem;
+$body-font-lg: 1.8rem;
+
+// breakpoints
+$breakpoint-sm: 678px;
+$breakpoint-md: 780px;
