@@ -17,6 +17,20 @@
 				:href="panelist.website"
 				class="panelists__person-name"
 			>{{ panelist.name }}</a>
+
+			<div
+				v-if="panelist.picks && panelist.picks.length"
+				class="panelist__picks"
+			>
+				<span>Picks</span>
+				<ul>
+					<li 
+						v-for="pick in panelist.picks"
+						:key="pick.uuid"
+						v-html="pick.content"
+					/>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
@@ -107,6 +121,15 @@ export default {
 			width: 100%;
 			top: 0;
 			left: 0;
+		}
+	}
+
+	&__picks {
+		font-size: $body-font-sm;
+		
+		span {
+			display: block;
+			text-align: center;
 		}
 	}
 }
