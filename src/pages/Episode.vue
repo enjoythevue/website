@@ -15,7 +15,7 @@
       </section>
       <section>
         <div class="episode__section-inner">
-          <sponsorship-box />
+          <sponsorship-box v-bind="sponsor" />
         </div>
       </section>
 
