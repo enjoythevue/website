@@ -20,9 +20,8 @@
 
 			<div
 				v-if="panelist.picks && panelist.picks.length"
-				class="panelist__picks"
+				class="panelists__picks"
 			>
-				<span>Picks</span>
 				<ul>
 					<li 
 						v-for="pick in panelist.picks"
@@ -56,7 +55,6 @@ export default {
 	
 	&__container {
 		display: flex;
-		justify-content: center;
 		flex-wrap: wrap;
 	}
 
@@ -126,10 +124,18 @@ export default {
 
 	&__picks {
 		font-size: $body-font-sm;
-		
-		span {
-			display: block;
-			text-align: center;
+
+		ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		li {
+			font-family: $font-secondary;
+			&::before {
+				content: '-';
+				margin-right: 4px;
+			}
 		}
 	}
 }
