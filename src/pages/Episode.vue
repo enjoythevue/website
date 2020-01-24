@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <main class="episode">
-      <section>
+      <section class="episode__section">
         <div class="episode__section-inner">
           <span class="episode__publishing-details">Episode {{ episodeNumber }} - {{ datePublished }}</span>
           <h1 class="episode__title">{{ episodeTitle }}</h1>
@@ -9,18 +9,20 @@
           <div>
             <media-player
               :cover-art-src="coverArtSrc"
+              :sharing-link="sharingLink"
+              :download-link="downloadLink"
               :rss-link="rssLink"
             />
           </div>
         </div>
       </section>
-      <section class="episode__sponsorship">
+      <section class="episode__section episode__sponsorship">
         <div class="episode__section-inner">
           <sponsorship-box v-bind="sponsor" />
         </div>
       </section>
 
-      <section class="episode__shownotes">
+      <section class="episode__section episode__shownotes">
         <div class="episode__section-inner">
           <h2>Shownotes</h2>
           <div class="episode__shownotes-content">
@@ -29,7 +31,7 @@
         </div>
       </section>
 
-      <section class="episode__picks">
+      <section class="episode__section episode__picks">
         <div class="episode__section-inner">
           <h2>Our picks this week</h2>
           <panelists
@@ -39,7 +41,7 @@
         </div>
       </section>
 
-      <section>
+      <section class="episode__section">
         <div class="episode__section-inner">
           <h2>Transcript</h2>
           <div class="episode__transcript">
@@ -52,13 +54,11 @@
 </template>
 <script>
 // MVP
-// TODO: Figure out media player.
 // TODO: General styling...making it look good on mobile and desktop.
 // TODO: generalize max-widths.
 
 // NOT MVP
 // TODO: Set up router to dynamically get the episode page based on url param.
-// TODO: Media player sharing link.
 
 import MediaPlayer from '../components/MediaPlayer.vue';
 import SponsorshipBox from '../components/SponsorshipBox.vue';
@@ -81,6 +81,8 @@ export default {
       datePublished: data.datePublished,
       sponsor: data.sponsor,
       coverArtSrc: data.coverArtSrc,
+      sharingLink: data.sharingLink,
+      downloadLink: data.downloadLink,
       rssLink: data.rssLink,
     };
   }
@@ -88,6 +90,7 @@ export default {
 </script>
 <style lang="scss">
 @import '../styles/variables.scss';
+@import '../styles/mixins.scss';
 
 .episode {
   color: white;
@@ -98,10 +101,17 @@ export default {
     margin-bottom: 4rem;
   }
 
+  &__section {
+    padding: $section-padding-mobile;
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 4rem 0;
+    }
+  }
+
   &__section-inner {
     max-width: 780px;
     margin: auto;
-    padding: 4rem 0;
   }
 
   &__publishing-details {
@@ -131,6 +141,11 @@ export default {
 
   &__panelists {
     justify-content: space-between;
+
+    // Override link styles to work with light background.
+    .panelists__person-name {
+      @include link-primary-light-background;
+    }
   }
 
   &__transcript {

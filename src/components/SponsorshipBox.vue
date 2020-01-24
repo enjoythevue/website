@@ -53,6 +53,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
   &__label {
     display: flex;
@@ -68,8 +69,11 @@ export default {
 
   &__offer-container {
     background: $secondary-green;
-    max-width: 300px;
     padding: 2rem;
+    
+    @media (min-width: $breakpoint-sm) {
+      max-width: 300px;
+    }
   }
 
   &__offer-label {

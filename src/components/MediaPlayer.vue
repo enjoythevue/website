@@ -179,6 +179,9 @@ export default {
     .play-icon,
     .pause-icon {
       position: absolute;
+      // this adjustment makes it look more centered.
+      margin-top: 1px;
+      margin-left: 1px;
     }
 
     .play-icon {
