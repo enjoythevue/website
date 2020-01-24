@@ -1,13 +1,17 @@
 <template>
   <div class="sponsorship">
-    <div class="sponsorship__offer-container">
-      <span class="sponsorship__offer-label">Episode Sponsors</span>
+    <div>
+      <span class="sponsorship__label">This episode is sponsored by {{ name }}</span>
       <g-image
         v-if="name && logoSrc"
         :src="logoSrc" 
         :alt="`${name} logo`"
         class="sponsorship__logo" 
       />
+    </div>
+    <div class="sponsorship__offer-container">
+      <span class="sponsorship__offer-label">Special offer - $20 off</span>
+
       <p class="sponsorship__offer-content">{{ content }}</p>
       <span 
         v-if="code"
@@ -46,9 +50,18 @@ export default {
 <style lang="scss">
 @import '../styles/variables.scss';
 .sponsorship {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__label {
+    display: flex;
+    font-size: $body-font-md;
+    font-family: $font-secondary
+  }
 
   &__logo {
-    max-width: 180px;
+    height: 80px;
     margin-bottom: 2rem;
     margin-top: 2rem;
   }
@@ -57,7 +70,6 @@ export default {
     background: $secondary-green;
     max-width: 300px;
     padding: 2rem;
-    margin-right: auto;
   }
 
   &__offer-label {
@@ -72,7 +84,7 @@ export default {
   }
 
   &__offer-code {
-    color: $dark-grey;
+    color: $bright-pink;
     font-size: $body-font-lg;
   }
 }

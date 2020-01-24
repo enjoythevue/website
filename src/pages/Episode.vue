@@ -9,6 +9,7 @@
           <div>
             <media-player
               :cover-art-src="coverArtSrc"
+              :rss-link="rssLink"
             />
           </div>
         </div>
@@ -52,14 +53,12 @@
 <script>
 // MVP
 // TODO: Figure out media player.
-// // TODO: Make panelists picks look good/make sense.
-// // TODO: Figure out transcript formatting.
 // TODO: General styling...making it look good on mobile and desktop.
-// TODO: Add sponsored by.
 // TODO: generalize max-widths.
 
 // NOT MVP
 // TODO: Set up router to dynamically get the episode page based on url param.
+// TODO: Media player sharing link.
 
 import MediaPlayer from '../components/MediaPlayer.vue';
 import SponsorshipBox from '../components/SponsorshipBox.vue';
@@ -82,6 +81,7 @@ export default {
       datePublished: data.datePublished,
       sponsor: data.sponsor,
       coverArtSrc: data.coverArtSrc,
+      rssLink: data.rssLink,
     };
   }
 };

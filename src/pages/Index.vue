@@ -101,7 +101,6 @@ export default {
   }
   
   &__logo { 
-    width: 120px;
     height: 120px;
     display: block;
   }
