@@ -5,13 +5,22 @@
     </div>
     <div class="media__controls">
       <div class="media__buttons">
+        <div class="media__links">
+          <a href="#" class="media__link">Share</a>
+          <a href="#" class="media__link">Download</a>
+          <a href="#" class="media__link">Subscribe</a>
+        </div>
         <button
           class="media__pause-play-button"
           @click="togglePlay"
         />
+        {{ length }}%
       </div>
       <div class="media__time-line">
-        <div class="media__progress-line" />
+        <div 
+          :style="{transform: `translateX(-${100 - percentComplete}%)`}"
+          class="media__progress-line"
+        />
       </div>
     </div>
     <audio 
@@ -21,9 +30,6 @@
     >
       <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/61062/compare_to_what.mp3" type="audio/mpeg" />
     </audio>
-    <!-- <button>
-      toggle pause play
-    </button> -->
   </div>
 </template>
 <script>
@@ -40,12 +46,31 @@ export default {
     return {
       player: null,
       isPlaying: false,
+      length: 0,
+      currentTime: 0,
     }
+  },
+  computed: {
+    percentComplete() {
+			return parseInt(this.currentTime / this.length * 100);
+    },
   },
   mounted() {
     this.player = this.$refs.player;
+    this.player.addEventListener('loadeddata', this.onLoad);
+    this.player.addEventListener('timeupdate', this.updateTime);
+  },
+  beforeDestroy() {
+    this.player.removeEventListener('loadeddata', this.onLoad);
+    this.player.removeEventListener('timeupdate', this.updateTime);
   },
   methods: {
+    onLoad() {
+      this.length = parseInt(this.player.duration);
+    },
+    updateTime() {
+      this.currentTime = parseInt(this.player.currentTime);
+    },
     togglePlay() {
       if (this.isPlaying) {
         this.player.pause();
@@ -81,7 +106,8 @@ export default {
   &__buttons {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 2rem;
   }
 
@@ -91,7 +117,7 @@ export default {
     border-radius: 50%;
     border: none;
     box-shadow: 0px 0px 0px rgba(black, 0.4);
-    background: white;
+    background: linear-gradient(#6f3f5e, $bright-pink);;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,19 +130,29 @@ export default {
       height: 0; 
       border-top: 8px solid transparent;
       border-bottom: 8px solid transparent;
-      border-left: 8px solid $primary-green;
+      border-left: 8px solid white;
+    }
+  }
+
+  &__link {
+    color: white;
+    font-size: $body-font-sm;
+    &:not(:first-child) {
+      margin-left: 1rem;
     }
   }
 
   &__time-line {
     background: darken($secondary-green, 10%);
     height: 6px;
+    overflow: hidden;
   }
 
   &__progress-line {
-    width: 40%;
+    width: 100%;
     height: 100%;
     background: linear-gradient(to right, #35495d, #ec0561);
+    transition: transform 0.2s ease;
   }
 }
 </style>

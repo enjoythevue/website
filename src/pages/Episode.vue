@@ -13,23 +13,22 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="episode__sponsorship">
         <div class="episode__section-inner">
           <sponsorship-box v-bind="sponsor" />
         </div>
       </section>
 
-      <section>
+      <section class="episode__shownotes">
         <div class="episode__section-inner">
           <h2>Shownotes</h2>
-
-          <div class="episode__shownotes">
+          <div class="episode__shownotes-content">
             Vue CLI docs: https://cli.vuejs.org/guide/
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="episode__picks">
         <div class="episode__section-inner">
           <h2>Our picks this week</h2>
           <panelists
@@ -92,11 +91,17 @@ export default {
 
 .episode {
   color: white;
+  margin: 4rem 0;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 4rem;
+  }
 
   &__section-inner {
     max-width: 780px;
     margin: auto;
-    padding: 2rem;
+    padding: 4rem 0;
   }
 
   &__publishing-details {
@@ -109,11 +114,25 @@ export default {
     margin-top: 1rem;
   }
 
+  &__sponsorship {
+    margin-bottom: 4trem;
+  }
+
+  &__picks,
+  &__shownotes {
+    background: white;
+    color: $dark-grey;
+  }
+
+  &__shownotes-content {
+    font-size: $body-font-sm;
+    font-family: $font-secondary;
+  }
+
   &__panelists {
     justify-content: space-between;
   }
 
-  &__shownotes,
   &__transcript {
     font-size: $body-font-sm;
     font-family: $font-secondary;
