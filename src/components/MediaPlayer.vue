@@ -21,24 +21,23 @@
         <span class="media__current-time">4:48</span>
         <div class="media__links">
           <a 
-            href="#"
-            class="media__link">
-          Share</a>
+            v-if="sharingLink"
+            :href="sharingLink"
+          >Share</a>
           <a 
-            href="#" 
-            class="media__link">
-          Download</a>
+            v-if="downloadLink"
+            :href="downloadLink" 
+          >Download</a>
           <a 
+            v-if="rssLink"
             :href="rssLink" 
             target="_blank"
-            class="media__link"
           >Subscribe</a>
         </div>
       </div>
-
- 
     </div>
     
+    <!-- The actual audio player that is hidden from view -->
     <audio 
       controls="controls"
       ref="player"
@@ -58,6 +57,16 @@ export default {
       default: '',
     },
     rssLink: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    downloadLink: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    sharingLink: {
       type: String,
       required: false,
       default: '',
@@ -109,10 +118,14 @@ export default {
 
 .media {
   display: flex;
-  height: 140px;
+  height: 80px;
   width: 100%;
   background: $secondary-green;
-  box-shadow: 0px 0px 12px rgba(black, 0.8);
+  box-shadow: 0px 0px 12px rgba(black, 0.2);
+
+  @media (min-width: $breakpoint-sm) {
+      height: 140px;
+  }
 
   &__cover {
     height: 100%;
@@ -123,8 +136,12 @@ export default {
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;
-    padding: 2rem;
+    padding: 1rem;
     align-content: space-between;
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 2rem;
+    }
   }
 
   &__player {
@@ -152,8 +169,12 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-right: 2rem;
+    margin-right: 1rem;
     cursor: pointer;
+
+    @media (min-width: $breakpoint-sm) {
+      margin-right: 2rem;
+    }
 
     .play-icon,
     .pause-icon {
@@ -185,17 +206,33 @@ export default {
     }
   }
 
-  &__link {
-    color: white;
-    font-size: $body-font-sm;
-    &:not(:first-child) {
+  &__links {
+    margin-left: auto;
+    margin-top: -1rem;
+    font-size: 1.2rem;
+
+    a {
+      color: white;
+    }
+
+    a:not(:first-child) {
       margin-left: 1rem;
+    }
+
+    @media (min-width: $breakpoint-sm) {
+      margin-top: 0;
+      font-size: $body-font-sm;
     }
   }
 
   &__current-time {
     font-size: $body-font-sm;
     margin-left: 12px;
+    display: none;
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
   }
 
   &__time-line {
