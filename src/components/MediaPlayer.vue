@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="media__bottom-area">
-        <span class="media__current-time">4:48</span>
+        <span class="media__current-time">{{ formattedCurrentTime }}</span>
         <div class="media__links">
           <a 
             v-if="sharingLink"
@@ -83,6 +83,21 @@ export default {
   computed: {
     percentComplete() {
 			return parseInt(this.currentTime / this.length * 100);
+    },
+    formattedCurrentTime() {
+      let totalSeconds = this.currentTime;
+
+      // Calculate the times
+      const hours = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      // Format them
+      const displayHours = hours ? `${hours.toString().padStart(2, '0')}:` : '';
+      const displayMinutes = minutes.toString().padStart(2, '0');
+      const displaySeconds = seconds.toString().padStart(2, '0');
+      return `${displayHours}${displayMinutes}:${displaySeconds}`;
     },
   },
   mounted() {
@@ -164,7 +179,7 @@ export default {
     border-radius: 50%;
     border: none;
     box-shadow: 0px 0px 6px rgba(black, 0.4);
-    background: linear-gradient(#a7305f, $bright-pink);;
+    background: $bright-pink;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,7 +196,6 @@ export default {
       position: absolute;
       // this adjustment makes it look more centered.
       margin-top: 1px;
-      margin-left: 1px;
     }
 
     .play-icon {
@@ -190,6 +204,7 @@ export default {
       border-top: 8px solid transparent;
       border-bottom: 8px solid transparent;
       border-left: 8px solid white;
+      margin-left: 1px;
     }
     
     .pause-icon {
