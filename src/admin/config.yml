@@ -20,6 +20,7 @@ collections:
       - {label: "Sharing link", name: "sharing-link", widget: "string"}
       - {label: "RSS link", name: "rss-link", widget: "string"}
       - {label: "Download link", name: "download-link", widget: "string"}
+      - {label: "Audio link", name: "audio-link", widget: "string"}
       - label: "Sponsorship details"
         name: "sponsorship-details"
         widget: "object"
