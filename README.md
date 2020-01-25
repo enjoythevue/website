@@ -1,8 +1,8 @@
-# Default starter for Gridsome
+# Enjoy the Vue Podcast's Website
 
-This is the project you get when you run `gridsome create new-project`.
+This is the source code that powers our website where you can find all of our content!
 
-## Getting started
+## Getting Started
 
 ```bash
 # 1. Clone the repository
@@ -17,3 +17,13 @@ yarn
 # 4. Start local dev server
 yarn develop
 ```
+
+### Netlify CMS
+
+To manage the content with Netlify CMS, you will need to:
+
+1. Visit `/admin`
+1. Login with GitHub credentials
+1. Authorize Netlify to access the `enjoythevue` organization
+
+And with that, you should be in! :tada:
