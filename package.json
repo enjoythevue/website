@@ -3,9 +3,11 @@
   "private": true,
   "scripts": {
     "build": "gridsome build",
+    "dev": "$npm_execpath run develop",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "lint": "eslint"
+    "lint": "eslint",
+    "serve": "$npm_execpath run develop"
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
