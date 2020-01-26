@@ -133,28 +133,28 @@ export default {
       
       const chris = {
         name: 'Chris Fritz',
-        img: 'images/chris-bio.jpeg',
+        img: '../images/chris-bio.jpeg',
         website: 'https://twitter.com/chrisvfritz',
         picks: [...chris_picks.split(', ')],
       };
 
       const ben = {
         name: 'Ben Hong',
-        img: 'images/ben-bio.jpeg',
+        img: '../images/ben-bio.jpeg',
         website: 'https://twitter.com/bencodezen',
         picks: [...ben_picks.split(', ')],
       }
 
       const ari = {
         name: 'Ari Clark',
-        img: 'images/ari-bio.jpeg',
+        img: '../images/ari-bio.jpeg',
         website: 'https://twitter.com/gloomyLumi',
         picks: [...ari_picks.split(', ')],
       }
 
       const elizabeth = {
         name: 'Elizabeth Fine',
-        img: 'images/elizabeth-bio.jpeg',
+        img: '../images/elizabeth-bio.jpeg',
         website: 'https://twitter.com/elizabethfine4',
         picks: [...elizabeth_picks.split(', ')],
       }
