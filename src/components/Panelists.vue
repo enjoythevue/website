@@ -24,9 +24,9 @@
 			>
 				<ul>
 					<li 
-						v-for="pick in panelist.picks"
-						:key="pick.uuid"
-						v-html="pick.content"
+						v-for="(pick, index) in panelist.picks"
+						:key="index"
+						v-html="pick"
 					/>
 				</ul>
 			</div>
