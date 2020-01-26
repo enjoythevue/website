@@ -3,7 +3,7 @@
     <main class="episode">
       <section class="episode__section">
         <div class="episode__section-inner">
-          <span class="episode__publishing-details">Episode {{ $page.episode.episode_number }} - {{ $page.episode.date_published }}</span>
+          <span class="episode__publishing-details">Episode {{ $page.episode.episode_number }} - {{ formattedDate }}</span>
           <h1 class="episode__title">{{ $page.episode.episode_title }}</h1>
           <div>
             <media-player
@@ -106,6 +106,28 @@ export default {
     const { chris_picks, ben_picks, ari_picks, elizabeth_picks } = this.$page.episode.picks;
   },
   computed: {
+    formattedDate() {
+      const { date_published } = this.$page.episode;
+      const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ]
+      const date = new Date(date_published);
+      const month = months[date.getMonth()];
+      const day = date.getDate();
+      const year = date.getFullYear();
+      return `${month} ${day}, ${year}`;
+    },
     panelistsAndPicks() {
       const { chris_picks, ben_picks, ari_picks, elizabeth_picks } = this.$page.episode.picks;
       
