@@ -11,6 +11,7 @@
               :sharing-link="$page.episode.sharing_link"
               :download-link="$page.episode.download_link"
               :rss-link="$page.episode.rss_link"
+              :audio-link="$page.episode.audio_link"
             />
           </div>
         </div>
@@ -69,6 +70,7 @@ query ($id: ID!) {
     sharing_link
     download_link
     rss_link
+    audio_link
     sponsorship_details {
       sponsor_name
       sponsor_logo

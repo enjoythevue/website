@@ -43,7 +43,7 @@
       ref="player"
       style="display: none;"
     >
-      <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/61062/compare_to_what.mp3" type="audio/mpeg" />
+      <source :src="audioLink" />
     </audio>
   </div>
 </template>
@@ -67,6 +67,11 @@ export default {
       default: '',
     },
     sharingLink: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    audioLink: {
       type: String,
       required: false,
       default: '',
