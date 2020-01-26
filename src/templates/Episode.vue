@@ -51,7 +51,7 @@
           <h2>Transcript</h2>
           <div
             class="episode__transcript" 
-            v-html="$page.episode.transcript"
+            v-html="compiledTranscript"
           />
         </div>
       </section>   
@@ -91,7 +91,7 @@ query ($id: ID!) {
 import MediaPlayer from '../components/MediaPlayer.vue';
 import SponsorshipBox from '../components/SponsorshipBox.vue';
 import Panelists from '../components/Panelists.vue';
-import data from '~/episode-data/episode-1.json';
+import * as marked from 'marked';
 
 export default {
   name: 'EpisodeDetail',
@@ -142,8 +142,11 @@ export default {
         ari_picks ? ari : null,
         elizabeth_picks ? elizabeth : null,
       ]
-    }
-  }
+    },
+    compiledTranscript() {
+      return marked(this.$page.episode.transcript, { sanitize: true });
+    },
+  },
 };
 </script>
 <style lang="scss">

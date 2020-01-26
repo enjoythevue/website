@@ -39,7 +39,7 @@ module.exports = {
   templates: {
     Episode: [
       {
-        path: '/episodes/:slug',
+        path: '/episodes/1',
         component: './src/templates/Episode.vue'
       }
     ]
