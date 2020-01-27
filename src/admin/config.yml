@@ -7,6 +7,15 @@ media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
+  - name: "panelists"
+    label: "Panelists"
+    folder: "panelists"
+    create: true
+    identifier_field: name
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Website", name: "website", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
   - name: "episodes"
     label: "Episodes"
     folder: "episodes"
