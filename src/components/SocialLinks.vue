@@ -47,10 +47,6 @@ export default {
         margin-right: 1rem;
     }
   }
-
-  .st0 {
-    fill:#ffffff;
-  }
 }
 
 .sr-only {
