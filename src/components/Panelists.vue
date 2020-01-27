@@ -59,21 +59,19 @@ export default {
 	},
 	computed: {
 		panelists() {
-			if (!this.picks) return;
-			
 			const panelists = this.$static.posts.edges.map((panelist) => {
 				// eeehh...this isnt great but until we can implement a cms solution for this
 				// we need to just map the picks to the panelists here,
-				let picks;
+				let picks = [];
 				const name = panelist.node.name.toLowerCase();
 				if (name === 'elizabeth fine'){
-					picks = this.picks.elizabeth;
+					picks = this.picks ? this.picks.elizabeth : [];
 				} else if (name === 'ben hong') {
-					picks = this.picks.ben;
+					picks = this.picks ? this.picks.ben : [];
 				} else if (name === 'ari clark') {
-					picks = this.picks.ari;
+					picks = this.picks ? this.picks.ari : [];
 				} else if (name === 'chris fritz') {
-					picks = this.picks.chris;
+					picks = this.picks ? this.picks.chris : [];
 				}
 
 				return {
