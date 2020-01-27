@@ -9,6 +9,14 @@
           
         <h1 class="landing__title">{{ pageTitle }}</h1>
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
+        <div class="landing__recent-episode">
+          <g-link 
+            class="btn btn--primary"
+            to="/episodes/1"
+          >
+            Listen to the most recent episode
+          </g-link>
+        </div>
         <div class="landing__panelists">
           <h2 class="landing__title">Our panelists</h2>
           <panelists
@@ -119,6 +127,13 @@ export default {
     font-family: $font-secondary;
     font-size: 1.8rem;
     margin-top: 0;
+  }
+
+  &__recent-episode {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
   }
 
   &__panelists {
