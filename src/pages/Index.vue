@@ -10,8 +10,9 @@
         <h1 class="landing__title">{{ pageTitle }}</h1>
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
         <div class="landing__recent-episode">
+          <a href="https://feeds.fireside.fm/enjoy-the-vue/rss" class="btn btn--primary" style="margin-bottom: 2rem;">Subscribe to our podcast</a>
           <g-link 
-            class="btn btn--primary"
+            class="btn btn--secondary"
             to="/episodes/1"
           >
             Listen to the most recent episode
@@ -131,9 +132,11 @@ export default {
 
   &__recent-episode {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    width: 100%;
     padding: 2rem 0;
+    width: 100%;
   }
 
   &__panelists {

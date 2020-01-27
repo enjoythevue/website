@@ -1,26 +1,31 @@
 @import 'variables.scss';
 
 .btn {
+	padding: 0.8rem 4rem 1rem 4rem;
 	border-radius: 4px;
+	box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 	font-family: $font-secondary;
 	font-size: $body-font-lg;
+	transition: all 0.1s ease;
+	width: auto;
 
 	&--primary {
 		background: $primary-green;
-		padding: 0.8rem 4rem 1rem 4rem;
 		color: white;
 		border: none;
-		box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
-		width: 100%;
-		transition: all 0.1s ease;
 		
 		&:hover {
 			background: $secondary-green;
 		}
+	}
 
-		@media (min-width: $breakpoint-sm) {
-			width: auto;
+	&--secondary {
+		background: white;
+		color: $primary-green;
+
+		&:hover {
+			background: $light-grey;
 		}
 	}
 
