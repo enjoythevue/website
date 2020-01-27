@@ -1,41 +1,44 @@
 @import 'variables.scss';
 
 .btn {
-	padding: 0.8rem 4rem 1rem 4rem;
-	border-radius: 4px;
-	box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
-	cursor: pointer;
-	font-family: $font-secondary;
-	font-size: $body-font-lg;
-	transition: all 0.1s ease;
-	width: auto;
+  padding: 1rem 4rem;
+  border-radius: 4px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-family: $font-secondary;
+  font-size: $body-font-lg;
+  transition: all 0.1s ease;
+  width: auto;
 
-	&--primary {
-		background: $primary-green;
-		color: white;
-		border: none;
-		
-		&:hover {
-			background: $secondary-green;
-		}
-	}
+  &--primary {
+    background: $primary-green;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-	&--secondary {
-		background: white;
-		color: $primary-green;
+    &:hover {
+      background: $secondary-green;
+    }
+  }
 
-		&:hover {
-			background: $light-grey;
-		}
-	}
+  &--secondary {
+    background: white;
+    color: $primary-green;
 
-	// for links styled as buttons
-	&,
-	&:hover,
-	&:visited,
-	&:focus,
-	&:active {
-		text-decoration: none;
-		text-align: center;
-	}
+    &:hover {
+      background: $light-grey;
+    }
+  }
+
+  // for links styled as buttons
+  &,
+  &:hover,
+  &:visited,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    text-align: center;
+  }
 }

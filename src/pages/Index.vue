@@ -10,7 +10,7 @@
         <h1 class="landing__title">{{ pageTitle }}</h1>
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
         <div class="landing__recent-episode">
-          <a href="https://feeds.fireside.fm/enjoy-the-vue/rss" class="btn btn--primary mb-2r">Subscribe to our podcast</a>
+          <a href="https://feeds.fireside.fm/enjoy-the-vue/rss" class="btn btn--primary mb-2r"><rss-logo class="mr-05r" /> Subscribe to our podcast</a>
           <g-link 
             class="btn btn--secondary"
             to="/episodes/1"
@@ -44,6 +44,7 @@
 <script>
 import Panelists from '../components/Panelists.vue';
 import EmailSignupForm from '../components/EmailSignupForm.vue';
+import RssLogo from '../image-components/RssLogo';
 
 export default {
   metaInfo: {
@@ -52,6 +53,7 @@ export default {
   components: {
     Panelists,
     EmailSignupForm,
+    RssLogo
   },
   data() {
     return {
