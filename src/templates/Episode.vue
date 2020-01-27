@@ -41,7 +41,7 @@
         <div class="episode__section-inner">
           <h2>Our picks this week</h2>
           <panelists
-            :panelists="panelistsAndPicks"
+            :picks="picks"
             class="episode__panelists"
           />
         </div>
@@ -128,44 +128,14 @@ export default {
       const year = date.getFullYear();
       return `${month} ${day}, ${year}`;
     },
-    panelistsAndPicks() {
+    picks() {
       const { chris_picks, ben_picks, ari_picks, elizabeth_picks } = this.$page.episode.picks;
-      
-      const chris = {
-        name: 'Chris Fritz',
-        img: '../images/chris-bio.jpeg',
-        website: 'https://twitter.com/chrisvfritz',
-        picks: [...chris_picks.split(', ')],
+      return {
+        elizabeth: [...elizabeth_picks.split(', ')],
+        ben: [...ben_picks.split(', ')],
+        chris: [...chris_picks.split(', ')],
+        ari: [...ari_picks.split(', ')],
       };
-
-      const ben = {
-        name: 'Ben Hong',
-        img: '../images/ben-bio.jpeg',
-        website: 'https://twitter.com/bencodezen',
-        picks: [...ben_picks.split(', ')],
-      }
-
-      const ari = {
-        name: 'Ari Clark',
-        img: '../images/ari-bio.jpeg',
-        website: 'https://twitter.com/gloomyLumi',
-        picks: [...ari_picks.split(', ')],
-      }
-
-      const elizabeth = {
-        name: 'Elizabeth Fine',
-        img: '../images/elizabeth-bio.jpeg',
-        website: 'https://twitter.com/elizabethfine4',
-        picks: [...elizabeth_picks.split(', ')],
-      }
-
-      // Return array of properties for each host with picks
-      return [
-        chris_picks ? chris : null,
-        ben_picks ? ben : null,
-        ari_picks ? ari : null,
-        elizabeth_picks ? elizabeth : null,
-      ]
     },
     compiledTranscript() {
       return marked(this.$page.episode.transcript, { sanitize: true });
