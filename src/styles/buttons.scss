@@ -23,4 +23,14 @@
 			width: auto;
 		}
 	}
+
+	// for links styled as buttons
+	&,
+	&:hover,
+	&:visited,
+	&:focus,
+	&:active {
+		text-decoration: none;
+		text-align: center;
+	}
 }
