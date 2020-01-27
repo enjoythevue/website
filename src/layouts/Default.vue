@@ -73,11 +73,20 @@ footer {
     justify-content: center;
     width: 100%;
     margin-top: 2rem;
+    font-size: 10px;
+
+    @media (min-width: $breakpoint-xs) {
+      font-size: $body-font-sm;
+    }
   }
 
   &__network-logo {
-    max-width: 100px;
+    max-width: 70px;
     margin: 0 1rem -3px 1rem;
+
+    @media (min-width: $breakpoint-xs) {
+      max-width: 100px;
+    }
   }
 }
 </style>
