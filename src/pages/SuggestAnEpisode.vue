@@ -113,7 +113,7 @@ export default {
 .suggest-an-episode {
   
   section { 
-    padding: 4rem 1rem; 
+    padding: $section-padding-mobile; 
   }
 
   textarea,

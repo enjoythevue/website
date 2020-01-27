@@ -11,7 +11,10 @@
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
         <div class="landing__panelists">
           <h2 class="landing__title">Our panelists</h2>
-          <panelists :panelists="panelists" />
+          <panelists
+            :panelists="panelists"
+            class="landing__panelists-container"
+          />
         </div>
       </section>
     
@@ -98,7 +101,6 @@ export default {
   }
   
   &__logo { 
-    width: 120px;
     height: 120px;
     display: block;
   }
@@ -121,6 +123,10 @@ export default {
 
   &__panelists {
     width: 100%;
+  }
+
+  &__panelists-container {
+    justify-content: center;
   }
 
   &__form {

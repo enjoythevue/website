@@ -4,6 +4,7 @@ $secondary-green: #3ba776;
 $light-grey: #f6f6f6;
 $mid-grey: #4f5959;
 $dark-grey: #35495d; 
+$bright-pink: #ec0561;
 
 // gradients
 $gradient-dark: linear-gradient(to bottom, $dark-grey, #22303e);
@@ -16,6 +17,10 @@ $font-secondary: 'Barlow', sans-serif;
 $body-font-sm: 1.4rem;
 $body-font-md: 1.6rem;
 $body-font-lg: 1.8rem;
+$h1-size: 28px;
+
+// spacing
+$section-padding-mobile: 4rem 1rem;
 
 // breakpoints
 $breakpoint-sm: 678px;

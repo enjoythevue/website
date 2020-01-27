@@ -17,6 +17,19 @@
 				:href="panelist.website"
 				class="panelists__person-name"
 			>{{ panelist.name }}</a>
+
+			<div
+				v-if="panelist.picks && panelist.picks.length"
+				class="panelists__picks"
+			>
+				<ul>
+					<li 
+						v-for="(pick, index) in panelist.picks"
+						:key="index"
+						v-html="pick"
+					/>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
@@ -42,7 +55,6 @@ export default {
 	
 	&__container {
 		display: flex;
-		justify-content: center;
 		flex-wrap: wrap;
 	}
 
@@ -107,6 +119,23 @@ export default {
 			width: 100%;
 			top: 0;
 			left: 0;
+		}
+	}
+
+	&__picks {
+		font-size: $body-font-sm;
+
+		ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		li {
+			font-family: $font-secondary;
+			&::before {
+				content: '-';
+				margin-right: 4px;
+			}
 		}
 	}
 }

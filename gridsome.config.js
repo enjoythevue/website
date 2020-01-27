@@ -16,13 +16,12 @@ module.exports = {
       ]
     }
   },
-
   plugins: [
     {
       use: "@gridsome/source-filesystem",
       options: {
-        path: "posts/**/*.md",
-        typeName: "Post",
+        path: "episodes/**/*.md",
+        typeName: "Episode",
         remark: {
           plugins: [
             // ...local plugins
@@ -36,5 +35,13 @@ module.exports = {
         publicPath: `/admin`
       }
     }
-  ]
+  ],
+  templates: {
+    Episode: [
+      {
+        path: '/episodes/1',
+        component: './src/templates/Episode.vue'
+      }
+    ]
+  }
 };

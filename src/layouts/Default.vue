@@ -34,6 +34,8 @@ html {
   background-image: $gradient-dark;
 }
 
+h1 { font-size: $h1-size; }
+
 header,
 footer {
   width: 100%;
