@@ -131,10 +131,10 @@ export default {
     picks() {
       const { chris_picks, ben_picks, ari_picks, elizabeth_picks } = this.$page.episode.picks;
       return {
-        elizabeth: [...elizabeth_picks.split(', ')],
-        ben: [...ben_picks.split(', ')],
         chris: [...chris_picks.split(', ')],
+        ben: [...ben_picks.split(', ')],
         ari: [...ari_picks.split(', ')],
+        elizabeth: [...elizabeth_picks.split(', ')],
       };
     },
     compiledTranscript() {
