@@ -28,7 +28,7 @@ export default {
         },
         {
           type: 'instagram',
-          url: 'https://www.instagram.com/enjoythevuepodcast'
+          url: 'https://www.instagram.com/enjoythevuecast'
         }
       ]
     }
