@@ -9,7 +9,7 @@
     </strong>
     <ul class="site-nav__list">
       <li class="site-nav__list-item">
-        <g-link class="site-nav__link" to="/suggest-an-episode">Suggest an episode</g-link>
+        <a class="site-nav__link" href="https://feeds.fireside.fm/enjoy-the-vue/rss">Subscribe</a>
       </li>
     </ul>   
   </nav>
