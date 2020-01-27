@@ -42,18 +42,11 @@ export default {
 @import '../styles/buttons.scss';
 
 .email-signup {
-	&__label {
-    @media (min-width: $breakpoint-sm) {
-			width: 220px;
-			margin-bottom: 0;
-    }
-	}
 	&__button {
 		margin-top: 2rem;
 		
     @media (min-width: $breakpoint-sm) {
-			margin-left: 2rem;
-			margin-top: auto;
+			margin: 2rem 0px auto auto;
     }
   }
 }
