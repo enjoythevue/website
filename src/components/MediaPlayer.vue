@@ -184,7 +184,7 @@ export default {
     border-radius: 50%;
     border: none;
     box-shadow: 0px 0px 6px rgba(black, 0.4);
-    background: $bright-pink;
+    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -208,7 +208,7 @@ export default {
       height: 0; 
       border-top: 8px solid transparent;
       border-bottom: 8px solid transparent;
-      border-left: 8px solid white;
+      border-left: 8px solid $bright-pink;
       margin-left: 1px;
     }
     
@@ -223,7 +223,7 @@ export default {
         content: '';
         height: 100%;
         width: 3px;
-        background: white;
+        background: $bright-pink;
         display: block;
       }
     }
@@ -269,9 +269,10 @@ export default {
   &__progress-line {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #35495d, $bright-pink);
+    background: $bright-pink;
     transition: transform 0.2s ease;
     border-radius: 10px;
+    transform: translateX(-100%);
   }
 
   &__bottom-area {

@@ -21,12 +21,14 @@ module.exports = {
       use: "@gridsome/source-filesystem",
       options: {
         path: "episodes/**/*.md",
-        typeName: "Episode",
-        remark: {
-          plugins: [
-            // ...local plugins
-          ]
-        }
+        typeName: "Episode"
+      }
+    },
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "panelists/**/*.md",
+        typeName: "Panelist"
       }
     },
     {
@@ -39,8 +41,8 @@ module.exports = {
   templates: {
     Episode: [
       {
-        path: '/episodes/1',
-        component: './src/templates/Episode.vue'
+        path: "/episodes/1",
+        component: "./src/templates/Episode.vue"
       }
     ]
   }

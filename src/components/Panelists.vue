@@ -2,13 +2,13 @@
 	<div class="panelists__container">
 		<div 
 			v-for="panelist in panelists"
-			:key="panelist.name"
+			:key=" panelist.name"
 			class="panelists__person">
 			<div class="panelists__person-img-container">
 				<g-image 
-					v-if="panelist.img"
-					:src="panelist.img" 
-					:alt="`Picture of ${panelist.name}`" />
+					v-if="panelist.image"
+					:src="panelist.image" 
+					:alt="`Picture of ${ panelist.name }`" />
 				<div 
 					v-else 
 					class="panelists__person-img-fallback"/>
@@ -33,17 +33,57 @@
 		</div>
 	</div>
 </template>
-
+<static-query>
+query {
+  posts: allPanelist {
+    edges {
+      node {
+				path
+				name
+				website
+				image
+      }
+    }
+  }
+}
+</static-query>
 <script>
 export default {
 	name: 'Panelists',
 	props: {
-		panelists: {
-			type: Array,
-			required: true,
-			default: () => [],
+		picks: {
+			type: Object,
+			required: false,
+			default: () => {},
 		},
 	},
+	computed: {
+		panelists() {
+			const panelists = this.$static.posts.edges.map((panelist) => {
+				// eeehh...this isnt great but until we can implement a cms solution for this
+				// we need to just map the picks to the panelists here,
+				let picks = [];
+				const name = panelist.node.name.toLowerCase();
+				if (name === 'elizabeth fine'){
+					picks = this.picks ? this.picks.elizabeth : [];
+				} else if (name === 'ben hong') {
+					picks = this.picks ? this.picks.ben : [];
+				} else if (name === 'ari clark') {
+					picks = this.picks ? this.picks.ari : [];
+				} else if (name === 'chris fritz') {
+					picks = this.picks ? this.picks.chris : [];
+				}
+
+				return {
+					name: panelist.node.name,
+					image: panelist.node.image,
+					website: panelist.node.website,
+					picks: picks,
+				}
+			});
+			return panelists;
+		},
+	}
 };
 </script>
 
