@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <main class="episode">
-      <section class="episode__section">
+      <section class="episode__section episode__header">
         <div class="episode__section-inner">
           <span class="episode__publishing-details">Episode {{ $page.episode.episode_number }} - {{ formattedDate }}</span>
           <h1 class="episode__title">{{ $page.episode.episode_title }}</h1>
@@ -20,7 +20,8 @@
    
       <section class="episode__section episode__sponsorship">
         <div class="episode__section-inner">
-        <sponsorship-box
+          <h2>This episode is sponsored by...</h2>
+          <sponsorship-box
             :name="$page.episode.sponsorship_details.sponsor_name"
             :logoSrc="$page.episode.sponsorship_details.sponsor_logo"
             :link="'https://www.linode.com/'"
@@ -161,7 +162,7 @@ export default {
   &__section {
     padding: $section-padding-mobile;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-md) {
       padding: 4rem 0;
     }
   }
@@ -169,6 +170,10 @@ export default {
   &__section-inner {
     max-width: 780px;
     margin: auto;
+  }
+
+  &__header {
+    background: $secondary-green;
   }
 
   &__publishing-details {
@@ -182,7 +187,9 @@ export default {
   }
 
   &__sponsorship {
-    margin-bottom: 4trem;
+    padding-bottom: 4rem;
+    background: white;
+    color: $dark-grey;
   }
 
   &__picks,
