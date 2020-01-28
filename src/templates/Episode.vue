@@ -23,7 +23,7 @@
         <sponsorship-box
             :name="$page.episode.sponsorship_details.sponsor_name"
             :logoSrc="$page.episode.sponsorship_details.sponsor_logo"
-            :link="$page.episode.sponsorship_details.sponsor_link"
+            :link="'https://www.linode.com/'"
             :content="$page.episode.sponsorship_details.sponsor_offer_details"
             :code="$page.episode.sponsorship_details.sponsor_offer_code"
           />
@@ -76,7 +76,6 @@ query ($id: ID!) {
     sponsorship_details {
       sponsor_name
       sponsor_logo
-      sponsor_link
       sponsor_offer_details
       sponsor_offer_code
     }

@@ -4,7 +4,7 @@
       <span class="sponsorship__label">This episode is sponsored by {{ name }}</span>
       <a 
         :href="link"
-        href="_blank"
+        target="_blank"
       >
         <g-image
           v-if="name && logoSrc"
@@ -42,7 +42,7 @@ export default {
     link: {
       type: String,
       required: false,
-      default: '',
+      default: '#',
     },
     content: {
       type: String,
