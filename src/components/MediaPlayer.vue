@@ -1,52 +1,4 @@
-<template>
-  <div class="media">
-    <div class="media__cover">
-      <g-image :src="coverArtSrc" />
-    </div>
-    <div class="media__controls">
-      <div class="media__player">
-        <button
-          class="media__pause-play-button"
-          @click="togglePlay">
-          <span :class="isPlaying ? 'pause-icon' : 'play-icon'" />
-        </button>
-        <div class="media__time-line">
-          <div 
-            :style="{transform: `translateX(-${100 - percentComplete}%)`}"
-            class="media__progress-line"
-          />
-        </div>
-      </div>
-      <div class="media__bottom-area">
-        <span class="media__current-time">{{ formattedCurrentTime }}</span>
-        <div class="media__links">
-          <a 
-            v-if="sharingLink"
-            :href="sharingLink"
-          >Share</a>
-          <a 
-            v-if="downloadLink"
-            :href="downloadLink" 
-          >Download</a>
-          <a 
-            v-if="rssLink"
-            :href="rssLink" 
-            target="_blank"
-          >Subscribe</a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- The actual audio player that is hidden from view -->
-    <audio 
-      controls="controls"
-      ref="player"
-      style="display: none;"
-    >
-      <source :src="audioLink" />
-    </audio>
-  </div>
-</template>
+
 <script>
 export default {
   name: 'MediaPlayer',
@@ -81,29 +33,20 @@ export default {
     return {
       player: null,
       isPlaying: false,
-      length: 0,
+      duration: 0,
       currentTime: 0,
     }
   },
   computed: {
     percentComplete() {
-			return parseInt(this.currentTime / this.length * 100);
+			return parseInt(this.currentTime / this.duration * 100);
     },
     formattedCurrentTime() {
-      let totalSeconds = this.currentTime;
-
-      // Calculate the times
-      const hours = Math.floor(totalSeconds / 3600);
-      totalSeconds %= 3600;
-      const minutes = Math.floor(totalSeconds / 60);
-      const seconds = totalSeconds % 60;
-
-      // Format them
-      const displayHours = hours ? `${hours.toString().padStart(2, '0')}:` : '';
-      const displayMinutes = minutes.toString().padStart(2, '0');
-      const displaySeconds = seconds.toString().padStart(2, '0');
-      return `${displayHours}${displayMinutes}:${displaySeconds}`;
+      return this.formatTime(this.currentTime)
     },
+    formattedDuration() {
+      return this.formatTime(this.duration)
+    }
   },
   mounted() {
     this.player = this.$refs.player;
@@ -116,7 +59,7 @@ export default {
   },
   methods: {
     onLoad() {
-      this.length = parseInt(this.player.duration);
+      this.duration = parseInt(this.player.duration);
     },
     updateTime() {
       this.currentTime = parseInt(this.player.currentTime);
@@ -130,9 +73,73 @@ export default {
         this.isPlaying = true;
       }
     },
+    formatTime(totalSeconds) {
+      const hours = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      // Format them
+      const displayHours = hours ? `${hours.toString().padStart(2, '0')}:` : '';
+      const displayMinutes = minutes.toString().padStart(2, '0');
+      const displaySeconds = seconds.toString().padStart(2, '0');
+      return `${displayHours}${displayMinutes}:${displaySeconds}`;
+    }
   },
 };
 </script>
+<template>
+  <div class="media">
+    <div class="media__cover">
+      <g-image :src="coverArtSrc" />
+    </div>
+    <div class="media__controls">
+      <div class="media__player">
+        <button
+          class="media__pause-play-button"
+          @click="togglePlay">
+          <span :class="isPlaying ? 'pause-icon' : 'play-icon'" />
+        </button>
+        <div class="media__time-line">
+          <div 
+            :style="{transform: `translateX(-${100 - percentComplete}%)`}"
+            class="media__progress-line"
+          />
+        </div>
+      </div>
+      <div class="media__bottom-area">
+        <span class="media__current-time">{{ formattedCurrentTime }} / {{ formattedDuration }}</span>
+        
+        <div class="media__links">
+          <a 
+            v-if="sharingLink"
+            :href="sharingLink"
+          >Share</a>
+          <a 
+            v-if="downloadLink"
+            :href="downloadLink" 
+          >Download</a>
+          <a 
+            v-if="rssLink"
+            :href="rssLink" 
+            target="_blank"
+          >Subscribe</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The actual audio player that is hidden from view -->
+    <audio 
+
+      ref="player"
+      style="display: none;"
+      :src="audioLink"
+    >
+      <!-- <source :src="audioLink" /> -->
+    </audio>
+  </div>
+</template>
+
 <style lang="scss">
 @import '../styles/variables.scss';
 
