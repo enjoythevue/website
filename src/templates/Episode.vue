@@ -20,9 +20,10 @@
    
       <section class="episode__section episode__sponsorship">
         <div class="episode__section-inner">
-          <sponsorship-box
+        <sponsorship-box
             :name="$page.episode.sponsorship_details.sponsor_name"
             :logoSrc="$page.episode.sponsorship_details.sponsor_logo"
+            :link="'https://www.linode.com/'"
             :content="$page.episode.sponsorship_details.sponsor_offer_details"
             :code="$page.episode.sponsorship_details.sponsor_offer_code"
           />

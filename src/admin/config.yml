@@ -37,6 +37,7 @@ collections:
         fields: 
           - {label: "Sponsor name", name: "sponsor-name", widget: "string"}
           - {label: "Sponsor logo", name: "sponsor-logo", widget: "image"}
+          - {label: "Sponsor link", name: "sponsor-link", widget: "string"}
           - {label: "Offer details", name: "sponsor-offer-details", widget: "markdown"}
           - {label: "Offer code", name: "sponsor-offer-code", widget: "string"}
       - label: "Picks"
