@@ -1,5 +1,7 @@
 # Enjoy the Vue Podcast's Website
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e5b636b-83f6-428b-a067-13cab43c79eb/deploy-status)](https://app.netlify.com/sites/enjoythevue/deploys)
+
 This is the source code that powers our website where you can find all of our content!
 
 ## Getting Started
