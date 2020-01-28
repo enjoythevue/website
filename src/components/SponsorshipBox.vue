@@ -2,12 +2,17 @@
   <div class="sponsorship">
     <div>
       <span class="sponsorship__label">This episode is sponsored by {{ name }}</span>
-      <g-image
-        v-if="name && logoSrc"
-        :src="logoSrc" 
-        :alt="`${name} logo`"
-        class="sponsorship__logo" 
-      />
+      <a 
+        :href="link"
+        href="_blank"
+      >
+        <g-image
+          v-if="name && logoSrc"
+          :src="logoSrc" 
+          :alt="`${name} logo`"
+          class="sponsorship__logo" 
+        />
+      </a>
     </div>
     <div class="sponsorship__offer-container">
       <span class="sponsorship__offer-label">Special offer - $20 off</span>
@@ -34,6 +39,11 @@ export default {
       required: false,
       default: '',
     },
+    link: {
+      type: String,
+      required: false,
+      default: '',
+    },
     content: {
       type: String,
       required: false,
@@ -44,8 +54,8 @@ export default {
       required: false,
       default: '',
     },
-  }
-}
+  },
+};
 </script>
 <style lang="scss">
 @import '../styles/variables.scss';
