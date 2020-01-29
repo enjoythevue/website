@@ -31,7 +31,9 @@ export default {
   },
   data() {
     return {
-      player: null,
+      player: {
+        volume: 1
+      },
       isPlaying: false,
       duration: 0,
       currentTime: 0,
@@ -109,7 +111,7 @@ export default {
       </div>
       <div class="media__bottom-area">
         <span class="media__current-time">{{ formattedCurrentTime }} / {{ formattedDuration }}</span>
-        
+        <input class="media__volume" type="range" min="0" max="1" step="0.01" v-model="player.volume">
         <div class="media__links">
           <a 
             v-if="sharingLink"
@@ -203,6 +205,8 @@ export default {
       margin-right: 2rem;
     }
 
+    
+
     .play-icon,
     .pause-icon {
       position: absolute;
@@ -233,6 +237,79 @@ export default {
         background: $bright-pink;
         display: block;
       }
+    }
+  }
+
+  &__volume {
+    margin-left: 2rem;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 85px;
+
+    // Chrome
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 6px rgba(black, 0.4);
+      cursor: pointer;
+      margin-top: -6px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    }
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+
+    // Firefox
+    &::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 6px rgba(black, 0.4);
+      cursor: pointer;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+
+
+    // IE
+    &::-ms-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: transparent;
+      border-radius: 2px;
+    }
+    &::-ms-fill-lower {
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+    &::-ms-fill-upper {
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+    &::-ms-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 6px rgba(black, 0.4);
+      cursor: pointer;
     }
   }
 
