@@ -1,7 +1,9 @@
 
 <script>
+import SpeakerIcon from '../image-components/SpeakerIcon'
 export default {
   name: 'MediaPlayer',
+  components: {SpeakerIcon},
   props: {
     coverArtSrc: {
       type: String,
@@ -32,11 +34,12 @@ export default {
   data() {
     return {
       player: {
-        volume: 1
+        volume: 1,
       },
       isPlaying: false,
       duration: 0,
       currentTime: 0,
+      playbackRate: 1
     }
   },
   computed: {
@@ -48,7 +51,7 @@ export default {
     },
     formattedDuration() {
       return this.formatTime(this.duration)
-    }
+    },
   },
   mounted() {
     this.player = this.$refs.player;
@@ -86,6 +89,15 @@ export default {
       const displayMinutes = minutes.toString().padStart(2, '0');
       const displaySeconds = seconds.toString().padStart(2, '0');
       return `${displayHours}${displayMinutes}:${displaySeconds}`;
+    },
+    changePlaybackRate() {
+      if (this.player.playbackRate === 2) {
+        this.player.playbackRate = 0.5
+        this.playbackRate = 0.5
+      } else {
+        this.playbackRate = this.player.playbackRate + 0.5
+        this.player.playbackRate = this.player.playbackRate + 0.5
+      }
     }
   },
 };
@@ -98,6 +110,7 @@ export default {
     <div class="media__controls">
       <div class="media__player">
         <button
+          title="playback rate"
           class="media__pause-play-button"
           @click="togglePlay">
           <span :class="isPlaying ? 'pause-icon' : 'play-icon'" />
@@ -111,6 +124,9 @@ export default {
       </div>
       <div class="media__bottom-area">
         <span class="media__current-time">{{ formattedCurrentTime }} / {{ formattedDuration }}</span>
+        <button @click="changePlaybackRate" class="media__playback-rate-button">
+          {{playbackRate}}x</button>
+        <SpeakerIcon class="media__speaker-icon"/>
         <input class="media__volume" type="range" min="0" max="1" step="0.01" v-model="player.volume">
         <div class="media__links">
           <a 
@@ -240,8 +256,23 @@ export default {
     }
   }
 
-  &__volume {
+  &__playback-rate-button {
+    width: 3rem;
+    padding: 0 2px;
     margin-left: 2rem;
+    font-size: $body-font-sm;
+    color: white;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  &__speaker-icon {
+    width: 20px;
+    margin-left: 2rem;
+  }
+  &__volume {
+    margin-left: 0.5rem;
   }
 
   input[type="range"] {
