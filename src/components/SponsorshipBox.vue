@@ -1,27 +1,27 @@
 <template>
   <div class="sponsorship">
-    <div>
-      <span class="sponsorship__label">This episode is sponsored by {{ name }}</span>
-      <a 
-        :href="link"
-        target="_blank"
-      >
-        <g-image
-          v-if="name && logoSrc"
-          :src="logoSrc" 
-          :alt="`${name} logo`"
-          class="sponsorship__logo" 
-        />
-      </a>
-    </div>
-    <div class="sponsorship__offer-container">
-      <span class="sponsorship__offer-label">Special offer - $20 off</span>
+    <a 
+      class="sponsorship__image"
+      :href="link"
+      target="_blank"
+    >
+      <g-image
+        v-if="name && logoSrc"
+        :src="logoSrc" 
+        :alt="`${name} logo`"
+        class="sponsorship__logo" 
+      />
+    </a>
+    <div class="sponsorship__offer">
+      <div class="sponsorship__offer-inner">
+        <span class="sponsorship__offer-label">Special offer - $20 off</span>
 
-      <p class="sponsorship__offer-content">{{ content }}</p>
-      <span 
-        v-if="code"
-        class="sponsorship__offer-code"
-      >Code: {{ code }}</span>
+        <p class="sponsorship__offer-content">{{ content }}</p>
+        <span 
+          v-if="code"
+          class="sponsorship__offer-code"
+        >Code: {{ code }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -61,9 +61,35 @@ export default {
 @import '../styles/variables.scss';
 .sponsorship {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (min-width: $breakpoint-sm) {
+    flex-wrap: nowrap;
+  }
+
+  &__image,
+  &__offer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+
+    @media (min-width: $breakpoint-sm) {
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 50%;
+    } 
+  }
+
+  &__offer {
+    background: transparent;
+    border-left: none;
+
+    @media (min-width: $breakpoint-sm) {
+      border-left: 1px solid $secondary-green;
+    }
+  }
 
   &__label {
     display: flex;
@@ -72,16 +98,20 @@ export default {
   }
 
   &__logo {
-    height: 80px;
+    height: 70px;
+    padding-right: 4rem; 
+    // margin: 2rem auto;
     margin-bottom: 2rem;
-    margin-top: 2rem;
+
+    @media (min-width: $breakpoint-sm) {
+      height: 80px;
+      margin-bottom: auto;
+    }
   }
 
-  &__offer-container {
-    background: $secondary-green;
-    padding: 2rem;
-    
+  &__offer-inner {
     @media (min-width: $breakpoint-sm) {
+      padding-left: 4rem;
       max-width: 300px;
     }
   }
