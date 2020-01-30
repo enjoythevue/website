@@ -259,20 +259,38 @@ export default {
   &__playback-rate-button {
     width: 3rem;
     padding: 0 2px;
-    margin-left: 2rem;
-    font-size: $body-font-sm;
+    margin-top: -1rem;
+    margin-left: 55px;
+    
     color: white;
     border: none;
     background: transparent;
     cursor: pointer;
+
+    @media (min-width: $breakpoint-sm) {
+      font-size: $body-font-sm;
+      margin-top: 0;
+      margin-left: 2rem;
+      display: block;
+    }
   }
 
   &__speaker-icon {
     width: 20px;
     margin-left: 2rem;
+    display: none;
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
   }
   &__volume {
     margin-left: 0.5rem;
+    display: none;
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
   }
 
   input[type="range"] {
@@ -364,12 +382,18 @@ export default {
   }
 
   &__current-time {
-    font-size: $body-font-sm;
-    margin-left: 12px;
-    display: none;
+    position: absolute;
+    // font-size: $body-font-sm;
+    margin-top: -5rem;
+    margin-left: 60px;
+    
 
     @media (min-width: $breakpoint-sm) {
+      position: relative;
+      font-size: $body-font-sm;
       display: block;
+      margin-top: 0;
+      margin-left: 12px;
     }
   }
 
