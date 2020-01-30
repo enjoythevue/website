@@ -60,7 +60,7 @@ export default {
 <style lang="scss">
 @import '../styles/variables.scss';
 .sponsorship {
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
