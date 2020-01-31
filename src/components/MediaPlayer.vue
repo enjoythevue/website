@@ -1,55 +1,9 @@
-<template>
-  <div class="media">
-    <div class="media__cover">
-      <g-image :src="coverArtSrc" />
-    </div>
-    <div class="media__controls">
-      <div class="media__player">
-        <button
-          class="media__pause-play-button"
-          @click="togglePlay">
-          <span :class="isPlaying ? 'pause-icon' : 'play-icon'" />
-        </button>
-        <div class="media__time-line">
-          <div 
-            :style="{transform: `translateX(-${100 - percentComplete}%)`}"
-            class="media__progress-line"
-          />
-        </div>
-      </div>
-      <div class="media__bottom-area">
-        <span class="media__current-time">{{ formattedCurrentTime }}</span>
-        <div class="media__links">
-          <a 
-            v-if="sharingLink"
-            :href="sharingLink"
-          >Share</a>
-          <a 
-            v-if="downloadLink"
-            :href="downloadLink" 
-          >Download</a>
-          <a 
-            v-if="rssLink"
-            :href="rssLink" 
-            target="_blank"
-          >Subscribe</a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- The actual audio player that is hidden from view -->
-    <audio 
-      controls="controls"
-      ref="player"
-      style="display: none;"
-    >
-      <source :src="audioLink" />
-    </audio>
-  </div>
-</template>
+
 <script>
+import SpeakerIcon from '../image-components/SpeakerIcon'
 export default {
   name: 'MediaPlayer',
+  components: {SpeakerIcon},
   props: {
     coverArtSrc: {
       type: String,
@@ -79,30 +33,24 @@ export default {
   },
   data() {
     return {
-      player: null,
+      player: {
+        volume: 1,
+      },
       isPlaying: false,
-      length: 0,
+      duration: 0,
       currentTime: 0,
+      playbackRate: 1
     }
   },
   computed: {
     percentComplete() {
-			return parseInt(this.currentTime / this.length * 100);
+			return parseInt(this.currentTime / this.duration * 100);
     },
     formattedCurrentTime() {
-      let totalSeconds = this.currentTime;
-
-      // Calculate the times
-      const hours = Math.floor(totalSeconds / 3600);
-      totalSeconds %= 3600;
-      const minutes = Math.floor(totalSeconds / 60);
-      const seconds = totalSeconds % 60;
-
-      // Format them
-      const displayHours = hours ? `${hours.toString().padStart(2, '0')}:` : '';
-      const displayMinutes = minutes.toString().padStart(2, '0');
-      const displaySeconds = seconds.toString().padStart(2, '0');
-      return `${displayHours}${displayMinutes}:${displaySeconds}`;
+      return this.formatTime(this.currentTime)
+    },
+    formattedDuration() {
+      return this.formatTime(this.duration)
     },
   },
   mounted() {
@@ -116,7 +64,7 @@ export default {
   },
   methods: {
     onLoad() {
-      this.length = parseInt(this.player.duration);
+      this.duration = parseInt(this.player.duration);
     },
     updateTime() {
       this.currentTime = parseInt(this.player.currentTime);
@@ -130,9 +78,86 @@ export default {
         this.isPlaying = true;
       }
     },
+    formatTime(totalSeconds) {
+      const hours = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      // Format them
+      const displayHours = hours ? `${hours.toString().padStart(2, '0')}:` : '';
+      const displayMinutes = minutes.toString().padStart(2, '0');
+      const displaySeconds = seconds.toString().padStart(2, '0');
+      return `${displayHours}${displayMinutes}:${displaySeconds}`;
+    },
+    changePlaybackRate() {
+      if (this.player.playbackRate === 2) {
+        this.player.playbackRate = 0.5
+        this.playbackRate = 0.5
+      } else {
+        this.playbackRate = this.player.playbackRate + 0.5
+        this.player.playbackRate = this.player.playbackRate + 0.5
+      }
+    }
   },
 };
 </script>
+<template>
+  <div class="media">
+    <div class="media__cover">
+      <g-image :src="coverArtSrc" />
+    </div>
+    <div class="media__controls">
+      <div class="media__player">
+        <button
+          title="playback rate"
+          class="media__pause-play-button"
+          @click="togglePlay">
+          <span :class="isPlaying ? 'pause-icon' : 'play-icon'" />
+        </button>
+        <div class="media__time-line">
+          <div 
+            :style="{transform: `translateX(-${100 - percentComplete}%)`}"
+            class="media__progress-line"
+          />
+        </div>
+      </div>
+      <div class="media__bottom-area">
+        <span class="media__current-time">{{ formattedCurrentTime }} / {{ formattedDuration }}</span>
+        <button @click="changePlaybackRate" class="media__playback-rate-button">
+          {{playbackRate}}x</button>
+        <SpeakerIcon class="media__speaker-icon"/>
+        <input class="media__volume" type="range" min="0" max="1" step="0.01" v-model="player.volume">
+        <div class="media__links">
+          <a 
+            v-if="sharingLink"
+            :href="sharingLink"
+          >Share</a>
+          <a 
+            v-if="downloadLink"
+            :href="downloadLink" 
+          >Download</a>
+          <a 
+            v-if="rssLink"
+            :href="rssLink" 
+            target="_blank"
+          >Subscribe</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- The actual audio player that is hidden from view -->
+    <audio 
+
+      ref="player"
+      style="display: none;"
+      :src="audioLink"
+    >
+      <!-- <source :src="audioLink" /> -->
+    </audio>
+  </div>
+</template>
+
 <style lang="scss">
 @import '../styles/variables.scss';
 
@@ -196,6 +221,8 @@ export default {
       margin-right: 2rem;
     }
 
+    
+
     .play-icon,
     .pause-icon {
       position: absolute;
@@ -229,6 +256,112 @@ export default {
     }
   }
 
+  &__playback-rate-button {
+    width: 3rem;
+    padding: 0 2px;
+    margin-top: -1rem;
+    margin-left: 55px;
+    
+    color: white;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    @media (min-width: $breakpoint-sm) {
+      font-size: $body-font-sm;
+      margin-top: 0;
+      margin-left: 2rem;
+      display: block;
+    }
+  }
+
+  &__speaker-icon {
+    width: 20px;
+    margin-left: 2rem;
+    display: none;
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
+  }
+  &__volume {
+    margin-left: 0.5rem;
+    display: none;
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 85px;
+
+    // Chrome
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 6px rgba(black, 0.4);
+      cursor: pointer;
+      margin-top: -6px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    }
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+
+    // Firefox
+    &::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 6px rgba(black, 0.4);
+      cursor: pointer;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+
+
+    // IE
+    &::-ms-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      background: transparent;
+      border-radius: 2px;
+    }
+    &::-ms-fill-lower {
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+    &::-ms-fill-upper {
+      background: darken($secondary-green, 10%);
+      border-radius: 2px;
+    }
+    &::-ms-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0px 0px 6px rgba(black, 0.4);
+      cursor: pointer;
+    }
+  }
+
   &__links {
     margin-left: auto;
     margin-top: -1rem;
@@ -249,12 +382,18 @@ export default {
   }
 
   &__current-time {
-    font-size: $body-font-sm;
-    margin-left: 12px;
-    display: none;
+    position: absolute;
+    // font-size: $body-font-sm;
+    margin-top: -5rem;
+    margin-left: 60px;
+    
 
     @media (min-width: $breakpoint-sm) {
+      position: relative;
+      font-size: $body-font-sm;
       display: block;
+      margin-top: 0;
+      margin-left: 12px;
     }
   }
 
