@@ -38,12 +38,4 @@ module.exports = {
       }
     }
   ],
-  templates: {
-    Episode: [
-      {
-        path: "/episodes/1",
-        component: "./src/templates/Episode.vue"
-      }
-    ]
-  }
 };
