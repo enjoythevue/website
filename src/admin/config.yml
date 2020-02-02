@@ -44,10 +44,10 @@ collections:
         name: "picks"
         widget: "object"
         fields: 
-          - {label: "Chris picks", name: "chris-picks", widget: "list"}
-          - {label: "Ben picks", name: "ben-picks", widget: "list"}
-          - {label: "Ari picks", name: "ari-picks", widget: "list"}
-          - {label: "Elizabeth picks", name: "elizabeth-picks", widget: "list"}
+          - {label: "Chris picks", name: "chris-picks", widget: "markdown"}
+          - {label: "Ben picks", name: "ben-picks", widget: "markdown"}
+          - {label: "Ari picks", name: "ari-picks", widget: "markdown"}
+          - {label: "Elizabeth picks", name: "elizabeth-picks", widget: "markdown"}
       - {label: "Shownotes", name: "shownotes", widget: "markdown"}
       - {label: "Transcript", name: "transcript", widget: "markdown"}
 
