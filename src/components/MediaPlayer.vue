@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     percentComplete() {
-			return parseInt(this.currentTime / this.duration * 100);
+			return parseFloat(this.currentTime / this.duration * 100).toFixed(4);
     },
     formattedCurrentTime() {
       return this.formatTime(this.currentTime)
@@ -66,7 +66,7 @@ export default {
     onLoad() {
       this.duration = parseInt(this.player.duration);
     },
-    updateTime() {
+    updateTime() {      
       this.currentTime = parseInt(this.player.currentTime);
     },
     togglePlay() {
@@ -98,6 +98,15 @@ export default {
         this.playbackRate = this.player.playbackRate + 0.5
         this.player.playbackRate = this.player.playbackRate + 0.5
       }
+    },
+    setCurrentTime(time) {
+      this.player.currentTime = time
+    },
+    skipToTime(e) {
+      let lineWidth =  this.$refs.timeLine.clientWidth
+      let clickPosition = e.offsetX
+      let newTime = Math.round((clickPosition / lineWidth) * this.duration)
+      this.setCurrentTime(newTime)
     }
   },
 };
@@ -115,9 +124,9 @@ export default {
           @click="togglePlay">
           <span :class="isPlaying ? 'pause-icon' : 'play-icon'" />
         </button>
-        <div class="media__time-line">
+        <div class="media__time-line" @click="skipToTime" ref="timeLine">
           <div 
-            :style="{transform: `translateX(-${100 - percentComplete}%)`}"
+            :style="{width: `${ percentComplete}%`}"
             class="media__progress-line"
           />
         </div>
@@ -153,7 +162,6 @@ export default {
       style="display: none;"
       :src="audioLink"
     >
-      <!-- <source :src="audioLink" /> -->
     </audio>
   </div>
 </template>
@@ -406,12 +414,8 @@ export default {
   }
 
   &__progress-line {
-    width: 100%;
     height: 100%;
     background: $bright-pink;
-    transition: transform 0.2s ease;
-    border-radius: 10px;
-    transform: translateX(-100%);
   }
 
   &__bottom-area {
