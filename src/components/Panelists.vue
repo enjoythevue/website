@@ -56,30 +56,23 @@ export default {
 			required: false,
 			default: () => {},
 		},
+		onlyShowPanelistsWithPicks: {
+			type: Boolean,
+			required: false,
+			default: false,
+		},
 	},
 	computed: {
 		panelists() {
 			const panelists = this.$static.posts.edges.map((panelist) => {
-				// eeehh...this isnt great but until we can implement a cms solution for this
-				// we need to just map the picks to the panelists here,
-				let picks = [];
-				const name = panelist.node.name.toLowerCase();
-				if (name === 'elizabeth fine'){
-					picks = this.picks ? this.picks.elizabeth : [];
-				} else if (name === 'ben hong') {
-					picks = this.picks ? this.picks.ben : [];
-				} else if (name === 'ari clark') {
-					picks = this.picks ? this.picks.ari : [];
-				} else if (name === 'chris fritz') {
-					picks = this.picks ? this.picks.chris : [];
-				}
+				const name = panelist.node.name;
+				const image = panelist.node.image;
+				const website = panelist.node.website;
+				const firstName = name.replace(/ .*/,'').toLowerCase();
+				const picks = this.picks ? this.picks.firstName : [];
 
-				return {
-					name: panelist.node.name,
-					image: panelist.node.image,
-					website: panelist.node.website,
-					picks: picks,
-				}
+				if (this.onlyShowPanelistsWithPicks && !picks) return; 
+				return { name, image, website, picks }
 			});
 			return panelists;
 		},

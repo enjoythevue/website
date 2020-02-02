@@ -11,7 +11,6 @@ collections:
     label: "Panelists"
     folder: "panelists"
     create: true
-    slug: "{{slug}}"
     identifier_field: name
     fields:
       - {label: "Name", name: "name", widget: "string"}
@@ -45,10 +44,10 @@ collections:
         name: "picks"
         widget: "object"
         fields: 
-          - {label: "Chris picks", name: "chris-fritz-picks", widget: "list"}
-          - {label: "Ben picks", name: "ben-hong-picks", widget: "list"}
-          - {label: "Ari picks", name: "ari-clark-picks", widget: "list"}
-          - {label: "Elizabeth picks", name: "elizabeth-fine-picks", widget: "list"}
+          - {label: "Chris picks", name: "chris-picks", widget: "list"}
+          - {label: "Ben picks", name: "ben-picks", widget: "list"}
+          - {label: "Ari picks", name: "ari-picks", widget: "list"}
+          - {label: "Elizabeth picks", name: "elizabeth-picks", widget: "list"}
       - {label: "Shownotes", name: "shownotes", widget: "markdown"}
       - {label: "Transcript", name: "transcript", widget: "markdown"}
 
