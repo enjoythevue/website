@@ -64,17 +64,20 @@ export default {
 	},
 	computed: {
 		panelists() {
-			const panelists = this.$static.posts.edges.map((panelist) => {
+			const allPanelists = this.$static.posts.edges.map((panelist) => {
 				const name = panelist.node.name;
 				const image = panelist.node.image;
 				const website = panelist.node.website;
 				const firstName = name.replace(/ .*/,'').toLowerCase();
-				const picks = this.picks ? this.picks.firstName : [];
-
-				if (this.onlyShowPanelistsWithPicks && !picks) return; 
+				const picks = this.picks ? this.picks[firstName] : [];
 				return { name, image, website, picks }
 			});
-			return panelists;
+
+			const panelistsWithPicks = allPanelists.filter((panelist) => {
+				return panelist.picks.length;
+			});
+
+			return this.onlyShowPanelistsWithPicks ? panelistsWithPicks : allPanelists;
 		},
 	}
 };
