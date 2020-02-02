@@ -45,6 +45,7 @@
           <h2>Our picks this week</h2>
           <panelists
             :picks="picks"
+            only-show-panelists-with-picks
             class="episode__panelists"
           />
         </div>
@@ -135,10 +136,10 @@ export default {
     picks() {
       const { chris_picks, ben_picks, ari_picks, elizabeth_picks } = this.$page.episode.picks;
       return {
-        chris: [...chris_picks.split(',')],
-        ben: [...ben_picks.split(',')],
-        ari: [...ari_picks.split(',')],
-        elizabeth: [...elizabeth_picks.split(',')],
+        chris: chris_picks.length ? [...chris_picks.split(',')] : [],
+        ben: ben_picks.length ? [...ben_picks.split(',')] : [],
+        ari: ari_picks.length ? [...ari_picks.split(',')] : [],
+        elizabeth: elizabeth_picks.length ? [...elizabeth_picks.split(',')] : [],
       };
     },
     compiledTranscript() {
