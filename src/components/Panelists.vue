@@ -185,10 +185,6 @@ export default {
 				margin-right: 4px;
 				margin-left: -10px;
 			}
-
-			a {
-				@include link-primary-light-background;
-			}
 		}
 	}
 }
