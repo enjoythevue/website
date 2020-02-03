@@ -13,7 +13,7 @@
           <a href="https://feeds.fireside.fm/enjoy-the-vue/rss" class="btn btn--primary mb-2r"><rss-logo class="mr-05r" /> Subscribe to our podcast</a>
           <g-link 
             class="btn btn--secondary"
-            to="/episodes/1"
+            to="/episodes/2"
           >
             Listen to the most recent episode
           </g-link>
