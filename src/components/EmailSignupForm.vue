@@ -4,15 +4,17 @@ import MailerLite from '../scripts/mailerlite'
 export default {
   name: 'EmailSignupForm',
   created() {
-    MailerLite(
-      window,
-      document,
-      'script',
-      'https://static.mailerlite.com/js/universal.js',
-      'ml'
-    )
+    if (process.isClient) {
+      MailerLite(
+        window,
+        document,
+        'script',
+        'https://static.mailerlite.com/js/universal.js',
+        'ml'
+      )
 
-    const ml_account = ml('accounts', '1853384', 'u6y8f1w6i9', 'load')
+      const ml_account = ml('accounts', '1853384', 'u6y8f1w6i9', 'load')
+    }
   }
 }
 </script>
