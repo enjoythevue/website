@@ -1,49 +1,3 @@
-<template>
-  <Layout>  
-    <main class="landing">
-      <section class="landing__content">
-        <g-image 
-          alt="Enjoy the Vue Logo" 
-          :src="`/images/enjoythevue-logo-300.png`" 
-          class="landing__logo" />
-          
-        <h1 class="landing__title">{{ pageTitle }}</h1>
-        <p class="landing__about-paragraph">{{ podcastDescription }}</p>
-        <div class="landing__recent-episode">
-          <a href="https://feeds.fireside.fm/enjoy-the-vue/rss" class="btn btn--primary mb-2r"><rss-logo class="mr-05r" /> Subscribe to our podcast</a>
-          <g-link 
-            class="btn btn--secondary"
-            to="/episodes/2"
-          >
-            Listen to the most recent episode
-          </g-link>
-        </div>
-        <div class="landing__panelists">
-          <h2 class="landing__title">Our panelists</h2>
-          <panelists
-            :panelists="panelists"
-            class="landing__panelists-container"
-          />
-        </div>
-      </section>
-    
-      <section class="landing__form">
-        <h2 class="landing__title">Stay updated</h2>
-        <div class="ml-form-embed"
-          data-account="1853384:u6y8f1w6i9"
-          data-form="1753778:g2u3f1">
-        </div>
-      </section>
-
-      <section class="landing__suggest-an-episode">
-        <h2>We welcome your suggestions!</h2>
-        <span>Have a guest or a topic in mind that you'd like to hear on Enjoy The Vue?</span>
-        <span>Let us know and <g-link to="/suggest-an-episode">suggest an episode.</g-link></span>
-      </section>
-    </main>
-  </Layout>
-</template>
-
 <script>
 import Panelists from '../components/Panelists.vue';
 import EmailSignupForm from '../components/EmailSignupForm.vue';
@@ -103,6 +57,52 @@ export default {
   }
 };
 </script>
+
+<template>
+  <Layout>  
+    <main class="landing">
+      <section class="landing__content">
+        <g-image 
+          alt="Enjoy the Vue Logo" 
+          :src="`/images/enjoythevue-logo-300.png`" 
+          class="landing__logo" />
+          
+        <h1 class="landing__title">{{ pageTitle }}</h1>
+        <p class="landing__about-paragraph">{{ podcastDescription }}</p>
+        <div class="landing__recent-episode">
+          <a href="https://feeds.fireside.fm/enjoy-the-vue/rss" class="btn btn--primary mb-2r"><rss-logo class="mr-05r" /> Subscribe to our podcast</a>
+          <g-link 
+            class="btn btn--secondary"
+            to="/episodes/2"
+          >
+            Listen to the most recent episode
+          </g-link>
+        </div>
+        <div class="landing__panelists">
+          <h2 class="landing__title">Our panelists</h2>
+          <panelists
+            :panelists="panelists"
+            class="landing__panelists-container"
+          />
+        </div>
+      </section>
+    
+      <section class="landing__form">
+        <h2 class="landing__title">Stay updated</h2>
+        <div class="ml-form-embed"
+          data-account="1853384:u6y8f1w6i9"
+          data-form="1753778:g2u3f1">
+        </div>
+      </section>
+
+      <section class="landing__suggest-an-episode">
+        <h2>We welcome your suggestions!</h2>
+        <span>Have a guest or a topic in mind that you'd like to hear on Enjoy The Vue?</span>
+        <span>Let us know and <g-link to="/suggest-an-episode">suggest an episode.</g-link></span>
+      </section>
+    </main>
+  </Layout>
+</template>
 
 <style lang="scss">
 @import '../styles/variables.scss';
