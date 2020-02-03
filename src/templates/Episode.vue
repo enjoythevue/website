@@ -36,7 +36,7 @@
           <h2>Shownotes</h2>
           <div 
             class="episode__shownotes-content"
-            v-html="$page.episode.shownotes"
+            v-html="compiledShownotes"
           />
         </div>
       </section>
@@ -142,6 +142,9 @@ export default {
         elizabeth: elizabeth_picks.length ? [...elizabeth_picks.split(',')] : [],
       };
     },
+    compiledShownotes() {
+      return marked(this.$page.episode.shownotes, { sanitize: true });
+    },
     compiledTranscript() {
       return marked(this.$page.episode.transcript, { sanitize: true });
     },
@@ -198,6 +201,8 @@ export default {
   &__shownotes {
     background: white;
     color: $dark-grey;
+
+    a { @include link-primary-light-background; }
   }
 
   &__shownotes-content {
@@ -219,18 +224,8 @@ export default {
     font-family: $font-secondary;
     max-height: 500px;
     overflow: scroll;
-  }
 
-  &__transcript-speaker {
-    font-weight: bold;
-    background: white;
-    color: $dark-grey;
-    padding: 2px;
-    margin-right: 1rem;
-  }
-
-  &__transcript-block {
-    margin-bottom: 1rem;
+    a { @include link-primary; }
   }
 }
 </style>
