@@ -29,6 +29,7 @@ export default {
 @import '../styles/forms.scss';
 @import '../styles/buttons.scss';
 
+// These are MailerLite style overrides
 // Oh it hurts me so much to write CSS like this... :cries:
 #mlb2-1753778 {
   p {
