@@ -1,10 +1,3 @@
-<template>
-  <div class="ml-form-embed email-signup"
-    data-account="1853384:u6y8f1w6i9"
-    data-form="1753778:g2u3f1">
-  </div>
-</template>
-
 <script>
 import MailerLite from '../scripts/mailerlite';
 
@@ -23,6 +16,13 @@ export default {
   }
 }
 </script>
+
+<template>
+  <div class="ml-form-embed email-signup"
+    data-account="1853384:u6y8f1w6i9"
+    data-form="1753778:g2u3f1">
+  </div>
+</template>
 
 <style lang="scss">
 @import '../styles/forms.scss';
