@@ -16,6 +16,12 @@
 }
 
 @mixin link-primary-light-background {
+  &,
+  &:visited {
+    color: $primary-green;
+    text-decoration: none;
+  }
+
   &:hover,
   &:active,
   &:focus {

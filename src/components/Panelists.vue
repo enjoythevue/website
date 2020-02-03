@@ -106,14 +106,23 @@ export default {
 			margin-bottom: 2rem;
 		}
 
-		@media(min-width: 500px) {
-			width: auto;
+		@media(min-width: 530px) {
+			width: 100px;
+
 			&:not(:last-child) { margin-right: 1rem; }
 
 			&:nth-child(1),
 			&:nth-child(2) {
 				margin-bottom: 0;
 			}
+		}
+
+		@media (min-width: 600px) {
+			width: 120px;
+		}
+
+		@media (min-width: 840px) {
+			width: 180px;
 		}
 	}
 
@@ -160,17 +169,25 @@ export default {
 
 	&__picks {
 		font-size: $body-font-sm;
+		z-index: 2;
 
 		ul {
 			list-style-type: none;
 			padding: 0;
+			margin-left: 10px;
 		}
 
 		li {
 			font-family: $font-secondary;
+
 			&::before {
 				content: '-';
 				margin-right: 4px;
+				margin-left: -10px;
+			}
+
+			a {
+				@include link-primary-light-background;
 			}
 		}
 	}
