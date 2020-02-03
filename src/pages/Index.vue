@@ -29,7 +29,10 @@
     
       <section class="landing__form">
         <h2 class="landing__title">Stay updated</h2>
-        <email-signup-form />
+        <div class="ml-form-embed"
+          data-account="1853384:u6y8f1w6i9"
+          data-form="1753778:g2u3f1">
+        </div>
       </section>
 
       <section class="landing__suggest-an-episode">
@@ -45,6 +48,7 @@
 import Panelists from '../components/Panelists.vue';
 import EmailSignupForm from '../components/EmailSignupForm.vue';
 import RssLogo from '../image-components/RssLogo';
+import MailerLite from '../scripts/mailerlite';
 
 export default {
   metaInfo: {
@@ -86,6 +90,17 @@ export default {
       ],
     };
   },
+  created() {
+    MailerLite(
+      window,
+      document,
+      'script',
+      'https://static.mailerlite.com/js/universal.js',
+      'ml'
+    )
+
+    var ml_account = ml('accounts', '1853384', 'u6y8f1w6i9', 'load')
+  }
 };
 </script>
 
