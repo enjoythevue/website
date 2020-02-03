@@ -12,7 +12,7 @@ export default {
       'ml'
     )
 
-    var ml_account = ml('accounts', '1853384', 'u6y8f1w6i9', 'load')
+    const ml_account = ml('accounts', '1853384', 'u6y8f1w6i9', 'load')
   }
 }
 </script>
