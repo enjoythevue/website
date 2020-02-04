@@ -7,6 +7,7 @@
           <h1 class="episode__title">{{ $page.episode.episode_title }}</h1>
           <div>
             <media-player
+              :episode-number="$page.episode.episode_number"
               :cover-art-src="$page.episode.cover_art"
               :sharing-link="$page.episode.sharing_link"
               :download-link="$page.episode.download_link"
