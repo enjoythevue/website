@@ -13,7 +13,6 @@
               :rss-link="$page.episode.rss_link"
               :audio-link="$page.episode.audio_link"
             />
-            <!-- <iframe src="https://fireside.fm/player/v2/iAt1uZwr+U8aStBsX?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe> -->
           </div>
         </div>
       </section>
