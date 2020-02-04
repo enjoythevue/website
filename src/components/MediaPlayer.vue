@@ -55,6 +55,8 @@ export default {
   },
   mounted() {
     this.player = this.$refs.player;
+
+    this.player.currentTime = window.localStorage.getItem('currentTime') || 0
     this.player.addEventListener('loadeddata', this.onLoad);
     this.player.addEventListener('timeupdate', this.updateTime);
   },
@@ -109,6 +111,11 @@ export default {
       this.setCurrentTime(newTime)
     }
   },
+  watch: {
+    currentTime(newVal) {
+      window.localStorage.setItem('currentTime', newVal)
+    }
+  }
 };
 </script>
 <template>
