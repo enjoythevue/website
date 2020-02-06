@@ -1,10 +1,19 @@
 <script>
+import { format } from 'date-fns'
+
 export default {
   name: 'EpisodePreview',
   props: {
     episode: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    publishedDate() {
+      // Utilize date-fns formatting
+      // https://date-fns.org/v2.9.0/docs/format
+      return format(new Date(this.episode.date_published), 'PPPP')
     }
   }
 }
@@ -13,7 +22,7 @@ export default {
 <template>
   <section :class="$style['episode-preview']">
     <p :class="$style['episode-meta']">
-      #{{ episode.episode_number }} - {{ episode.date_published }}
+      #{{ episode.episode_number }} - {{ publishedDate }}
     </p>
     <g-link
       :class="$style['episode-link']"
