@@ -1,14 +1,14 @@
 <template>
   <Layout>
-    <main class="episode" style="margin-top: 0;">
-      <section class="episode__section episode__header">
-        <div class="episode__section-inner">
+    <main class="container episodes">
+      <section class="container__section container__header">
+        <div class="container__section-inner">
           <h1>Episodes</h1>
         </div>
       </section>
 
-      <div class="episode__section">
-        <div class="episode__section-inner">
+      <div class="container__section">
+        <div class="container__section-inner">
           <h2>Most Recent</h2>
           <ul class="episode-list">
             <li
@@ -64,5 +64,9 @@ export default {
     margin: 0;
     padding: 0;
   }
+}
+
+.episodes {
+  color: white;
 }
 </style>

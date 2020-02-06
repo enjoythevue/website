@@ -1,9 +1,12 @@
 <template>
   <Layout>
     <main class="episode">
-      <section class="episode__section episode__header">
-        <div class="episode__section-inner">
-          <span class="episode__publishing-details">Episode {{ $page.episode.episode_number }} - {{ formattedDate }}</span>
+      <section class="container__section container__header">
+        <div class="container__section-inner">
+          <span class="episode__publishing-details"
+            >Episode {{ $page.episode.episode_number }} -
+            {{ formattedDate }}</span
+          >
           <h1 class="episode__title">{{ $page.episode.episode_title }}</h1>
           <div>
             <media-player
@@ -17,9 +20,9 @@
           </div>
         </div>
       </section>
-   
-      <section class="episode__section episode__sponsorship">
-        <div class="episode__section-inner">
+
+      <section class="container__section episode__sponsorship">
+        <div class="container__section-inner">
           <h2>This episode is sponsored by...</h2>
           <sponsorship-box
             :name="$page.episode.sponsorship_details.sponsor_name"
@@ -31,17 +34,14 @@
         </div>
       </section>
 
-      <section class="episode__section episode__shownotes">
-        <div class="episode__section-inner">
+      <section class="container__section episode__shownotes">
+        <div class="container__section-inner">
           <h2>Shownotes</h2>
-          <div 
-            class="episode__shownotes-content"
-            v-html="compiledShownotes"
-          />
+          <div class="episode__shownotes-content" v-html="compiledShownotes" />
         </div>
       </section>
-      <section class="episode__section episode__picks">
-        <div class="episode__section-inner">
+      <section class="container__section episode__picks">
+        <div class="container__section-inner">
           <h2>Our picks this week</h2>
           <panelists
             :picks="picks"
@@ -51,15 +51,12 @@
         </div>
       </section>
 
-      <section class="episode__section">
-        <div class="episode__section-inner">
+      <section class="container__section">
+        <div class="container__section-inner">
           <h2>Transcript</h2>
-          <div
-            class="episode__transcript" 
-            v-html="compiledTranscript"
-          />
+          <div class="episode__transcript" v-html="compiledTranscript" />
         </div>
-      </section>   
+      </section>
     </main>
   </Layout>
 </template>
@@ -95,24 +92,29 @@ query ($id: ID!) {
 </page-query>
 
 <script>
-import MediaPlayer from '../components/MediaPlayer.vue';
-import SponsorshipBox from '../components/SponsorshipBox.vue';
-import Panelists from '../components/Panelists.vue';
-import * as marked from 'marked';
+import MediaPlayer from '../components/MediaPlayer.vue'
+import SponsorshipBox from '../components/SponsorshipBox.vue'
+import Panelists from '../components/Panelists.vue'
+import * as marked from 'marked'
 
 export default {
   name: 'EpisodeDetail',
   components: {
     MediaPlayer,
     SponsorshipBox,
-    Panelists,
+    Panelists
   },
   mounted() {
-    const { chris_picks, ben_picks, ari_picks, elizabeth_picks } = this.$page.episode.picks;
+    const {
+      chris_picks,
+      ben_picks,
+      ari_picks,
+      elizabeth_picks
+    } = this.$page.episode.picks
   },
   computed: {
     formattedDate() {
-      const { date_published } = this.$page.episode;
+      const { date_published } = this.$page.episode
       const months = [
         'January',
         'February',
@@ -125,35 +127,41 @@ export default {
         'September',
         'October',
         'November',
-        'December',
+        'December'
       ]
-      const date = new Date(date_published);
-      const month = months[date.getMonth()];
-      const day = date.getDate();
-      const year = date.getFullYear();
-      return `${month} ${day}, ${year}`;
+      const date = new Date(date_published)
+      const month = months[date.getMonth()]
+      const day = date.getDate()
+      const year = date.getFullYear()
+      return `${month} ${day}, ${year}`
     },
     picks() {
-      const { chris_picks, ben_picks, ari_picks, elizabeth_picks } = this.$page.episode.picks;
+      const {
+        chris_picks,
+        ben_picks,
+        ari_picks,
+        elizabeth_picks
+      } = this.$page.episode.picks
       return {
         chris: chris_picks.length ? [...chris_picks.split(',')] : [],
         ben: ben_picks.length ? [...ben_picks.split(',')] : [],
         ari: ari_picks.length ? [...ari_picks.split(',')] : [],
-        elizabeth: elizabeth_picks.length ? [...elizabeth_picks.split(',')] : [],
-      };
+        elizabeth: elizabeth_picks.length ? [...elizabeth_picks.split(',')] : []
+      }
     },
     compiledShownotes() {
-      return marked(this.$page.episode.shownotes, { sanitize: true });
+      return marked(this.$page.episode.shownotes, { sanitize: true })
     },
     compiledTranscript() {
-      return marked(this.$page.episode.transcript, { sanitize: true });
-    },
-  },
-};
+      return marked(this.$page.episode.transcript, { sanitize: true })
+    }
+  }
+}
 </script>
 <style lang="scss">
 @import '../styles/variables.scss';
 @import '../styles/mixins.scss';
+@import '../styles/layout.scss';
 
 .episode {
   color: white;
@@ -162,23 +170,6 @@ export default {
   h2 {
     margin-top: 0;
     margin-bottom: 4rem;
-  }
-
-  &__section {
-    padding: $section-padding-mobile;
-
-    @media (min-width: $breakpoint-md) {
-      padding: 4rem 0;
-    }
-  }
-
-  &__section-inner {
-    max-width: 780px;
-    margin: auto;
-  }
-
-  &__header {
-    background: $secondary-green;
   }
 
   &__publishing-details {
@@ -202,7 +193,9 @@ export default {
     background: white;
     color: $dark-grey;
 
-    a { @include link-primary-light-background; }
+    a {
+      @include link-primary-light-background;
+    }
   }
 
   &__shownotes-content {
@@ -225,7 +218,9 @@ export default {
     max-height: 500px;
     overflow: scroll;
 
-    a { @include link-primary; }
+    a {
+      @include link-primary;
+    }
   }
 }
 </style>

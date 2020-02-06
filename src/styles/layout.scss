@@ -1,13 +1,9 @@
 @import 'variables.scss';
 @import 'mixins.scss';
 
-.episode {
-  color: white;
-  margin: 4rem 0;
-
-  h2 {
-    margin-top: 0;
-    margin-bottom: 4rem;
+.container {
+  &__header {
+    background: $secondary-green;
   }
 
   &__section {
@@ -21,9 +17,5 @@
   &__section-inner {
     max-width: 780px;
     margin: auto;
-  }
-
-  &__header {
-    background: $secondary-green;
   }
 }
