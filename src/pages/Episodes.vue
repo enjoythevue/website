@@ -1,3 +1,16 @@
+<script>
+import EpisodePreview from '../components/EpisodePreview'
+
+export default {
+  metaInfo: {
+    title: 'Episodes'
+  },
+  components: {
+    EpisodePreview
+  }
+}
+</script>
+
 <template>
   <Layout>
     <main class="container episodes">
@@ -25,34 +38,6 @@
   </Layout>
 </template>
 
-<page-query>
-query {
-  allEpisode {
-    edges {
-      node {
-        date_published
-        episode_number
-        episode_title
-        excerpt
-      }
-    }
-  }
-}
-</page-query>
-
-<script>
-import EpisodePreview from '../components/EpisodePreview'
-
-export default {
-  metaInfo: {
-    title: 'Episodes'
-  },
-  components: {
-    EpisodePreview
-  }
-}
-</script>
-
 <style lang="scss">
 @import '../styles/layout.scss';
 
@@ -70,3 +55,18 @@ export default {
   color: white;
 }
 </style>
+
+<page-query>
+query {
+  allEpisode {
+    edges {
+      node {
+        date_published
+        episode_number
+        episode_title
+        excerpt
+      }
+    }
+  }
+}
+</page-query>
