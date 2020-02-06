@@ -165,7 +165,7 @@ export default {
 
 .episode {
   color: white;
-  margin: 4rem 0;
+  margin-bottom: 4rem;
 
   h2 {
     margin-top: 0;
