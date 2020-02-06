@@ -1,17 +1,20 @@
 <template>
   <nav class="site-nav">
     <strong>
-      <g-link 
-        to="/"
-      class="site-nav__link"
-      >Enjoy the Vue
-      </g-link>
+      <g-link to="/" class="site-nav__link">Enjoy the Vue </g-link>
     </strong>
     <ul class="site-nav__list">
       <li class="site-nav__list-item">
-      <a class="site-nav__link" href="https://feeds.fireside.fm/enjoy-the-vue/rss"><rss-logo color="green" class="mr-05r" /> Subscribe</a>
+        <a class="site-nav__link" href="/episodes">Episodes</a>
       </li>
-    </ul>   
+      <li class="site-nav__list-item">
+        <a
+          class="site-nav__link"
+          href="https://feeds.fireside.fm/enjoy-the-vue/rss"
+          ><rss-logo color="green" class="mr-05r" /> Subscribe</a
+        >
+      </li>
+    </ul>
   </nav>
 </template>
 <static-query>
@@ -22,7 +25,7 @@ query {
 }
 </static-query>
 <script>
-import RssLogo from '../image-components/RssLogo';
+import RssLogo from '../image-components/RssLogo'
 
 export default {
   name: 'SiteNav',
@@ -51,8 +54,8 @@ export default {
   &__list-item {
     padding: 0 1rem;
   }
-  
-  &__link { 
+
+  &__link {
     @include link-primary;
     font-size: $body-font-sm;
     display: flex;
