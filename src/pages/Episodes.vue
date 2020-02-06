@@ -1,18 +1,28 @@
 <template>
   <Layout>
-    <Section container="md" class="episodes">
-      <h1>Episodes</h1>
-      <ul>
-        <li
-          v-for="episode in $page.allEpisode.edges"
-          :key="`episode-${episode.node.episode_number}-list-item`"
-        >
-          {{ episode.node.date_published }} <br />
-          Episode #{{ episode.node.episode_number }}:
-          {{ episode.node.episode_title }}
-        </li>
-      </ul>
-    </Section>
+    <main class="episode">
+      <section class="episode__section episode__header">
+        <div class="episode__section-inner">
+          <h1>Episodes</h1>
+        </div>
+      </section>
+
+      <div class="episode__section">
+        <div class="episode__section-inner">
+          <h2>Most Recent</h2>
+          <ul>
+            <li
+              v-for="episode in $page.allEpisode.edges"
+              :key="`episode-${episode.node.episode_number}-list-item`"
+            >
+              {{ episode.node.date_published }} <br />
+              Episode #{{ episode.node.episode_number }}:
+              {{ episode.node.episode_title }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
   </Layout>
 </template>
 
@@ -40,9 +50,5 @@ export default {
 </script>
 
 <style lang="scss">
-.episodes {
-  padding: 2rem;
-  color: white;
-  font-size: 2rem;
-}
+@import '../styles/layout.scss';
 </style>
