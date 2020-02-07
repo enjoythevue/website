@@ -1,0 +1,21 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+.container {
+  &__header {
+    background: $secondary-green;
+  }
+
+  &__section {
+    padding: $section-padding-mobile;
+
+    @media (min-width: $breakpoint-md) {
+      padding: 4rem 0;
+    }
+  }
+
+  &__section-inner {
+    max-width: 780px;
+    margin: auto;
+  }
+}
