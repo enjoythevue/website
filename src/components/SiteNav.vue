@@ -8,11 +8,9 @@
         <a class="site-nav__link" href="/episodes">Episodes</a>
       </li>
       <li class="site-nav__list-item">
-        <a
-          class="site-nav__link"
-          href="https://feeds.fireside.fm/enjoy-the-vue/rss"
-          ><rss-logo color="green" class="mr-05r" /> Subscribe</a
-        >
+        <a class="site-nav__link" href="https://pod.link/1498529055">
+          <rss-logo color="green" class="mr-05r" /> Subscribe
+        </a>
       </li>
     </ul>
   </nav>
