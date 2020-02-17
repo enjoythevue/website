@@ -10,6 +10,10 @@ export default {
       required: false,
       default: '',
     },
+    episodeNumber: {
+      type: Number,
+      default: 0
+    },
     rssLink: {
       type: String,
       required: false,
@@ -43,6 +47,9 @@ export default {
     }
   },
   computed: {
+    episodeLabel() {
+      return `enjoy-the-view-episode-${this.episodeNumber}`
+    },
     percentComplete() {
 			return parseFloat(this.currentTime / this.duration * 100).toFixed(4);
     },
@@ -52,9 +59,19 @@ export default {
     formattedDuration() {
       return this.formatTime(this.duration)
     },
+    lastPlayedLabel() {
+      return `${this.episodeLabel}-last-played`
+    }
+  },
+  watch: {
+    currentTime(newVal) {
+      window.localStorage.setItem(this.lastPlayedLabel, newVal)
+    }
   },
   mounted() {
     this.player = this.$refs.player;
+
+    this.player.currentTime = window.localStorage.getItem(this.lastPlayedLabel) || 0
     this.player.addEventListener('loadeddata', this.onLoad);
     this.player.addEventListener('timeupdate', this.updateTime);
   },
@@ -108,7 +125,7 @@ export default {
       let newTime = Math.round((clickPosition / lineWidth) * this.duration)
       this.setCurrentTime(newTime)
     }
-  },
+  }
 };
 </script>
 <template>

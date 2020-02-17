@@ -10,13 +10,13 @@
           <h1 class="episode__title">{{ $page.episode.episode_title }}</h1>
           <div>
             <media-player
+              :episode-number="$page.episode.episode_number"
               :cover-art-src="$page.episode.cover_art"
               :sharing-link="$page.episode.sharing_link"
               :download-link="$page.episode.download_link"
               :rss-link="$page.episode.rss_link"
               :audio-link="$page.episode.audio_link"
             />
-            <!-- <iframe src="https://fireside.fm/player/v2/iAt1uZwr+U8aStBsX?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe> -->
           </div>
         </div>
       </section>
