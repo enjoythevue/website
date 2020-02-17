@@ -25,14 +25,14 @@ query {
 }
 </static-query>
 <script>
-import RssLogo from '../image-components/RssLogo'
+import RssLogo from '../image-components/RssLogo';
 
 export default {
   name: 'SiteNav',
   components: {
     RssLogo
   }
-}
+};
 </script>
 
 <style lang="scss">

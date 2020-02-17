@@ -1,12 +1,12 @@
 <script>
 export default {
-  name : 'RssLogo',
+  name: 'RssLogo',
   props: {
     color: {
       type: String
     }
   }
-}
+};
 </script>
 
 <template>
@@ -47,7 +47,6 @@ export default {
 }
 
 .is-green {
-  fill: $primary-green
+  fill: $primary-green;
 }
-
 </style>

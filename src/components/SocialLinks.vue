@@ -1,8 +1,10 @@
 <template>
   <div class="social-links">
-    <a v-for="account in accounts" 
-    :href="account.url" 
-    :key="`social-${account.type}`">
+    <a
+      v-for="account in accounts"
+      :href="account.url"
+      :key="`social-${account.type}`"
+    >
       <component :is="`${account.type}-icon`" />
       <span class="sr-only">{{ account.type }}</span>
     </a>
@@ -17,7 +19,7 @@ export default {
   name: 'SocialLinks',
   components: {
     TwitterIcon,
-    InstagramIcon,
+    InstagramIcon
   },
   data() {
     return {
@@ -31,9 +33,9 @@ export default {
           url: 'https://www.instagram.com/enjoythevuecast'
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -44,7 +46,7 @@ export default {
     fill: white;
 
     &:not(:last-child) {
-        margin-right: 1rem;
+      margin-right: 1rem;
     }
   }
 }
@@ -56,7 +58,7 @@ export default {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 </style>

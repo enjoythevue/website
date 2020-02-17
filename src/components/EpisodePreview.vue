@@ -1,5 +1,5 @@
 <script>
-import { format } from 'date-fns'
+import { format } from 'date-fns';
 
 export default {
   name: 'EpisodePreview',
@@ -13,10 +13,10 @@ export default {
     publishedDate() {
       // Utilize date-fns formatting
       // https://date-fns.org/v2.9.0/docs/format
-      return format(new Date(this.episode.date_published), 'PPPP')
+      return format(new Date(this.episode.date_published), 'PPPP');
     }
   }
-}
+};
 </script>
 
 <template>
