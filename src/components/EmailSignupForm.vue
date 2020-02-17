@@ -1,5 +1,5 @@
 <script>
-import MailerLite from '../scripts/mailerlite'
+import MailerLite from '../scripts/mailerlite';
 
 export default {
   name: 'EmailSignupForm',
@@ -11,12 +11,12 @@ export default {
         'script',
         'https://static.mailerlite.com/js/universal.js',
         'ml'
-      )
+      );
 
-      const ml_account = ml('accounts', '1853384', 'u6y8f1w6i9', 'load')
+      const ml_account = ml('accounts', '1853384', 'u6y8f1w6i9', 'load');
     }
   }
-}
+};
 </script>
 
 <template>
@@ -35,7 +35,7 @@ export default {
 // Oh it hurts me so much to write CSS like this... :cries:
 #mlb2-1753778 {
   p {
-    font-family: "Barlow", sans-serif !important;
+    font-family: 'Barlow', sans-serif !important;
     font-size: 1.5rem !important;
   }
 
@@ -43,12 +43,12 @@ export default {
     padding: 0 !important;
 
     .ml-form-checkboxRow label p:last-child {
-      font-family: "Barlow", sans-serif !important;
+      font-family: 'Barlow', sans-serif !important;
       font-size: 1.4rem !important;
     }
 
     .ml-form-embedSubmit button:first-child {
-      font-family: "Barlow", sans-serif !important;
+      font-family: 'Barlow', sans-serif !important;
       font-size: 1.5rem !important;
     }
   }

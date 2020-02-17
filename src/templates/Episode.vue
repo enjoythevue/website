@@ -92,10 +92,10 @@ query ($id: ID!) {
 </page-query>
 
 <script>
-import MediaPlayer from '../components/MediaPlayer.vue'
-import SponsorshipBox from '../components/SponsorshipBox.vue'
-import Panelists from '../components/Panelists.vue'
-import * as marked from 'marked'
+import MediaPlayer from '../components/MediaPlayer.vue';
+import SponsorshipBox from '../components/SponsorshipBox.vue';
+import Panelists from '../components/Panelists.vue';
+import * as marked from 'marked';
 
 export default {
   name: 'EpisodeDetail',
@@ -110,11 +110,11 @@ export default {
       ben_picks,
       ari_picks,
       elizabeth_picks
-    } = this.$page.episode.picks
+    } = this.$page.episode.picks;
   },
   computed: {
     formattedDate() {
-      const { date_published } = this.$page.episode
+      const { date_published } = this.$page.episode;
       const months = [
         'January',
         'February',
@@ -128,12 +128,12 @@ export default {
         'October',
         'November',
         'December'
-      ]
-      const date = new Date(date_published)
-      const month = months[date.getMonth()]
-      const day = date.getDate()
-      const year = date.getFullYear()
-      return `${month} ${day}, ${year}`
+      ];
+      const date = new Date(date_published);
+      const month = months[date.getMonth()];
+      const day = date.getDate();
+      const year = date.getFullYear();
+      return `${month} ${day}, ${year}`;
     },
     picks() {
       const {
@@ -141,22 +141,22 @@ export default {
         ben_picks,
         ari_picks,
         elizabeth_picks
-      } = this.$page.episode.picks
+      } = this.$page.episode.picks;
       return {
         chris: chris_picks.length ? [...chris_picks.split(',')] : [],
         ben: ben_picks.length ? [...ben_picks.split(',')] : [],
         ari: ari_picks.length ? [...ari_picks.split(',')] : [],
         elizabeth: elizabeth_picks.length ? [...elizabeth_picks.split(',')] : []
-      }
+      };
     },
     compiledShownotes() {
-      return marked(this.$page.episode.shownotes, { sanitize: true })
+      return marked(this.$page.episode.shownotes, { sanitize: true });
     },
     compiledTranscript() {
-      return marked(this.$page.episode.transcript, { sanitize: true })
+      return marked(this.$page.episode.transcript, { sanitize: true });
     }
   }
-}
+};
 </script>
 <style lang="scss">
 @import '../styles/variables.scss';

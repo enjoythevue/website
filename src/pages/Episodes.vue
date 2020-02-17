@@ -1,5 +1,5 @@
 <script>
-import EpisodePreview from '../components/EpisodePreview'
+import EpisodePreview from '../components/EpisodePreview';
 
 export default {
   metaInfo: {
@@ -8,7 +8,7 @@ export default {
   components: {
     EpisodePreview
   }
-}
+};
 </script>
 
 <template>

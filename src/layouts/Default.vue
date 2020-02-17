@@ -1,21 +1,19 @@
 <template>
   <div class="layout">
     <site-nav />
-    <slot/>
+    <slot />
     <footer class="footer">
       <social-links class="footer__social-links" />
       <div class="footer__network">
-        Part of the 
-        <a
-          href="https://codefund.io/podcasts"
-          target="_blank">
+        Part of the
+        <a href="https://codefund.io/podcasts" target="_blank">
           <g-image
-          class="footer__network-logo"
-          src="/images/codefund-horizontal-logo-color.png"
-          alt="CodeFund" />
+            class="footer__network-logo"
+            src="/images/codefund-horizontal-logo-color.png"
+            alt="CodeFund"
+          />
         </a>
         Podcast Network
-       
       </div>
     </footer>
   </div>
@@ -29,8 +27,8 @@ export default {
   name: 'Default',
   components: {
     SiteNav,
-    SocialLinks,
-  },
+    SocialLinks
+  }
 };
 </script>
 
@@ -47,7 +45,9 @@ html {
   background-image: $gradient-dark;
 }
 
-h1 { font-size: $h1-size; }
+h1 {
+  font-size: $h1-size;
+}
 
 header,
 footer {

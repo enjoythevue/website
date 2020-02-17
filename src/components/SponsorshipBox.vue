@@ -1,15 +1,11 @@
 <template>
   <div class="sponsorship">
-    <a 
-      class="sponsorship__image"
-      :href="link"
-      target="_blank"
-    >
+    <a class="sponsorship__image" :href="link" target="_blank">
       <g-image
         v-if="name && logoSrc"
-        :src="logoSrc" 
+        :src="logoSrc"
         :alt="`${name} logo`"
-        class="sponsorship__logo" 
+        class="sponsorship__logo"
       />
     </a>
     <div class="sponsorship__offer">
@@ -17,10 +13,9 @@
         <span class="sponsorship__offer-label">Special offer - $20 off</span>
 
         <p class="sponsorship__offer-content">{{ content }}</p>
-        <span 
-          v-if="code"
-          class="sponsorship__offer-code"
-        >Code: {{ code }}</span>
+        <span v-if="code" class="sponsorship__offer-code"
+          >Code: {{ code }}</span
+        >
       </div>
     </div>
   </div>
@@ -32,29 +27,29 @@ export default {
     name: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     logoSrc: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     link: {
       type: String,
       required: false,
-      default: '#',
+      default: '#'
     },
     content: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     code: {
       type: String,
       required: false,
-      default: '',
-    },
-  },
+      default: ''
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -79,7 +74,7 @@ export default {
       justify-content: center;
       flex-wrap: nowrap;
       width: 50%;
-    } 
+    }
   }
 
   &__offer {
@@ -94,12 +89,12 @@ export default {
   &__label {
     display: flex;
     font-size: $body-font-md;
-    font-family: $font-secondary
+    font-family: $font-secondary;
   }
 
   &__logo {
     height: 70px;
-    padding-right: 4rem; 
+    padding-right: 4rem;
     // margin: 2rem auto;
     margin-bottom: 2rem;
 

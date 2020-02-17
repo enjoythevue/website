@@ -1,14 +1,13 @@
-
 <script>
-import SpeakerIcon from '../image-components/SpeakerIcon'
+import SpeakerIcon from '../image-components/SpeakerIcon';
 export default {
   name: 'MediaPlayer',
-  components: {SpeakerIcon},
+  components: { SpeakerIcon },
   props: {
     coverArtSrc: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     episodeNumber: {
       type: Number,
@@ -17,61 +16,62 @@ export default {
     rssLink: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     downloadLink: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     sharingLink: {
       type: String,
       required: false,
-      default: '',
+      default: ''
     },
     audioLink: {
       type: String,
       required: false,
-      default: '',
-    },
+      default: ''
+    }
   },
   data() {
     return {
       player: {
-        volume: 1,
+        volume: 1
       },
       isPlaying: false,
       duration: 0,
       currentTime: 0,
       playbackRate: 1
-    }
+    };
   },
   computed: {
     episodeLabel() {
-      return `enjoy-the-view-episode-${this.episodeNumber}`
+      return `enjoy-the-view-episode-${this.episodeNumber}`;
     },
     percentComplete() {
-			return parseFloat(this.currentTime / this.duration * 100).toFixed(4);
+      return parseFloat((this.currentTime / this.duration) * 100).toFixed(4);
     },
     formattedCurrentTime() {
-      return this.formatTime(this.currentTime)
+      return this.formatTime(this.currentTime);
     },
     formattedDuration() {
-      return this.formatTime(this.duration)
+      return this.formatTime(this.duration);
     },
     lastPlayedLabel() {
-      return `${this.episodeLabel}-last-played`
+      return `${this.episodeLabel}-last-played`;
     }
   },
   watch: {
     currentTime(newVal) {
-      window.localStorage.setItem(this.lastPlayedLabel, newVal)
+      window.localStorage.setItem(this.lastPlayedLabel, newVal);
     }
   },
   mounted() {
     this.player = this.$refs.player;
 
-    this.player.currentTime = window.localStorage.getItem(this.lastPlayedLabel) || 0
+    this.player.currentTime =
+      window.localStorage.getItem(this.lastPlayedLabel) || 0;
     this.player.addEventListener('loadeddata', this.onLoad);
     this.player.addEventListener('timeupdate', this.updateTime);
   },
@@ -83,7 +83,7 @@ export default {
     onLoad() {
       this.duration = parseInt(this.player.duration);
     },
-    updateTime() {      
+    updateTime() {
       this.currentTime = parseInt(this.player.currentTime);
     },
     togglePlay() {
@@ -109,21 +109,21 @@ export default {
     },
     changePlaybackRate() {
       if (this.player.playbackRate === 2) {
-        this.player.playbackRate = 0.5
-        this.playbackRate = 0.5
+        this.player.playbackRate = 0.5;
+        this.playbackRate = 0.5;
       } else {
-        this.playbackRate = this.player.playbackRate + 0.5
-        this.player.playbackRate = this.player.playbackRate + 0.5
+        this.playbackRate = this.player.playbackRate + 0.5;
+        this.player.playbackRate = this.player.playbackRate + 0.5;
       }
     },
     setCurrentTime(time) {
-      this.player.currentTime = time
+      this.player.currentTime = time;
     },
     skipToTime(e) {
-      let lineWidth =  this.$refs.timeLine.clientWidth
-      let clickPosition = e.offsetX
-      let newTime = Math.round((clickPosition / lineWidth) * this.duration)
-      this.setCurrentTime(newTime)
+      let lineWidth = this.$refs.timeLine.clientWidth;
+      let clickPosition = e.offsetX;
+      let newTime = Math.round((clickPosition / lineWidth) * this.duration);
+      this.setCurrentTime(newTime);
     }
   }
 };
@@ -138,48 +138,43 @@ export default {
         <button
           title="playback rate"
           class="media__pause-play-button"
-          @click="togglePlay">
+          @click="togglePlay"
+        >
           <span :class="isPlaying ? 'pause-icon' : 'play-icon'" />
         </button>
         <div class="media__time-line" @click="skipToTime" ref="timeLine">
-          <div 
-            :style="{width: `${ percentComplete}%`}"
+          <div
+            :style="{ width: `${percentComplete}%` }"
             class="media__progress-line"
           />
         </div>
       </div>
       <div class="media__bottom-area">
-        <span class="media__current-time">{{ formattedCurrentTime }} / {{ formattedDuration }}</span>
+        <span class="media__current-time"
+          >{{ formattedCurrentTime }} / {{ formattedDuration }}</span
+        >
         <button @click="changePlaybackRate" class="media__playback-rate-button">
-          {{playbackRate}}x</button>
-        <SpeakerIcon class="media__speaker-icon"/>
-        <input class="media__volume" type="range" min="0" max="1" step="0.01" v-model="player.volume">
+          {{ playbackRate }}x
+        </button>
+        <SpeakerIcon class="media__speaker-icon" />
+        <input
+          class="media__volume"
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          v-model="player.volume"
+        />
         <div class="media__links">
-          <a 
-            v-if="sharingLink"
-            :href="sharingLink"
-          >Share</a>
-          <a 
-            v-if="downloadLink"
-            :href="downloadLink" 
-          >Download</a>
-          <a 
-            v-if="rssLink"
-            :href="rssLink" 
-            target="_blank"
-          >Subscribe</a>
+          <a v-if="sharingLink" :href="sharingLink">Share</a>
+          <a v-if="downloadLink" :href="downloadLink">Download</a>
+          <a v-if="rssLink" :href="rssLink" target="_blank">Subscribe</a>
         </div>
       </div>
     </div>
-    
-    <!-- The actual audio player that is hidden from view -->
-    <audio 
 
-      ref="player"
-      style="display: none;"
-      :src="audioLink"
-    >
-    </audio>
+    <!-- The actual audio player that is hidden from view -->
+    <audio ref="player" style="display: none;" :src="audioLink"></audio>
   </div>
 </template>
 
@@ -194,12 +189,14 @@ export default {
   box-shadow: 0px 0px 12px rgba(black, 0.2);
 
   @media (min-width: $breakpoint-sm) {
-      height: 140px;
+    height: 140px;
   }
 
   &__cover {
     height: 100%;
-    img { height: 100%; }
+    img {
+      height: 100%;
+    }
   }
 
   &__controls {
@@ -246,8 +243,6 @@ export default {
       margin-right: 2rem;
     }
 
-    
-
     .play-icon,
     .pause-icon {
       position: absolute;
@@ -256,20 +251,20 @@ export default {
     }
 
     .play-icon {
-      width: 0; 
-      height: 0; 
+      width: 0;
+      height: 0;
       border-top: 8px solid transparent;
       border-bottom: 8px solid transparent;
       border-left: 8px solid $bright-pink;
       margin-left: 1px;
     }
-    
+
     .pause-icon {
       height: 14px;
       width: 12px;
       display: flex;
       justify-content: space-between;
-      
+
       &::before,
       &::after {
         content: '';
@@ -286,7 +281,7 @@ export default {
     padding: 0 2px;
     margin-top: -1rem;
     margin-left: 55px;
-    
+
     color: white;
     border: none;
     background: transparent;
@@ -318,7 +313,7 @@ export default {
     }
   }
 
-  input[type="range"] {
+  input[type='range'] {
     -webkit-appearance: none;
     background: transparent;
     width: 85px;
@@ -359,7 +354,6 @@ export default {
       background: darken($secondary-green, 10%);
       border-radius: 2px;
     }
-
 
     // IE
     &::-ms-track {
@@ -411,7 +405,6 @@ export default {
     // font-size: $body-font-sm;
     margin-top: -5rem;
     margin-left: 60px;
-    
 
     @media (min-width: $breakpoint-sm) {
       position: relative;

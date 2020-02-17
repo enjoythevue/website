@@ -3,55 +3,78 @@ backend:
   repo: enjoythevue/website
 
 publish_mode: editorial_workflow
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: 'static/uploads'
+public_folder: '/uploads'
 
 collections:
-  - name: "panelists"
-    label: "Panelists"
-    folder: "panelists"
+  - name: 'panelists'
+    label: 'Panelists'
+    folder: 'panelists'
     create: true
     identifier_field: name
     fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Website", name: "website", widget: "string"}
-      - {label: "Image", name: "image", widget: "image"}
-  - name: "episodes"
-    label: "Episodes"
-    folder: "episodes"
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Website', name: 'website', widget: 'string' }
+      - { label: 'Image', name: 'image', widget: 'image' }
+  - name: 'episodes'
+    label: 'Episodes'
+    folder: 'episodes'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     identifier_field: episode-number
     fields:
-      - {label: "Episode number", name: "episode-number", widget: "number"}
-      - {label: "Episode title", name: "episode-title", widget: "string"}
-      - {label: "Date published", name: "date-published", widget: "datetime"}
-      - {label: "Cover art", name: "cover-art", widget: "image"}
-      - {label: "Sharing link", name: "sharing-link", widget: "string"}
-      - {label: "RSS link", name: "rss-link", widget: "string"}
-      - {label: "Download link", name: "download-link", widget: "string"}
-      - {label: "Audio link", name: "audio-link", widget: "string"}
-      - label: "Sponsorship details"
-        name: "sponsorship-details"
-        widget: "object"
-        fields: 
-          - {label: "Sponsor name", name: "sponsor-name", widget: "string"}
-          - {label: "Sponsor logo", name: "sponsor-logo", widget: "image"}
-          - {label: "Sponsor link", name: "sponsor-link", widget: "string"}
-          - {label: "Offer details", name: "sponsor-offer-details", widget: "markdown"}
-          - {label: "Offer code", name: "sponsor-offer-code", widget: "string"}
-      - label: "Picks"
-        name: "picks"
-        widget: "object"
-        fields: 
-          - {label: "Chris picks", name: "chris-picks", widget: "markdown", required: false}
-          - {label: "Ben picks", name: "ben-picks", widget: "markdown", required: false}
-          - {label: "Ari picks", name: "ari-picks", widget: "markdown", required: false}
-          - {label: "Elizabeth picks", name: "elizabeth-picks", widget: "markdown", required: false}
-      - {label: "Shownotes", name: "shownotes", widget: "markdown"}
-      - {label: "Transcript", name: "transcript", widget: "markdown"}
-
-
-
-
-      
+      - { label: 'Episode number', name: 'episode-number', widget: 'number' }
+      - { label: 'Episode title', name: 'episode-title', widget: 'string' }
+      - { label: 'Date published', name: 'date-published', widget: 'datetime' }
+      - { label: 'Cover art', name: 'cover-art', widget: 'image' }
+      - { label: 'Sharing link', name: 'sharing-link', widget: 'string' }
+      - { label: 'RSS link', name: 'rss-link', widget: 'string' }
+      - { label: 'Download link', name: 'download-link', widget: 'string' }
+      - { label: 'Audio link', name: 'audio-link', widget: 'string' }
+      - label: 'Sponsorship details'
+        name: 'sponsorship-details'
+        widget: 'object'
+        fields:
+          - { label: 'Sponsor name', name: 'sponsor-name', widget: 'string' }
+          - { label: 'Sponsor logo', name: 'sponsor-logo', widget: 'image' }
+          - { label: 'Sponsor link', name: 'sponsor-link', widget: 'string' }
+          - {
+              label: 'Offer details',
+              name: 'sponsor-offer-details',
+              widget: 'markdown',
+            }
+          - {
+              label: 'Offer code',
+              name: 'sponsor-offer-code',
+              widget: 'string',
+            }
+      - label: 'Picks'
+        name: 'picks'
+        widget: 'object'
+        fields:
+          - {
+              label: 'Chris picks',
+              name: 'chris-picks',
+              widget: 'markdown',
+              required: false,
+            }
+          - {
+              label: 'Ben picks',
+              name: 'ben-picks',
+              widget: 'markdown',
+              required: false,
+            }
+          - {
+              label: 'Ari picks',
+              name: 'ari-picks',
+              widget: 'markdown',
+              required: false,
+            }
+          - {
+              label: 'Elizabeth picks',
+              name: 'elizabeth-picks',
+              widget: 'markdown',
+              required: false,
+            }
+      - { label: 'Shownotes', name: 'shownotes', widget: 'markdown' }
+      - { label: 'Transcript', name: 'transcript', widget: 'markdown' }
