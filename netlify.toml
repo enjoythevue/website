@@ -3,3 +3,10 @@
   to = "https://feeds.fireside.fm/enjoy-the-vue/rss"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/5"
+  to = "/episodes/5/"
+  status = 301
+  force = false
+
