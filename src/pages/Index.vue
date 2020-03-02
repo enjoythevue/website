@@ -64,7 +64,7 @@ export default {
             class="btn btn--primary mb-2r"
             ><rss-logo class="mr-05r" /> Subscribe to our podcast</a
           >
-          <g-link class="btn btn--secondary" to="/episodes/4">
+          <g-link class="btn btn--secondary" to="/episodes/6">
             Listen to the most recent episode
           </g-link>
         </div>
