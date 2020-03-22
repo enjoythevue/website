@@ -16,6 +16,25 @@ collections:
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Website', name: 'website', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
+  - name: 'sponsors'
+    label: 'Sponsors'
+    folder: 'sponsors'
+    create: true
+    identifier_field: sponsor-name
+    fields:
+      - { label: 'Sponsor name', name: 'sponsor-name', widget: 'string' }
+      - { label: 'Sponsor logo', name: 'sponsor-logo', widget: 'image' }
+      - { label: 'Sponsor link', name: 'sponsor-link', widget: 'string' }
+      - {
+          label: 'Offer details',
+          name: 'sponsor-offer-details',
+          widget: 'markdown',
+        }
+      - {
+          label: 'Offer code',
+          name: 'sponsor-offer-code',
+          widget: 'string',
+        }
   - name: 'episodes'
     label: 'Episodes'
     folder: 'episodes'
@@ -31,23 +50,13 @@ collections:
       - { label: 'RSS link', name: 'rss-link', widget: 'string' }
       - { label: 'Download link', name: 'download-link', widget: 'string' }
       - { label: 'Audio link', name: 'audio-link', widget: 'string' }
-      - label: 'Sponsorship details'
-        name: 'sponsorship-details'
-        widget: 'object'
-        fields:
-          - { label: 'Sponsor name', name: 'sponsor-name', widget: 'string' }
-          - { label: 'Sponsor logo', name: 'sponsor-logo', widget: 'image' }
-          - { label: 'Sponsor link', name: 'sponsor-link', widget: 'string' }
-          - {
-              label: 'Offer details',
-              name: 'sponsor-offer-details',
-              widget: 'markdown',
-            }
-          - {
-              label: 'Offer code',
-              name: 'sponsor-offer-code',
-              widget: 'string',
-            }
+      - label: 'Sponsor'
+        name: 'sponsor'
+        widget: 'relation'
+        collection: 'sponsors'
+        searchFields: ["sponsor.name"]
+        valueField: "sponsor.name"
+        displayFields: ["sponsor.name"]
       - label: 'Picks'
         name: 'picks'
         widget: 'object'
