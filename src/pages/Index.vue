@@ -42,6 +42,15 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    latestEpisodeNumber() {
+      return this.$page.allEpisode.edges
+        .map(edge => edge.node.episode_number)[0];
+    },
+    latestEpisodeUrl() {
+      return `/episodes/${this.latestEpisodeNumber}`;
+    }
   }
 };
 </script>
@@ -64,7 +73,7 @@ export default {
             class="btn btn--primary mb-2r"
             ><rss-logo class="mr-05r" /> Subscribe to our podcast</a
           >
-          <g-link class="btn btn--secondary" to="/episodes/9">
+          <g-link class="btn btn--secondary" :to="latestEpisodeUrl">
             Listen to the most recent episode
           </g-link>
         </div>
@@ -202,3 +211,15 @@ export default {
   }
 }
 </style>
+
+<page-query>
+query {
+  allEpisode(sortBy: "episode-number", order: DESC, limit: 1) {
+    edges {
+      node {
+        episode_number
+      }
+    }
+  }
+}
+</page-query>
