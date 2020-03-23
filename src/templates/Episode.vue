@@ -9,14 +9,14 @@
           >
           <h1 class="episode__title">{{ $page.episode.episode_title }}</h1>
           <div>
-            <media-player
+            <!-- <media-player
               :episode-number="$page.episode.episode_number"
               :cover-art-src="$page.episode.cover_art"
               :sharing-link="$page.episode.sharing_link"
               :download-link="$page.episode.download_link"
               :rss-link="$page.episode.rss_link"
               :audio-link="$page.episode.audio_link"
-            />
+            /> -->
           </div>
         </div>
       </section>
@@ -25,11 +25,11 @@
         <div class="container__section-inner">
           <h2>This episode is sponsored by...</h2>
           <sponsorship-box
-            :name="$page.episode.sponsorship_details.sponsor_name"
-            :logoSrc="$page.episode.sponsorship_details.sponsor_logo"
-            :link="$page.episode.sponsorship_details.sponsor_link"
-            :content="$page.episode.sponsorship_details.sponsor_offer_details"
-            :code="$page.episode.sponsorship_details.sponsor_offer_code"
+            :name="$page.sponsor.sponsor_name"
+            :logoSrc="$page.sponsor.sponsor_logo"
+            :link="$page.sponsor.sponsor_link"
+            :content="$page.sponsor.sponsor_offer_details"
+            :code="$page.sponsor.sponsor_offer_code"
           />
         </div>
       </section>
@@ -63,6 +63,13 @@
 
 <page-query>
 query ($id: ID!) {
+  sponsor("Linode") {
+    sponsor_name
+    sponsor_link
+    sponsor_logo
+    sponsor_offer_details
+    sponsor_offer_code
+  }
   episode(id: $id) {
     episode_number
     episode_title
@@ -72,13 +79,7 @@ query ($id: ID!) {
     download_link
     rss_link
     audio_link
-    sponsorship_details {
-      sponsor_name
-      sponsor_link
-      sponsor_logo
-      sponsor_offer_details
-      sponsor_offer_code
-    }
+    sponsor
     picks {
       chris_picks
       ben_picks

@@ -54,9 +54,9 @@ collections:
         name: 'sponsor'
         widget: 'relation'
         collection: 'sponsors'
-        searchFields: ["sponsor.name"]
-        valueField: "sponsor.name"
-        displayFields: ["sponsor.name"]
+        searchFields: ["sponsor-name"]
+        valueField: "sponsor-name"
+        displayFields: ["sponsor-name"]
       - label: 'Picks'
         name: 'picks'
         widget: 'object'
