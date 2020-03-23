@@ -18,7 +18,7 @@ export default {
           // Sort in descending order
           if (nextItem.episode_number < currentItem.episode_number) {
             return -1;
-          } else if (nextItem.episode_numberr > currentItem.episode_number) {
+          } else if (nextItem.episode_number > currentItem.episode_number) {
             return 1;
           } else {
             return 0;
