@@ -24,13 +24,13 @@
       <section class="container__section episode__sponsorship">
         <div class="container__section-inner">
           <h2>This episode is sponsored by...</h2>
-          <sponsorship-box
+          <!-- <sponsorship-box
             :name="$page.episode.sponsorship_details.sponsor_name"
             :logoSrc="$page.episode.sponsorship_details.sponsor_logo"
             :link="$page.episode.sponsorship_details.sponsor_link"
             :content="$page.episode.sponsorship_details.sponsor_offer_details"
             :code="$page.episode.sponsorship_details.sponsor_offer_code"
-          />
+          /> -->
         </div>
       </section>
 
@@ -72,7 +72,7 @@ query ($id: ID!) {
     download_link
     rss_link
     audio_link
-    sponsorship_details {
+    sponsor {
       sponsor_name
       sponsor_link
       sponsor_logo
