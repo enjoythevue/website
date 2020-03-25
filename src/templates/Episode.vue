@@ -93,6 +93,32 @@ query ($id: ID!) {
       }
     }
   }
+  # @Elizabeth: This technically works, but I don't know if
+  # we can dynamicaly swap out the sponsor_name value based 
+  # on the current GraphQL request.
+  #
+  # allSponsor(filter: { sponsor_name: { eq: "Linode" } }) {
+  #   edges {
+  #     node {
+  #       id
+  #       sponsor_name
+  #     }
+  #   }
+  # }
+  # Another ideal which I explored but don't know exactly how yet
+  # is to expose the sponsor_name as a searchable parameter for 
+  # the sponsor so we could do something like 
+  # 
+  # sponsor(sponsor_name: "Linode") {
+  #   sponsor_name
+  #   sponsor_image
+  #   ...
+  # }
+  #
+  # The only problem is that even if we get the above to work,
+  # we still have the same problem as far as needing to dynamically
+  # switch out the sponsor which based on the current episode
+  # which I'm not sure is even possible
 }
 </page-query>
 
