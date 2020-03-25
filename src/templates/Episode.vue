@@ -93,7 +93,17 @@ query ($id: ID!) {
       }
     }
   }
-  # @Elizabeth: This technically works, but I don't know if
+  # @Elizabeth: 
+  #
+  # I looked more into the Gatsby link you sent and that is
+  # how it should work from a mapping perspective. Ideally 
+  # the hacks I'm talking about below wouldn't even be necessary
+  # since GraphQL normally allows you to just link data between
+  # the two based on foreign keys, but this may be a limitation
+  # of Gridsome and might require some kind of mapping plugin
+  # that doesn't yet exist as far as I can tell.
+  #
+  # This technically works, but I don't know if
   # we can dynamicaly swap out the sponsor_name value based 
   # on the current GraphQL request.
   #
