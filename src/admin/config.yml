@@ -47,7 +47,12 @@ collections:
       - { label: 'Date published', name: 'date-published', widget: 'datetime' }
       - { label: 'Cover art', name: 'cover-art', widget: 'image' }
       - { label: 'Sharing link', name: 'sharing-link', widget: 'string' }
-      - { label: 'RSS link', name: 'rss-link', widget: 'string' }
+      - {
+          label: 'RSS link',
+          name: 'rss-link',
+          widget: 'string',
+          default: 'https://feeds.fireside.fm/enjoy-the-vue/rss',
+        }
       - { label: 'Download link', name: 'download-link', widget: 'string' }
       - { label: 'Audio link', name: 'audio-link', widget: 'string' }
       - label: 'Sponsor'
@@ -57,6 +62,7 @@ collections:
         searchFields: ["sponsor-name"]
         valueField: "sponsor-name"
         displayFields: ["sponsor-name"]
+        default: 'Linode'
       - label: 'Picks'
         name: 'picks'
         widget: 'object'
@@ -85,5 +91,15 @@ collections:
               widget: 'markdown',
               required: false,
             }
-      - { label: 'Shownotes', name: 'shownotes', widget: 'markdown' }
-      - { label: 'Transcript', name: 'transcript', widget: 'markdown' }
+      - {
+          label: 'Shownotes',
+          name: 'shownotes',
+          widget: 'markdown',
+          default: 'Coming soon!',
+        }
+      - {
+          label: 'Transcript',
+          name: 'transcript',
+          widget: 'markdown',
+          default: 'Coming soon!',
+        }
