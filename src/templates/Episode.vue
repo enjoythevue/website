@@ -25,11 +25,11 @@
         <div class="container__section-inner">
           <h2>This episode is sponsored by...</h2>
           <sponsorship-box
-            :name="$page.episode.sponsorship_details.sponsor_name"
-            :logoSrc="$page.episode.sponsorship_details.sponsor_logo"
-            :link="$page.episode.sponsorship_details.sponsor_link"
-            :content="$page.episode.sponsorship_details.sponsor_offer_details"
-            :code="$page.episode.sponsorship_details.sponsor_offer_code"
+            :name="sponsor.sponsor_name"
+            :logoSrc="sponsor.sponsor_logo"
+            :link="sponsor.sponsor_link"
+            :content="sponsor.sponsor_offer_details"
+            :code="sponsor.sponsor_offer_code"
           />
         </div>
       </section>
@@ -72,13 +72,7 @@ query ($id: ID!) {
     download_link
     rss_link
     audio_link
-    sponsorship_details {
-      sponsor_name
-      sponsor_link
-      sponsor_logo
-      sponsor_offer_details
-      sponsor_offer_code
-    }
+    sponsor
     picks {
       chris_picks
       ben_picks
@@ -87,6 +81,17 @@ query ($id: ID!) {
     }
     shownotes
     transcript
+  }
+  allSponsor {
+    edges {
+      node {
+        sponsor_name
+        sponsor_logo
+        sponsor_link
+        sponsor_offer_details
+        sponsor_offer_code
+      }
+    }
   }
 }
 </page-query>
@@ -154,6 +159,13 @@ export default {
     },
     compiledTranscript() {
       return marked(this.$page.episode.transcript, { sanitize: true });
+    },
+    sponsor() {
+      const sponsorEdge = this.$page.allSponsor.edges.filter(
+        edge => edge.node['sponsor_name'] === this.$page.episode.sponsor
+      )[0];
+
+      return sponsorEdge.node;
     }
   }
 };
