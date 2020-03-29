@@ -24,9 +24,12 @@
         <ul>
           <li
             v-for="(pick, index) in panelist.picks"
-            :key="index"
-            v-html="pick"
-          />
+            :key="`${pick.person}-${index}`"
+            class="episode-pick"
+            :data-person="`${panelist.name}`"
+          >
+            <a :href="pick.website">{{ pick.title }}</a>
+          </li>
         </ul>
       </div>
     </div>
