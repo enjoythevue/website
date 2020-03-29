@@ -62,6 +62,21 @@ collections:
         valueField: 'sponsor-name'
         displayFields: ['sponsor-name']
         default: 'Linode'
+      - label: 'New Picks'
+        name: 'new-picks'
+        widget: 'list'
+        fields:
+          - {
+              label: 'Person',
+              name: 'person',
+              widget: 'relation',
+              collection: 'panelists',
+              searchFields: ['name'],
+              valueField: 'name',
+              displayFields: ['name'],
+            }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Website', name: 'website', widget: 'string' }
       - label: 'Picks'
         name: 'picks'
         widget: 'object'
