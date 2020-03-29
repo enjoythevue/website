@@ -80,12 +80,6 @@ query ($id: ID!) {
         website
       }
     }
-    picks {
-      chris_picks
-      ben_picks
-      ari_picks
-      elizabeth_picks
-    }
     shownotes
     transcript
   }
@@ -121,14 +115,6 @@ export default {
     SponsorshipBox,
     Panelists
   },
-  mounted() {
-    const {
-      chris_picks,
-      ben_picks,
-      ari_picks,
-      elizabeth_picks
-    } = this.$page.episode.picks;
-  },
   computed: {
     formattedDate() {
       const { date_published } = this.$page.episode;
@@ -153,20 +139,21 @@ export default {
       return `${month} ${day}, ${year}`;
     },
     picks() {
-      // TODO: Refactor once we have a cleaner picks system
       const episodePicks = this.$page.episode.new_picks;
-      return {
-        chris: episodePicks.filter(
-          episode => episode.person === 'Chris Fritz'
-        )[0].picks,
-        ben: episodePicks.filter(episode => episode.person === 'Ben Hong')[0]
-          .picks,
-        ari: episodePicks.filter(episode => episode.person === 'Ari Clark')[0]
-          .picks,
-        elizabeth: episodePicks.filter(
-          episode => episode.person === 'Elizabeth Fine'
-        )[0].picks
-      };
+      const panelists = ['chris', 'ben', 'ari', 'elizabeth'];
+      const picks = {};
+
+      panelists.forEach(panelist => {
+        const panelistFound = episodePicks.find(
+          item => item.person.toLowerCase().indexOf(panelist) > -1
+        );
+
+        if (panelistFound) {
+          picks[panelist] = panelistFound.picks;
+        }
+      });
+
+      return picks;
     },
     compiledShownotes() {
       return marked(this.$page.episode.shownotes, { sanitize: true });

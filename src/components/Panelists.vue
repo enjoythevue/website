@@ -76,7 +76,7 @@ export default {
       });
 
       const panelistsWithPicks = allPanelists.filter(panelist => {
-        return panelist.picks.length;
+        return panelist.picks;
       });
 
       return this.onlyShowPanelistsWithPicks
