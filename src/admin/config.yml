@@ -30,11 +30,7 @@ collections:
           name: 'sponsor-offer-details',
           widget: 'markdown',
         }
-      - {
-          label: 'Offer code',
-          name: 'sponsor-offer-code',
-          widget: 'string',
-        }
+      - { label: 'Offer code', name: 'sponsor-offer-code', widget: 'string' }
   - name: 'episodes'
     label: 'Episodes'
     folder: 'episodes'
@@ -59,9 +55,9 @@ collections:
         name: 'sponsor'
         widget: 'relation'
         collection: 'sponsors'
-        searchFields: ["sponsor-name"]
-        valueField: "sponsor-name"
-        displayFields: ["sponsor-name"]
+        searchFields: ['sponsor-name']
+        valueField: 'sponsor-name'
+        displayFields: ['sponsor-name']
         default: 'Linode'
       - label: 'Picks'
         name: 'picks'
