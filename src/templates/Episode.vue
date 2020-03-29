@@ -104,6 +104,11 @@ import * as marked from 'marked';
 
 export default {
   name: 'EpisodeDetail',
+  metaInfo() {
+    return {
+      title: `Episode #${this.$page.episode.episode_number}`
+    };
+  },
   components: {
     MediaPlayer,
     SponsorshipBox,
