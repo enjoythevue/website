@@ -2,6 +2,9 @@ backend:
   name: github
   repo: enjoythevue/website
 
+# when using the default proxy server port
+# local_backend: true
+
 publish_mode: editorial_workflow
 media_folder: 'static/uploads'
 public_folder: '/uploads'
