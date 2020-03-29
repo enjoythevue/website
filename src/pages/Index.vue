@@ -5,7 +5,7 @@ import RssLogo from '../image-components/RssLogo';
 
 export default {
   metaInfo: {
-    title: 'Enjoy the Vue Podcast'
+    title: 'Home'
   },
   components: {
     Panelists,
@@ -45,8 +45,9 @@ export default {
   },
   computed: {
     latestEpisodeNumber() {
-      return this.$page.allEpisode.edges
-        .map(edge => edge.node.episode_number)[0];
+      return this.$page.allEpisode.edges.map(
+        edge => edge.node.episode_number
+      )[0];
     },
     latestEpisodeUrl() {
       return `/episodes/${this.latestEpisodeNumber}`;
