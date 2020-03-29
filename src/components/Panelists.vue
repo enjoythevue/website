@@ -28,7 +28,10 @@
             class="episode-pick"
             :data-person="`${panelist.name}`"
           >
-            <a :href="pick.website">{{ pick.title }}</a>
+            <a
+              v-if="pick.website"
+              :href="pick.website">{{ pick.title }}</a>
+            <span v-else>{{ pick.title }}</span>
           </li>
         </ul>
       </div>
