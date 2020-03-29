@@ -74,10 +74,11 @@ query ($id: ID!) {
     audio_link
     sponsor
     picks {
-      chris_picks
-      ben_picks
-      ari_picks
-      elizabeth_picks
+      person 
+      picks {
+        title
+        website
+      }
     }
     shownotes
     transcript
@@ -114,14 +115,6 @@ export default {
     SponsorshipBox,
     Panelists
   },
-  mounted() {
-    const {
-      chris_picks,
-      ben_picks,
-      ari_picks,
-      elizabeth_picks
-    } = this.$page.episode.picks;
-  },
   computed: {
     formattedDate() {
       const { date_published } = this.$page.episode;
@@ -146,18 +139,20 @@ export default {
       return `${month} ${day}, ${year}`;
     },
     picks() {
-      const {
-        chris_picks,
-        ben_picks,
-        ari_picks,
-        elizabeth_picks
-      } = this.$page.episode.picks;
-      return {
-        chris: chris_picks.length ? [...chris_picks.split(',')] : [],
-        ben: ben_picks.length ? [...ben_picks.split(',')] : [],
-        ari: ari_picks.length ? [...ari_picks.split(',')] : [],
-        elizabeth: elizabeth_picks.length ? [...elizabeth_picks.split(',')] : []
-      };
+      const panelists = ['chris', 'ben', 'ari', 'elizabeth'];
+      const picks = {};
+
+      panelists.forEach(panelist => {
+        const panelistFound = this.$page.episode.picks.find(
+          item => item.person.toLowerCase().indexOf(panelist) > -1
+        );
+
+        if (panelistFound) {
+          picks[panelist] = panelistFound.picks;
+        }
+      });
+
+      return picks;
     },
     compiledShownotes() {
       return marked(this.$page.episode.shownotes, { sanitize: true });

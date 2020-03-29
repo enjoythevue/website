@@ -2,6 +2,9 @@ backend:
   name: github
   repo: enjoythevue/website
 
+# when using the default proxy server port
+# local_backend: true
+
 publish_mode: editorial_workflow
 media_folder: 'static/uploads'
 public_folder: '/uploads'
@@ -30,11 +33,7 @@ collections:
           name: 'sponsor-offer-details',
           widget: 'markdown',
         }
-      - {
-          label: 'Offer code',
-          name: 'sponsor-offer-code',
-          widget: 'string',
-        }
+      - { label: 'Offer code', name: 'sponsor-offer-code', widget: 'string' }
   - name: 'episodes'
     label: 'Episodes'
     folder: 'episodes'
@@ -59,10 +58,33 @@ collections:
         name: 'sponsor'
         widget: 'relation'
         collection: 'sponsors'
-        searchFields: ["sponsor-name"]
-        valueField: "sponsor-name"
-        displayFields: ["sponsor-name"]
+        searchFields: ['sponsor-name']
+        valueField: 'sponsor-name'
+        displayFields: ['sponsor-name']
         default: 'Linode'
+      - label: 'New Picks'
+        name: 'picks'
+        widget: 'list'
+        fields:
+          - {
+              label: 'Person',
+              name: 'person',
+              widget: 'relation',
+              collection: 'panelists',
+              searchFields: ['name'],
+              valueField: 'name',
+              displayFields: ['name'],
+            }
+          - {
+              label: 'Picks',
+              name: 'picks',
+              widget: 'list',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Website', name: 'website', widget: 'string' },
+                ],
+            }
       - label: 'Picks'
         name: 'picks'
         widget: 'object'
