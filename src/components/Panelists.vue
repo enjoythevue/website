@@ -30,7 +30,8 @@
           >
             <a
               v-if="pick.website"
-              :href="pick.website">{{ pick.title }}</a>
+              :href="pick.website"
+              target="_blank">{{ pick.title }}</a>
             <span v-else>{{ pick.title }}</span>
           </li>
         </ul>
