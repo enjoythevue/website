@@ -45,12 +45,14 @@ export default {
   },
   computed: {
     latestEpisodeNumber() {
+      // TODO: Only map latest node if it is considered published
       return this.$page.allEpisode.edges.map(
         edge => edge.node.episode_number
       )[0];
     },
     latestEpisodeUrl() {
-      return `/episodes/${this.latestEpisodeNumber}`;
+      // TODO: Fix so it is dynamic
+      return `/episodes/9`;
     }
   }
 };
