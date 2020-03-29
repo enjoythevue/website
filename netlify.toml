@@ -10,3 +10,62 @@
   status = 301
   force = false
 
+[[redirects]]
+  from = "//1"
+  to = "/episodes/1"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//2"
+  to = "/episodes/2"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//3"
+  to = "/episodes/3"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//4"
+  to = "/episodes/4"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//5"
+  to = "/episodes/5"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//6"
+  to = "/episodes/6"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//7"
+  to = "/episodes/7"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//8"
+  to = "/episodes/8"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//9"
+  to = "/episodes/9"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "//10"
+  to = "/episodes/10"
+  status = 301
+  force = false
