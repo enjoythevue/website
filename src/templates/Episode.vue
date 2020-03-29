@@ -73,6 +73,13 @@ query ($id: ID!) {
     rss_link
     audio_link
     sponsor
+    new_picks {
+      person 
+      picks {
+        title
+        website
+      }
+    }
     picks {
       chris_picks
       ben_picks
@@ -146,17 +153,19 @@ export default {
       return `${month} ${day}, ${year}`;
     },
     picks() {
-      const {
-        chris_picks,
-        ben_picks,
-        ari_picks,
-        elizabeth_picks
-      } = this.$page.episode.picks;
+      // TODO: Refactor once we have a cleaner picks system
+      const episodePicks = this.$page.episode.new_picks;
       return {
-        chris: chris_picks.length ? [...chris_picks.split(',')] : [],
-        ben: ben_picks.length ? [...ben_picks.split(',')] : [],
-        ari: ari_picks.length ? [...ari_picks.split(',')] : [],
-        elizabeth: elizabeth_picks.length ? [...elizabeth_picks.split(',')] : []
+        chris: episodePicks.filter(
+          episode => episode.person === 'Chris Fritz'
+        )[0].picks,
+        ben: episodePicks.filter(episode => episode.person === 'Ben Hong')[0]
+          .picks,
+        ari: episodePicks.filter(episode => episode.person === 'Ari Clark')[0]
+          .picks,
+        elizabeth: episodePicks.filter(
+          episode => episode.person === 'Elizabeth Fine'
+        )[0].picks
       };
     },
     compiledShownotes() {
