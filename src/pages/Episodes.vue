@@ -9,10 +9,18 @@ export default {
     EpisodePreview
   },
   computed: {
+
     sortedEpisodes() {
+      // Cache the current time so we can compare to the publish date.
+      const now = new Date();
+      const nowISO = now.toISOString();
+
       return this.$page.allEpisode.edges
         .map(data => {
           return data.node;
+        })
+        .filter((node) => {
+;          return nowISO >= node.date_published;
         })
         .sort((currentItem, nextItem) => {
           // Sort in descending order
