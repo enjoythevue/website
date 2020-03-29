@@ -73,7 +73,7 @@ query ($id: ID!) {
     rss_link
     audio_link
     sponsor
-    new_picks {
+    picks {
       person 
       picks {
         title
@@ -139,12 +139,11 @@ export default {
       return `${month} ${day}, ${year}`;
     },
     picks() {
-      const episodePicks = this.$page.episode.new_picks;
       const panelists = ['chris', 'ben', 'ari', 'elizabeth'];
       const picks = {};
 
       panelists.forEach(panelist => {
-        const panelistFound = episodePicks.find(
+        const panelistFound = this.$page.episode.picks.find(
           item => item.person.toLowerCase().indexOf(panelist) > -1
         );
 

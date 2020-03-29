@@ -63,7 +63,7 @@ collections:
         displayFields: ['sponsor-name']
         default: 'Linode'
       - label: 'New Picks'
-        name: 'new-picks'
+        name: 'picks'
         widget: 'list'
         fields:
           - {
