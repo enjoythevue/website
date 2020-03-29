@@ -75,8 +75,16 @@ collections:
               valueField: 'name',
               displayFields: ['name'],
             }
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Website', name: 'website', widget: 'string' }
+          - {
+              label: 'Picks',
+              name: 'picks',
+              widget: 'list',
+              fields:
+                [
+                  { label: 'Title', name: 'title', widget: 'string' },
+                  { label: 'Website', name: 'website', widget: 'string' },
+                ],
+            }
       - label: 'Picks'
         name: 'picks'
         widget: 'object'
