@@ -82,7 +82,12 @@ collections:
               fields:
                 [
                   { label: 'Title', name: 'title', widget: 'string' },
-                  { label: 'Website', name: 'website', widget: 'string' },
+                  {
+                    label: 'Website',
+                    name: 'website',
+                    widget: 'string',
+                    required: false
+                  },
                 ],
             }
       - {
