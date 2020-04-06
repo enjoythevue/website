@@ -5,12 +5,12 @@ import RssLogo from '../image-components/RssLogo';
 
 export default {
   metaInfo: {
-    title: 'Home'
+    title: 'Home',
   },
   components: {
     Panelists,
     EmailSignupForm,
-    RssLogo
+    RssLogo,
   },
   data() {
     return {
@@ -23,38 +23,38 @@ export default {
         {
           name: 'Chris Fritz',
           img: 'images/chris-bio.jpeg',
-          website: 'https://twitter.com/chrisvfritz'
+          website: 'https://twitter.com/chrisvfritz',
         },
         {
           name: 'Ben Hong',
           img: 'images/ben-bio.jpeg',
-          website: 'https://twitter.com/bencodezen'
+          website: 'https://twitter.com/bencodezen',
         },
         {
           name: 'Ari Clark',
           img: 'images/ari-bio.jpeg',
-          website: 'https://twitter.com/gloomyLumi'
+          website: 'https://twitter.com/gloomyLumi',
         },
         {
           name: 'Elizabeth Fine',
           img: 'images/elizabeth-bio.jpeg',
-          website: 'https://twitter.com/elizabethfine4'
-        }
-      ]
+          website: 'https://twitter.com/elizabethfine4',
+        },
+      ],
     };
   },
   computed: {
     latestEpisodeNumber() {
       // TODO: Only map latest node if it is considered published
       return this.$page.allEpisode.edges.map(
-        edge => edge.node.episode_number
+        (edge) => edge.node.episode_number
       )[0];
     },
     latestEpisodeUrl() {
       // TODO: Fix so it is dynamic
       return `/episodes/10`;
-    }
-  }
+    },
+  },
 };
 </script>
 
