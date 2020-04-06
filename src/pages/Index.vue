@@ -52,7 +52,7 @@ export default {
     },
     latestEpisodeUrl() {
       // TODO: Fix so it is dynamic
-      return `/episodes/10`;
+      return `/episodes/11`;
     },
   },
 };
