@@ -13,8 +13,7 @@
               :episode-number="$page.episode.episode_number"
               :cover-art-src="$page.episode.cover_art"
               :sharing-link="$page.episode.sharing_link"
-              :download-link="$page.episode.download_link"
-              :rss-link="rssLink"
+              :rss-link="$page.episode.rss_link"
               :audio-link="$page.episode.audio_link"
             />
           </div>
@@ -69,7 +68,7 @@ query ($id: ID!) {
     date_published
     cover_art
     sharing_link
-    download_link
+    rss_link
     audio_link
     sponsor
     picks {
