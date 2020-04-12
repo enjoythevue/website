@@ -12,8 +12,9 @@
             <media-player
               :episode-number="$page.episode.episode_number"
               :cover-art-src="$page.episode.cover_art"
-              :sharing-link="$page.episode.sharing_link"
               :rss-link="rssLink"
+              :sharing-link="sharingLink"
+              :download-link="$page.episode.download_link"
               :audio-link="$page.episode.audio_link"
             />
           </div>
@@ -159,6 +160,9 @@ export default {
     },
     rssLink() {
       return 'https://feeds.fireside.fm/enjoy-the-vue/rss';
+    },
+    sharingLink() {
+      return `https://www.enjoythevue.io/episodes/${this.$page.episode.episode_number}`;
     },
     sponsor() {
       const sponsorEdge = this.$page.allSponsor.edges.filter(

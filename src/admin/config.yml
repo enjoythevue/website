@@ -45,7 +45,6 @@ collections:
       - { label: 'Episode title', name: 'episode-title', widget: 'string' }
       - { label: 'Date published', name: 'date-published', widget: 'datetime' }
       - { label: 'Cover art', name: 'cover-art', widget: 'image' }
-      - { label: 'Sharing link', name: 'sharing-link', widget: 'string' }
       - {
           label: 'RSS link',
           name: 'rss-link',
