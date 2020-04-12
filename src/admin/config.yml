@@ -46,12 +46,6 @@ collections:
       - { label: 'Date published', name: 'date-published', widget: 'datetime' }
       - { label: 'Cover art', name: 'cover-art', widget: 'image' }
       - { label: 'Sharing link', name: 'sharing-link', widget: 'string' }
-      - {
-          label: 'RSS link',
-          name: 'rss-link',
-          widget: 'string',
-          default: 'https://feeds.fireside.fm/enjoy-the-vue/rss',
-        }
       - { label: 'Download link', name: 'download-link', widget: 'string' }
       - { label: 'Audio link', name: 'audio-link', widget: 'string' }
       - label: 'Sponsor'
@@ -86,7 +80,7 @@ collections:
                     label: 'Website',
                     name: 'website',
                     widget: 'string',
-                    required: false
+                    required: false,
                   },
                 ],
             }
