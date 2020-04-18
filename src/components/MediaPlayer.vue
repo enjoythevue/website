@@ -18,11 +18,6 @@ export default {
       required: false,
       default: ''
     },
-    downloadLink: {
-      type: String,
-      required: false,
-      default: ''
-    },
     sharingLink: {
       type: String,
       required: false,
@@ -167,7 +162,7 @@ export default {
         />
         <div class="media__links">
           <a v-if="sharingLink" :href="sharingLink">Share</a>
-          <a v-if="downloadLink" :href="downloadLink">Download</a>
+          <a v-if="audioLink" :href="audioLink">Download</a>
           <a v-if="rssLink" :href="rssLink" target="_blank">Subscribe</a>
         </div>
       </div>
