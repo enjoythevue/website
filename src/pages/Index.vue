@@ -51,8 +51,7 @@ export default {
       )[0];
     },
     latestEpisodeUrl() {
-      // TODO: Fix so it is dynamic
-      return `/episodes/11`;
+      return `/episodes/${this.latestEpisodeNumber}`;
     },
   },
 };
