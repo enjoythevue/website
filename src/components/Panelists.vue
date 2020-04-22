@@ -13,9 +13,16 @@
         />
         <div v-else class="panelists__person-img-fallback" />
       </div>
-      <a :href="panelist.website" class="panelists__person-name">{{
-        panelist.name
-      }}</a>
+      <a
+        v-if="panelist.website"
+        :href="panelist.website"
+        class="panelists__person-name is-link"
+      >
+        {{ panelist.name }}
+      </a>
+      <p v-else class="panelists__person-name">
+        {{ panelist.name }}
+      </p>
 
       <div
         v-if="panelist.picks && panelist.picks.length"
@@ -28,10 +35,9 @@
             class="episode-pick"
             :data-person="`${panelist.name}`"
           >
-            <a
-              v-if="pick.website"
-              :href="pick.website"
-              target="_blank">{{ pick.title }}</a>
+            <a v-if="pick.website" :href="pick.website" target="_blank">{{
+              pick.title
+            }}</a>
             <span v-else>{{ pick.title }}</span>
           </li>
         </ul>
@@ -161,10 +167,10 @@ export default {
   }
 
   &__person-name {
-    @include link-primary;
-    cursor: pointer;
+    color: $primary-green;
     font-size: $body-font-md;
     font-family: $font-secondary;
+    margin: 0;
 
     &::after {
       content: '';
@@ -173,6 +179,11 @@ export default {
       width: 100%;
       top: 0;
       left: 0;
+    }
+
+    &.is-link {
+      @include link-primary;
+      cursor: pointer;
     }
   }
 
