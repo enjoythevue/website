@@ -5,12 +5,12 @@ import RssLogo from '../image-components/RssLogo';
 
 export default {
   metaInfo: {
-    title: 'Home',
+    title: 'Home'
   },
   components: {
     Panelists,
     EmailSignupForm,
-    RssLogo,
+    RssLogo
   },
   data() {
     return {
@@ -18,42 +18,20 @@ export default {
       podcastDescription: `A new Vue.js podcast bringing you 
       panel discussions, guest interviews, and much more to
       keep you up to date on what's happening in the Vue and tech 
-      communities.`,
-      panelists: [
-        {
-          name: 'Chris Fritz',
-          img: 'images/chris-bio.jpeg',
-          website: 'https://twitter.com/chrisvfritz',
-        },
-        {
-          name: 'Ben Hong',
-          img: 'images/ben-bio.jpeg',
-          website: 'https://twitter.com/bencodezen',
-        },
-        {
-          name: 'Ari Clark',
-          img: 'images/ari-bio.jpeg',
-          website: 'https://twitter.com/gloomyLumi',
-        },
-        {
-          name: 'Elizabeth Fine',
-          img: 'images/elizabeth-bio.jpeg',
-          website: 'https://twitter.com/elizabethfine4',
-        },
-      ],
+      communities.`
     };
   },
   computed: {
     latestEpisodeNumber() {
       // TODO: Only map latest node if it is considered published
       return this.$page.allEpisode.edges.map(
-        (edge) => edge.node.episode_number
+        edge => edge.node.episode_number
       )[0];
     },
     latestEpisodeUrl() {
       return `/episodes/${this.latestEpisodeNumber}`;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -81,10 +59,7 @@ export default {
         </div>
         <div class="landing__panelists">
           <h2 class="landing__title">Our panelists</h2>
-          <panelists
-            :panelists="panelists"
-            class="landing__panelists-container"
-          />
+          <panelists class="landing__panelists-container" />
         </div>
       </section>
 
