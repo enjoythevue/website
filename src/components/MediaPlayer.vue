@@ -161,7 +161,7 @@ export default {
           v-model="player.volume"
         />
         <div class="media__links">
-          <a v-if="sharingLink" :href="sharingLink">Share</a>
+          <!-- <a v-if="sharingLink" :href="sharingLink">Share</a> -->
           <a v-if="audioLink" :href="audioLink">Download</a>
           <a v-if="rssLink" :href="rssLink" target="_blank">Subscribe</a>
         </div>
