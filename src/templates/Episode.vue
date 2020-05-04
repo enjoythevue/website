@@ -136,7 +136,7 @@ export default {
       return `${month} ${day}, ${year}`;
     },
     picks() {
-      const panelists = ['chris', 'ben', 'ari', 'elizabeth'];
+      const panelists = ['chris', 'ben', 'ari', 'elizabeth', 'tessa'];
       const picks = {};
 
       panelists.forEach(panelist => {
