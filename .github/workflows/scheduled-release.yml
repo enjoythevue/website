@@ -1,0 +1,13 @@
+on:
+  schedule:
+    - cron: '55 5 * * 1'
+
+jobs:
+  netlify:
+    runs-on: ubuntu-latest
+    name: Deploy on Mondays
+    env:
+      NETLIFY_DEPLOYMENT_TRIGGER: ${{ secrets.NETLIFY_DEPLOYMENT_TRIGGER }}
+    steps:
+      - name: Trigger Netlify deployment
+        run: curl ${NETLIFY_DEPLOYMENT_TRIGGER}
