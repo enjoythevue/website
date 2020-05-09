@@ -60,6 +60,8 @@ query {
 }
 </static-query>
 <script>
+import shuffle from 'lodash/shuffle';
+
 export default {
   name: 'Panelists',
   props: {
@@ -91,7 +93,7 @@ export default {
 
       return this.onlyShowPanelistsWithPicks
         ? panelistsWithPicks
-        : allPanelists;
+        : shuffle(allPanelists);
     }
   }
 };
