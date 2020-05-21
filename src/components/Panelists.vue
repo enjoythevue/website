@@ -78,14 +78,19 @@ export default {
   },
   computed: {
     panelists() {
-      const allPanelists = this.$static.posts.edges.map(panelist => {
-        const name = panelist.node.name;
-        const image = panelist.node.image;
-        const website = panelist.node.website;
-        const firstName = name.replace(/ .*/, '').toLowerCase();
-        const picks = this.picks ? this.picks[firstName] : [];
-        return { name, image, website, picks };
-      });
+      const allPanelists = this.$static.posts.edges
+        .map(panelist => {
+          const name = panelist.node.name;
+          const image = panelist.node.image;
+          const website = panelist.node.website;
+          const firstName = name.replace(/ .*/, '').toLowerCase();
+          const picks = this.picks ? this.picks[firstName] : [];
+          return { name, image, website, picks };
+        })
+        .sort((a, b) => {
+          // sort in alphabetical order
+          return a.name > b.name ? 1 : -1;
+        });
 
       const panelistsWithPicks = allPanelists.filter(panelist => {
         return panelist.picks;
@@ -93,7 +98,7 @@ export default {
 
       return this.onlyShowPanelistsWithPicks
         ? panelistsWithPicks
-        : shuffle(allPanelists);
+        : allPanelists;
     }
   }
 };
