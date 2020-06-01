@@ -4,7 +4,7 @@ publish: 2020-06-01T10:19:30
 slug: why-theres-no-new-episode-this-week
 ---
 
-Due to current events happening in the United States regarding George Floyd and the protests to bring about changes to systemic racial injustice and police brutality, we will not be releasing a new episode and will be donating our sponsorship profits to [Campaign Zero](https://www.joincampaignzero.org/) from next week's episode.
+Due to current events happening in the United States regarding George Floyd and the protests to bring about changes to systemic racial injustice and police brutality, we will not be releasing a new episode and will be donating our sponsorship profits to [Campaign Zero](https://www.joincampaignzero.org/) from last week's episode.
 
 If you would also like to lend your support, here are a couple ways you can do so.
 
