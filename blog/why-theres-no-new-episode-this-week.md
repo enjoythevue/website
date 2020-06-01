@@ -16,7 +16,7 @@ If you would also like to lend your support, here are a couple ways you can do s
 - [Black Visions Collective](https://secure.everyaction.com/4omQDAR0oUiUagTu0EG-Ig2)
 - [Reclaim the Block](https://secure.everyaction.com/zae4prEeKESHBy0MKXTIcQ2)
 
-2. Read about the topic
+2. Read
 
 - [How To Be Antiracist, Ibram X Kendi](https://bookshop.org/books/how-to-be-an-antiracist/9780525509288)
 - [So You Want To Talk About Race, Ijeoma Oluo](https://bookshop.org/books/so-you-want-to-talk-about-race/9781580058827)
