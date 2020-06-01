@@ -21,4 +21,4 @@ If you would also like to lend your support, here are a couple ways you can do s
 - [How To Be Antiracist, Ibram X Kendi](https://bookshop.org/books/how-to-be-an-antiracist/9780525509288)
 - [So You Want To Talk About Race, Ijeoma Oluo](https://bookshop.org/books/so-you-want-to-talk-about-race/9781580058827)
 
-Thanks for your understanding and we hope you all stay safe amidst these trying times.
+Thanks for your understanding. We hope you all stay safe amidst these trying times.
