@@ -32,8 +32,14 @@ collections:
           label: 'Offer details',
           name: 'sponsor-offer-details',
           widget: 'markdown',
+          required: false,
         }
-      - { label: 'Offer code', name: 'sponsor-offer-code', widget: 'string' }
+      - {
+          label: 'Offer code',
+          name: 'sponsor-offer-code',
+          widget: 'string',
+          required: false,
+        }
   - name: 'episodes'
     label: 'Episodes'
     folder: 'episodes'
@@ -52,14 +58,20 @@ collections:
           default: 'https://feeds.fireside.fm/enjoy-the-vue/rss',
         }
       - { label: 'Audio link', name: 'audio-link', widget: 'string' }
-      - label: 'Sponsor'
+      - label: 'Sponsors'
         name: 'sponsor'
-        widget: 'relation'
-        collection: 'sponsors'
-        searchFields: ['sponsor-name']
-        valueField: 'sponsor-name'
-        displayFields: ['sponsor-name']
-        default: 'Linode'
+        widget: 'list'
+        fields:
+          - {
+              label: 'Sponsor',
+              widget: 'relation',
+              collection: 'sponsors',
+              searchFields: ['sponsor-name'],
+              valueField: 'sponsor-name',
+              displayFields: ['sponsor-name'],
+              default: 'Linode',
+            }
+        
       - label: 'Picks'
         name: 'picks'
         widget: 'list'
