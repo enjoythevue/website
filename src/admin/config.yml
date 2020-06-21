@@ -28,9 +28,15 @@ collections:
       - { label: 'Sponsor name', name: 'sponsor-name', widget: 'string' }
       - { label: 'Sponsor logo', name: 'sponsor-logo', widget: 'image' }
       - { label: 'Sponsor link', name: 'sponsor-link', widget: 'string' }
+      - { 
+          label: 'Content title', 
+          name: 'sponsor-content-title', 
+          widget: 'string',
+          required: false, 
+        }
       - {
-          label: 'Offer details',
-          name: 'sponsor-offer-details',
+          label: 'Content details',
+          name: 'sponsor-content-details',
           widget: 'markdown',
           required: false,
         }
@@ -59,17 +65,17 @@ collections:
         }
       - { label: 'Audio link', name: 'audio-link', widget: 'string' }
       - label: 'Sponsors'
-        name: 'sponsor'
+        name: 'sponsors'
         widget: 'list'
         fields:
           - {
               label: 'Sponsor',
+              name: 'sponsor',
               widget: 'relation',
               collection: 'sponsors',
               searchFields: ['sponsor-name'],
               valueField: 'sponsor-name',
               displayFields: ['sponsor-name'],
-              default: 'Linode',
             }
         
       - label: 'Picks'

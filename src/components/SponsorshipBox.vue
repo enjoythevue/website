@@ -10,7 +10,9 @@
     </a>
     <div class="sponsorship__offer">
       <div class="sponsorship__offer-inner">
-        <span class="sponsorship__offer-label">Special offer - $20 off</span>
+        <span
+          v-if="contentTitle"
+          class="sponsorship__offer-label">{{ contentTitle }}</span>
 
         <p class="sponsorship__offer-content">{{ content }}</p>
         <span v-if="code" class="sponsorship__offer-code"
@@ -39,6 +41,11 @@ export default {
       required: false,
       default: '#'
     },
+    contentTitle: {
+      type: String,
+      required: false,
+      default: ''
+    },
     content: {
       type: String,
       required: false,
@@ -59,6 +66,10 @@ export default {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+  & + .sponsorship {
+    margin-top: 4rem;
+  }
 
   @media (min-width: $breakpoint-sm) {
     flex-wrap: nowrap;
@@ -99,7 +110,8 @@ export default {
     margin-bottom: 2rem;
 
     @media (min-width: $breakpoint-sm) {
-      height: 80px;
+      height: auto;
+      max-width: 200px;
       margin-bottom: auto;
     }
   }
