@@ -28,12 +28,24 @@ collections:
       - { label: 'Sponsor name', name: 'sponsor-name', widget: 'string' }
       - { label: 'Sponsor logo', name: 'sponsor-logo', widget: 'image' }
       - { label: 'Sponsor link', name: 'sponsor-link', widget: 'string' }
-      - {
-          label: 'Offer details',
-          name: 'sponsor-offer-details',
-          widget: 'markdown',
+      - { 
+          label: 'Content title', 
+          name: 'sponsor-content-title', 
+          widget: 'string',
+          required: false, 
         }
-      - { label: 'Offer code', name: 'sponsor-offer-code', widget: 'string' }
+      - {
+          label: 'Content details',
+          name: 'sponsor-content-details',
+          widget: 'markdown',
+          required: false,
+        }
+      - {
+          label: 'Offer code',
+          name: 'sponsor-offer-code',
+          widget: 'string',
+          required: false,
+        }
   - name: 'episodes'
     label: 'Episodes'
     folder: 'episodes'
@@ -52,14 +64,20 @@ collections:
           default: 'https://feeds.fireside.fm/enjoy-the-vue/rss',
         }
       - { label: 'Audio link', name: 'audio-link', widget: 'string' }
-      - label: 'Sponsor'
-        name: 'sponsor'
-        widget: 'relation'
-        collection: 'sponsors'
-        searchFields: ['sponsor-name']
-        valueField: 'sponsor-name'
-        displayFields: ['sponsor-name']
-        default: 'Linode'
+      - label: 'Sponsors'
+        name: 'sponsors'
+        widget: 'list'
+        fields:
+          - {
+              label: 'Sponsor',
+              name: 'sponsor',
+              widget: 'relation',
+              collection: 'sponsors',
+              searchFields: ['sponsor-name'],
+              valueField: 'sponsor-name',
+              displayFields: ['sponsor-name'],
+            }
+        
       - label: 'Picks'
         name: 'picks'
         widget: 'list'

@@ -25,10 +25,13 @@
         <div class="container__section-inner">
           <h2>This episode is sponsored by...</h2>
           <sponsorship-box
+            v-for="sponsor in sponsors"
+            :key="sponsor.sponsor_name"
             :name="sponsor.sponsor_name"
             :logoSrc="sponsor.sponsor_logo"
             :link="sponsor.sponsor_link"
-            :content="sponsor.sponsor_offer_details"
+            :content-title="sponsor.sponsor_content_title"
+            :content="sponsor.sponsor_content_details"
             :code="sponsor.sponsor_offer_code"
           />
         </div>
@@ -70,7 +73,9 @@ query ($id: ID!) {
     cover_art
     sharing_link
     audio_link
-    sponsor
+    sponsors {
+      sponsor
+    }
     picks {
       person 
       picks {
@@ -87,7 +92,8 @@ query ($id: ID!) {
         sponsor_name
         sponsor_logo
         sponsor_link
-        sponsor_offer_details
+        sponsor_content_title
+        sponsor_content_details
         sponsor_offer_code
       }
     }
@@ -164,13 +170,14 @@ export default {
     sharingLink() {
       return `https://www.enjoythevue.io/episodes/${this.$page.episode.episode_number}`;
     },
-    sponsor() {
-      const sponsorEdge = this.$page.allSponsor.edges.filter(
-        edge => edge.node['sponsor_name'] === this.$page.episode.sponsor
-      )[0];
-
-      return sponsorEdge.node;
-    }
+    sponsors() {
+      const episodeSponsors = this.$page.episode.sponsors.map(s => s.sponsor);
+      return this.$page.allSponsor.edges
+        .filter((sponsor) => {
+          return episodeSponsors.includes(sponsor.node['sponsor_name']);
+        })
+        .map(sponsor => sponsor.node);
+    },
   }
 };
 </script>

@@ -8,11 +8,13 @@
         class="sponsorship__logo"
       />
     </a>
-    <div class="sponsorship__offer">
-      <div class="sponsorship__offer-inner">
-        <span class="sponsorship__offer-label">Special offer - $20 off</span>
+    <div class="sponsorship__details">
+      <div class="sponsorship__details-inner">
+        <span
+          v-if="contentTitle"
+          class="sponsorship__content-title">{{ contentTitle }}</span>
 
-        <p class="sponsorship__offer-content">{{ content }}</p>
+        <p class="sponsorship__content">{{ content }}</p>
         <span v-if="code" class="sponsorship__offer-code"
           >Code: {{ code }}</span
         >
@@ -39,6 +41,11 @@ export default {
       required: false,
       default: '#'
     },
+    contentTitle: {
+      type: String,
+      required: false,
+      default: ''
+    },
     content: {
       type: String,
       required: false,
@@ -60,12 +67,16 @@ export default {
   align-items: center;
   flex-wrap: wrap;
 
+  & + .sponsorship {
+    margin-top: 4rem;
+  }
+
   @media (min-width: $breakpoint-sm) {
     flex-wrap: nowrap;
   }
 
   &__image,
-  &__offer {
+  &__details {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -77,7 +88,7 @@ export default {
     }
   }
 
-  &__offer {
+  &__details {
     background: transparent;
     border-left: none;
 
@@ -93,31 +104,30 @@ export default {
   }
 
   &__logo {
-    height: 70px;
+    height: auto;
+    max-width: 200px;
     padding-right: 4rem;
-    // margin: 2rem auto;
     margin-bottom: 2rem;
 
     @media (min-width: $breakpoint-sm) {
-      height: 80px;
       margin-bottom: auto;
     }
   }
 
-  &__offer-inner {
+  &__details-inner {
     @media (min-width: $breakpoint-sm) {
       padding-left: 4rem;
       max-width: 300px;
     }
   }
 
-  &__offer-label {
+  &__content-title {
     font-size: $body-font-lg;
     font-family: $font-main;
     display: block;
   }
 
-  &__offer-content {
+  &__content {
     font-size: $body-font-sm;
     font-family: $font-secondary;
   }
