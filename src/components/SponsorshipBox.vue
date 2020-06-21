@@ -104,14 +104,12 @@ export default {
   }
 
   &__logo {
-    height: 70px;
+    height: auto;
+    max-width: 200px;
     padding-right: 4rem;
-    // margin: 2rem auto;
     margin-bottom: 2rem;
 
     @media (min-width: $breakpoint-sm) {
-      height: auto;
-      max-width: 200px;
       margin-bottom: auto;
     }
   }
