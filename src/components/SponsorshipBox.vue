@@ -8,13 +8,13 @@
         class="sponsorship__logo"
       />
     </a>
-    <div class="sponsorship__offer">
-      <div class="sponsorship__offer-inner">
+    <div class="sponsorship__details">
+      <div class="sponsorship__details-inner">
         <span
           v-if="contentTitle"
-          class="sponsorship__offer-label">{{ contentTitle }}</span>
+          class="sponsorship__content-title">{{ contentTitle }}</span>
 
-        <p class="sponsorship__offer-content">{{ content }}</p>
+        <p class="sponsorship__content">{{ content }}</p>
         <span v-if="code" class="sponsorship__offer-code"
           >Code: {{ code }}</span
         >
@@ -76,7 +76,7 @@ export default {
   }
 
   &__image,
-  &__offer {
+  &__details {
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -88,7 +88,7 @@ export default {
     }
   }
 
-  &__offer {
+  &__details {
     background: transparent;
     border-left: none;
 
@@ -114,20 +114,20 @@ export default {
     }
   }
 
-  &__offer-inner {
+  &__details-inner {
     @media (min-width: $breakpoint-sm) {
       padding-left: 4rem;
       max-width: 300px;
     }
   }
 
-  &__offer-label {
+  &__content-title {
     font-size: $body-font-lg;
     font-family: $font-main;
     display: block;
   }
 
-  &__offer-content {
+  &__content {
     font-size: $body-font-sm;
     font-family: $font-secondary;
   }
