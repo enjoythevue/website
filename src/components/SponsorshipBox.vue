@@ -88,6 +88,10 @@ export default {
     }
   }
 
+  &__image {
+    align-items: flex-start;
+  }
+
   &__details {
     background: transparent;
     border-left: none;
