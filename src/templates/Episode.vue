@@ -21,7 +21,10 @@
         </div>
       </section>
 
-      <section class="container__section episode__sponsorship">
+      <section
+        class="container__section episode__sponsorship"
+        v-if="sponsors && sponsors.length"
+      >
         <div class="container__section-inner">
           <h2>This episode is sponsored by...</h2>
           <sponsorship-box
