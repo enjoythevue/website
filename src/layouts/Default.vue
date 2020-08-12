@@ -5,15 +5,11 @@
     <footer class="footer">
       <social-links class="footer__social-links" />
       <div class="footer__network">
-        Part of the
-        <a href="https://codefund.io/podcasts" target="_blank">
-          <g-image
-            class="footer__network-logo"
-            src="/images/codefund-horizontal-logo-color.png"
-            alt="CodeFund"
-          />
-        </a>
-        Podcast Network
+        <p>
+          Part of the
+          <a href="https://www.rebase.fm/" target="_blank">rebase.fm</a> Podcast
+          Network
+        </p>
       </div>
     </footer>
   </div>
