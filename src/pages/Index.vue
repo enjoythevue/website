@@ -48,9 +48,7 @@ export default {
         <h1 class="landing__title">{{ pageTitle }}</h1>
         <p class="landing__about-paragraph">{{ podcastDescription }}</p>
         <div class="landing__recent-episode">
-          <a
-            href="https://feeds.fireside.fm/enjoy-the-vue/rss"
-            class="btn btn--primary mb-2r"
+          <a href="https://pod.link/1498529055" class="btn btn--primary mb-2r"
             ><rss-logo class="mr-05r" /> Subscribe to our podcast</a
           >
           <g-link class="btn btn--secondary" :to="latestEpisodeUrl">
