@@ -64,6 +64,10 @@ collections:
           default: 'https://feeds.fireside.fm/enjoy-the-vue/rss',
         }
       - { label: 'Audio link', name: 'audio-link', widget: 'string' }
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        field: {name: tag, label: Tag, widget: string}
       - label: 'Sponsors'
         name: 'sponsors'
         widget: 'list'
@@ -77,7 +81,6 @@ collections:
               valueField: 'sponsor-name',
               displayFields: ['sponsor-name'],
             }
-        
       - label: 'Picks'
         name: 'picks'
         widget: 'list'
