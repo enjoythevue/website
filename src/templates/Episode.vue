@@ -46,7 +46,9 @@
           <div class="episode__shownotes-content" v-html="compiledShownotes" />
         </div>
       </section>
-      <section class="container__section episode__picks">
+      <section
+        v-if="picks"
+        class="container__section episode__picks">
         <div class="container__section-inner">
           <h2>Our picks this week</h2>
           <panelists
@@ -159,7 +161,7 @@ export default {
         }
       });
 
-      return picks;
+      return Object.keys(picks).length ? picks : null;
     },
     compiledShownotes() {
       return marked(this.$page.episode.shownotes, { sanitize: true });
