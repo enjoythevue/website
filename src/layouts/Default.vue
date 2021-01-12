@@ -4,13 +4,6 @@
     <slot />
     <footer class="footer">
       <social-links class="footer__social-links" />
-      <div class="footer__network">
-        <p>
-          Part of the
-          <a href="https://www.rebase.fm/" target="_blank">rebase.fm</a> Podcast
-          Network
-        </p>
-      </div>
     </footer>
   </div>
 </template>
