@@ -82,7 +82,7 @@ query ($id: ID!) {
       sponsor
     }
     picks {
-      person 
+      person
       picks {
         title
         website
@@ -116,7 +116,14 @@ export default {
   name: 'EpisodeDetail',
   metaInfo() {
     return {
-      title: `Episode #${this.$page.episode.episode_number}`
+      title: `Episode #${this.$page.episode.episode_number}`,
+      meta:[
+        {name:'twitter:card', content:'summary'},
+        {name:'twitter:site', content: '@EnjoyTheVueCast'},
+        {name:'twitter:title', content: `${this.$page.episode.episode_title}`},
+        {name:'twitter:description', content: `Episode #${this.$page.episode.episode_number} - Published ${this.formattedDate}`},
+        {name:'twitter:image', content: this.absoluteImageURL},
+      ],
     };
   },
   components: {
@@ -174,6 +181,9 @@ export default {
     },
     sharingLink() {
       return `https://www.enjoythevue.io/episodes/${this.$page.episode.episode_number}`;
+    },
+    absoluteImageURL(){
+      return `https://www.enjoythevue.io${this.$page.episode.cover_art}`
     },
     sponsors() {
       const episodeSponsors = this.$page.episode.sponsors.map(s => s.sponsor);
