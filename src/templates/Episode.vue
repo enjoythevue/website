@@ -118,11 +118,15 @@ export default {
     return {
       title: `Episode #${this.$page.episode.episode_number}`,
       meta:[
-        {name:'twitter:card', content:'summary'},
-        {name:'twitter:site', content: '@EnjoyTheVueCast'},
-        {name:'twitter:title', content: `${this.$page.episode.episode_title}`},
-        {name:'twitter:description', content: `Episode #${this.$page.episode.episode_number} - Published ${this.formattedDate}`},
-        {name:'twitter:image', content: this.absoluteImageURL},
+        {name: 'twitter:card', content:'summary'},
+        {name: 'twitter:site', content: '@EnjoyTheVueCast'},
+        {name: 'twitter:title', content: this.$page.episode.episode_title},
+        {name: 'twitter:description', content: `Episode #${this.$page.episode.episode_number} - Published ${this.formattedDate}`},
+        {name: 'twitter:image', content: this.absoluteImageURL},
+        {property: 'og:title', content: this.$page.episode.episode_title},
+        {property: 'og:description', content: `Episode #${this.$page.episode.episode_number} - Published ${this.formattedDate}`},
+        {property: 'og:image', content: this.absoluteImageURL},
+        {property: 'og:url', content: this.sharingLink},
       ],
     };
   },
