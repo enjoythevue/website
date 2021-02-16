@@ -7,3 +7,6 @@ dist
 .env
 .env.*
 package-lock.json
+
+# update because Alex is a heathen
+.idea/
