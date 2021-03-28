@@ -162,7 +162,7 @@ export default {
       return `${month} ${day}, ${year}`;
     },
     picks() {
-      const panelists = ['chris', 'ben', 'ari', 'elizabeth', 'tessa'];
+      const panelists = ['chris', 'ben', 'ari', 'alex', 'tessa'];
       const picks = {};
 
       panelists.forEach(panelist => {
