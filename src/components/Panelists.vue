@@ -1,7 +1,7 @@
 <template>
   <div class="panelists__container">
     <div
-      v-for="panelist in panelists"
+      v-for="panelist in renderedPanelists"
       :key="panelist.name"
       class="panelists__person"
     >
@@ -74,10 +74,15 @@ export default {
       type: Boolean,
       required: false,
       default: false
-    }
+    },
+    onlyShowCurrentPanelists: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
-    panelists() {
+    allPanelists() {
       const allPanelists = this.$static.posts.edges
         .map(panelist => {
           const name = panelist.node.name;
@@ -85,20 +90,25 @@ export default {
           const website = panelist.node.website;
           const firstName = name.replace(/ .*/, '').toLowerCase();
           const picks = this.picks ? this.picks[firstName] : [];
-          return { name, image, website, picks };
+          const current = panelist.node.current;
+          return { name, image, website, picks, current };
         })
         .sort((a, b) => {
           // sort in alphabetical order
           return a.name > b.name ? 1 : -1;
         });
-
-      const panelistsWithPicks = allPanelists.filter(panelist => {
-        return panelist.picks;
-      });
-
-      return this.onlyShowPanelistsWithPicks
-        ? panelistsWithPicks
-        : allPanelists;
+      return allPanelists;
+    },
+    panelistsWithPicks() {
+      return this.allPanelists.filter(panelist => panelist.picks);
+    },
+    currentPanelists() {
+      return this.allPanelists.filter(panelist => panelist.current);
+    },
+    renderedPanelists() {
+      if (this.onlyShowPanelistsWithPicks) return this.panelistsWithPicks;
+      if (this.onlyShowCurrentPanelists) return this.currentPanelists;
+      return this.allPanelists;
     }
   }
 };

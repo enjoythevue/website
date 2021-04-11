@@ -57,7 +57,9 @@ export default {
         </div>
         <div class="landing__panelists">
           <h2 class="landing__title">Our panelists</h2>
-          <panelists class="landing__panelists-container" />
+          <panelists
+            only-show-current-panelists
+            class="landing__panelists-container" />
         </div>
       </section>
 
