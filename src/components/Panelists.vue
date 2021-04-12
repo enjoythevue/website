@@ -86,7 +86,6 @@ export default {
     allPanelists() {
       const allPanelists = this.$static.posts.edges
         .map(panelist => {
-          console.log(panelist.node)
           const name = panelist.node.name;
           const image = panelist.node.image;
           const website = panelist.node.website;
