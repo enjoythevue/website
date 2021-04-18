@@ -19,6 +19,7 @@ collections:
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Website', name: 'website', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Current', name: 'current', widget: 'boolean', default: false }
   - name: 'sponsors'
     label: 'Sponsors'
     folder: 'sponsors'
