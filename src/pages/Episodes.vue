@@ -1,12 +1,19 @@
 <script>
 import EpisodePreview from '../components/EpisodePreview';
+import TagsAutocomplete from '../components/TagsAutocomplete';
 
 export default {
+  data() {
+    return {
+      result: []
+    }
+  },
   metaInfo: {
     title: 'Episodes'
   },
   components: {
-    EpisodePreview
+    EpisodePreview,
+    TagsAutocomplete
   },
   computed: {
     sortedEpisodes() {
@@ -42,15 +49,25 @@ export default {
       <section class="container__section container__header">
         <div class="container__section-inner">
           <h1>Episodes</h1>
-        </div>
+          <tags-autocomplete :allEpisodes="this.sortedEpisodes" :result.sync="result"/>
+        </div>        
       </section>
 
       <div class="container__section">
         <div class="container__section-inner">
           <h2>Most Recent</h2>
-          <ul class="episode-list">
+          <ul class="episode-list" v-if="this.result.length === 0">
             <li
               v-for="episode in sortedEpisodes"
+              :key="`episode-${episode.episode_number}-list-item`"
+              class="episode-list-item"
+            >
+              <episode-preview :episode="episode" />
+            </li>
+          </ul>
+          <ul class="episode-list" v-if="this.result.length !== 0">
+            <li
+              v-for="episode in this.result"
               :key="`episode-${episode.episode_number}-list-item`"
               class="episode-list-item"
             >
@@ -65,6 +82,14 @@ export default {
 
 <style lang="scss">
 @import '../styles/layout.scss';
+
+.container {
+  &__section-inner {
+    max-width: 780px;
+    margin: auto;
+    padding-bottom: 8rem;
+  }
+}
 
 .episode-list {
   padding: 0;
@@ -89,6 +114,7 @@ query {
         date_published
         episode_number
         episode_title
+        tags
         excerpt
       }
     }
