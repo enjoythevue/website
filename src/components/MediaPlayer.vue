@@ -74,6 +74,11 @@ export default {
     this.player.removeEventListener('loadeddata', this.onLoad);
     this.player.removeEventListener('timeupdate', this.updateTime);
   },
+  watch: {
+    playbackRate() {
+      this.player.playbackRate = this.playbackRate;
+    }
+  },
   methods: {
     onLoad() {
       this.duration = parseInt(this.player.duration);
@@ -103,12 +108,18 @@ export default {
       return `${displayHours}${displayMinutes}:${displaySeconds}`;
     },
     changePlaybackRate() {
-      if (this.player.playbackRate === 2) {
-        this.player.playbackRate = 0.5;
+      const playbackRateSpeeds = {
+        0.5: 0.8,
+        0.8: 1,
+        1: 1.2,
+        1.2: 1.5,
+        1.5: 2
+      }
+
+      if (this.playbackRate === 2) {
         this.playbackRate = 0.5;
       } else {
-        this.playbackRate = this.player.playbackRate + 0.5;
-        this.player.playbackRate = this.player.playbackRate + 0.5;
+        this.playbackRate = playbackRateSpeeds[this.playbackRate];
       }
     },
     setCurrentTime(time) {
