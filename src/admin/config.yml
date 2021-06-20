@@ -10,6 +10,80 @@ media_folder: 'static/uploads'
 public_folder: '/uploads'
 
 collections:
+  - name: 'episodes'
+    label: 'Episodes'
+    folder: 'episodes'
+    create: true
+    slug: '{{slug}}'
+    summary: '{{episode-number}} - {{episode-title}}'
+    sortable_fields: ['date-published', 'episode-number', 'episode-title']
+    identifier_field: episode-number
+    fields:
+      - { label: 'Episode number', name: 'episode-number', widget: 'number' }
+      - { label: 'Episode title', name: 'episode-title', widget: 'string' }
+      - { label: 'Date published', name: 'date-published', widget: 'datetime' }
+      - { label: 'Cover art', name: 'cover-art', widget: 'image' }
+      - {
+        label: 'RSS link',
+        name: 'rss-link',
+        widget: 'string',
+        default: 'https://feeds.fireside.fm/enjoy-the-vue/rss',
+      }
+      - { label: 'Audio link', name: 'audio-link', widget: 'string' }
+      - label: 'Sponsors'
+        name: 'sponsors'
+        widget: 'list'
+        fields:
+          - {
+            label: 'Sponsor',
+            name: 'sponsor',
+            widget: 'relation',
+            collection: 'sponsors',
+            searchFields: [ 'sponsor-name' ],
+            valueField: 'sponsor-name',
+            displayFields: [ 'sponsor-name' ],
+          }
+
+      - label: 'Picks'
+        name: 'picks'
+        widget: 'list'
+        fields:
+          - {
+            label: 'Person',
+            name: 'person',
+            widget: 'relation',
+            collection: 'panelists',
+            searchFields: [ 'name' ],
+            valueField: 'name',
+            displayFields: [ 'name' ],
+          }
+          - {
+            label: 'Picks',
+            name: 'picks',
+            widget: 'list',
+            fields:
+              [
+                { label: 'Title', name: 'title', widget: 'string' },
+                {
+                  label: 'Website',
+                  name: 'website',
+                  widget: 'string',
+                  required: false,
+                },
+              ],
+          }
+      - {
+        label: 'Shownotes',
+        name: 'shownotes',
+        widget: 'markdown',
+        default: 'Coming soon!',
+      }
+      - {
+        label: 'Transcript',
+        name: 'transcript',
+        widget: 'markdown',
+        default: 'Coming soon!',
+      }
   - name: 'panelists'
     label: 'Panelists'
     folder: 'panelists'
@@ -29,11 +103,11 @@ collections:
       - { label: 'Sponsor name', name: 'sponsor-name', widget: 'string' }
       - { label: 'Sponsor logo', name: 'sponsor-logo', widget: 'image' }
       - { label: 'Sponsor link', name: 'sponsor-link', widget: 'string' }
-      - { 
-          label: 'Content title', 
-          name: 'sponsor-content-title', 
+      - {
+          label: 'Content title',
+          name: 'sponsor-content-title',
           widget: 'string',
-          required: false, 
+          required: false,
         }
       - {
           label: 'Content details',
@@ -47,75 +121,4 @@ collections:
           widget: 'string',
           required: false,
         }
-  - name: 'episodes'
-    label: 'Episodes'
-    folder: 'episodes'
-    create: true
-    slug: '{{slug}}'
-    identifier_field: episode-number
-    fields:
-      - { label: 'Episode number', name: 'episode-number', widget: 'number' }
-      - { label: 'Episode title', name: 'episode-title', widget: 'string' }
-      - { label: 'Date published', name: 'date-published', widget: 'datetime' }
-      - { label: 'Cover art', name: 'cover-art', widget: 'image' }
-      - {
-          label: 'RSS link',
-          name: 'rss-link',
-          widget: 'string',
-          default: 'https://feeds.fireside.fm/enjoy-the-vue/rss',
-        }
-      - { label: 'Audio link', name: 'audio-link', widget: 'string' }
-      - label: 'Sponsors'
-        name: 'sponsors'
-        widget: 'list'
-        fields:
-          - {
-              label: 'Sponsor',
-              name: 'sponsor',
-              widget: 'relation',
-              collection: 'sponsors',
-              searchFields: ['sponsor-name'],
-              valueField: 'sponsor-name',
-              displayFields: ['sponsor-name'],
-            }
-        
-      - label: 'Picks'
-        name: 'picks'
-        widget: 'list'
-        fields:
-          - {
-              label: 'Person',
-              name: 'person',
-              widget: 'relation',
-              collection: 'panelists',
-              searchFields: ['name'],
-              valueField: 'name',
-              displayFields: ['name'],
-            }
-          - {
-              label: 'Picks',
-              name: 'picks',
-              widget: 'list',
-              fields:
-                [
-                  { label: 'Title', name: 'title', widget: 'string' },
-                  {
-                    label: 'Website',
-                    name: 'website',
-                    widget: 'string',
-                    required: false,
-                  },
-                ],
-            }
-      - {
-          label: 'Shownotes',
-          name: 'shownotes',
-          widget: 'markdown',
-          default: 'Coming soon!',
-        }
-      - {
-          label: 'Transcript',
-          name: 'transcript',
-          widget: 'markdown',
-          default: 'Coming soon!',
-        }
+
