@@ -428,6 +428,7 @@ export default {
     overflow: hidden;
     border-radius: 10px;
     flex: 1;
+    cursor: pointer;
   }
 
   &__progress-line {
