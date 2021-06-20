@@ -1,0 +1,119 @@
+@import '../styles/variables.scss';
+@import '../styles/globals.scss';
+@import '../styles/mixins.scss';
+@import '../styles/layout.scss';
+
+html {
+  font-size: 10px;
+}
+
+.layout {
+  margin: 0 auto;
+  background-image: $gradient-dark;
+}
+
+h1 {
+  font-size: $h1-size;
+}
+
+header,
+footer {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  background: white;
+  flex-wrap: wrap;
+  color: $dark-grey;
+  font-size: $body-font-sm;
+
+  &__social-links svg {
+    fill: $primary-green;
+  }
+
+  &__network {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 10px;
+
+    @media (min-width: $breakpoint-xs) {
+      font-size: $body-font-sm;
+    }
+  }
+
+  &__network-logo {
+    max-width: 70px;
+    margin: 0 1rem -3px 1rem;
+
+    @media (min-width: $breakpoint-xs) {
+      max-width: 100px;
+    }
+  }
+}
+
+.episode {
+  color: white;
+  margin-bottom: 4rem;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 4rem;
+  }
+
+  &__publishing-details {
+    opacity: 0.6;
+    font-size: $body-font-sm;
+    font-family: $font-secondary;
+  }
+
+  &__title {
+    margin-top: 1rem;
+  }
+
+  &__sponsorship {
+    padding-bottom: 4rem;
+    background: white;
+    color: $dark-grey;
+  }
+
+  &__picks,
+  &__shownotes {
+    background: white;
+    color: $dark-grey;
+
+    a {
+      @include link-primary-light-background;
+    }
+  }
+
+  &__shownotes-content {
+    font-size: $body-font-sm;
+    font-family: $font-secondary;
+  }
+
+  &__panelists {
+    justify-content: space-between;
+
+    // Override link styles to work with light background.
+    .panelists__person-name {
+      @include link-primary-light-background;
+    }
+  }
+
+  &__transcript {
+    font-size: $body-font-sm;
+    font-family: $font-secondary;
+    max-height: 500px;
+    overflow: scroll;
+
+    a {
+      @include link-primary;
+    }
+  }
+}
