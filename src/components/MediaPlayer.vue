@@ -143,7 +143,7 @@ export default {
     <div class="media__controls">
       <div class="media__player">
         <button
-          title="playback rate"
+          :title="`${isPlaying ? 'Pause' : 'Play'}`"
           class="media__pause-play-button"
           @click="togglePlay"
         >
@@ -160,7 +160,7 @@ export default {
         <span class="media__current-time"
           >{{ formattedCurrentTime }} / {{ formattedDuration }}</span
         >
-        <button @click="changePlaybackRate" class="media__playback-rate-button">
+        <button @click="changePlaybackRate" class="media__playback-rate-button" title="Change speed">
           {{ playbackRate }}x
         </button>
         <SpeakerIcon class="media__speaker-icon" />
