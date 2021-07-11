@@ -1,0 +1,16 @@
+lon:
+  schedule:
+    - cron: '55 4 * * 1'
+
+jobs:
+  merge-prs:
+    runs-on: ubuntu-latest
+    name: Merge Ready PRs
+    steps:
+      - name: merge a pull request
+        uses: sudo-bot/action-pull-request-merge@v1.1.1
+        with:
+            github-token: ${{ secrets.GITHUB_TOKEN }}
+            number: ${{ github.event.pull_request.number }}
+            allowed-usernames-regex: ^(fimion|gloomylumi|tessaSAC|znck)$
+            filter-label: episode-ready
