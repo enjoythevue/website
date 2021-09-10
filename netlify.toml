@@ -5,3 +5,11 @@
   to = "https://feeds.fireside.fm/enjoy-the-vue/rss"
   status = 301
   force = false
+
+[[redirects]]
+  from = "/cloudflare-workers"
+  to = "https://etv.one/cfworkers"
+
+[[redirects]]
+  from = "/cloudflare-pages"
+  to = "https://etv.one/cfpages"
