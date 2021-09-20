@@ -63,7 +63,7 @@ export default {
 @import '../styles/variables.scss';
 .sponsorship {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 
@@ -84,7 +84,8 @@ export default {
     @media (min-width: $breakpoint-sm) {
       justify-content: center;
       flex-wrap: nowrap;
-      width: 50%;
+      width: auto;
+      min-width: 200px;
     }
   }
 
@@ -109,8 +110,9 @@ export default {
 
   &__logo {
     height: auto;
+    max-height: 100px;
     max-width: 200px;
-    padding-right: 4rem;
+    padding-right: 2rem;
     margin-bottom: 2rem;
 
     @media (min-width: $breakpoint-sm) {
