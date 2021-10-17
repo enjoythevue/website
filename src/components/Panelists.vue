@@ -33,6 +33,7 @@
             v-for="(pick, index) in panelist.picks"
             :key="`${pick.person}-${index}`"
             class="episode-pick"
+            :class="{'big':pick.big}"
             :data-person="`${panelist.name}`"
           >
             <a v-if="pick.website" :href="pick.website" target="_blank">{{
@@ -217,6 +218,10 @@ export default {
 
     li {
       font-family: $font-secondary;
+
+      &.big{
+        font-size:2.5em;
+      }
 
       &::before {
         content: '-';
