@@ -131,7 +131,12 @@ export default {
   &__content-title {
     font-size: $body-font-lg;
     font-family: $font-main;
+    color: $text-dark;
     display: block;
+
+    &:link,&:hover,&:visited,&:focus{
+      color: $text-dark;
+    }
   }
 
   &__content {
