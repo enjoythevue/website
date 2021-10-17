@@ -10,9 +10,10 @@
     </a>
     <div class="sponsorship__details">
       <div class="sponsorship__details-inner">
-        <span
+        <a
           v-if="contentTitle"
-          class="sponsorship__content-title">{{ contentTitle }}</span>
+          :href='link'
+          class="sponsorship__content-title">{{ contentTitle }}</a>
 
         <p class="sponsorship__content">{{ content }}</p>
         <span v-if="code" class="sponsorship__offer-code"
