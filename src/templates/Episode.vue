@@ -86,6 +86,7 @@ query ($id: ID!) {
       picks {
         title
         website
+        big
       }
     }
     shownotes
