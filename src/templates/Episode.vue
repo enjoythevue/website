@@ -104,6 +104,13 @@ query ($id: ID!) {
       }
     }
   }
+  allPanelist {
+    edges {
+      node {
+				name
+      }
+    }
+  }
 }
 </page-query>
 
@@ -163,7 +170,11 @@ export default {
       return `${month} ${day}, ${year}`;
     },
     picks() {
-      const panelists = ['chris', 'ben', 'ari', 'alex', 'tessa'];
+      const panelists = this.$page.allPanelist.edges.map(({node})=>{
+        const {name} = node;
+        return name.replace(/ .*/, '').toLowerCase();
+      });
+      // const panelists = ['chris', 'ben', 'ari', 'alex', 'tessa','oscar'];
       const picks = {};
 
       panelists.forEach(panelist => {
