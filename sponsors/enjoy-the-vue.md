@@ -1,5 +1,5 @@
 ---
-sponsor-name: Enjoy the Vue
+sponsor-name: Enjoy the Vue on Ko-Fi
 sponsor-logo: /uploads/ko-fi_icon_rgb_rounded.png
 sponsor-link: https://ko-fi.com/C0C86NYJW
 sponsor-content-title: Support us on Ko-Fi!
