@@ -13,4 +13,5 @@ export default function(Vue, { router, head, isClient }) {
     href:
       'https://fonts.googleapis.com/css?family=Fira+Code|Barlow&display=swap'
   });
+  //head.script.push();
 }
