@@ -9,7 +9,8 @@ export default {
       script: [
         {
           src: KOFI_SCRIPT,
-          body: true
+          body: true,
+          defer: true,
         }
       ]
     };
@@ -38,14 +39,16 @@ export default {
         const kofiWidgetScript = document.querySelector(
           `script[src="${KOFI_SCRIPT}"]`
         );
-        console.log(kofiWidgetScript);
         // make sure it is loaded.
         kofiWidgetScript.addEventListener('load', (e) => {
           // set the button.
-          console.log('ko-fi load: ',e);
           kofiwidget2.init(this.text, this.color, KOFI_ID);
           this.kofiLink = kofiwidget2.getHTML();
         });
+        if(window.kofiwidget2){
+          kofiwidget2.init(this.text, this.color, KOFI_ID);
+          this.kofiLink = kofiwidget2.getHTML();
+        }
       }
     }
   },
