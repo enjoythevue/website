@@ -8,18 +8,27 @@
       <component :is="`${account.type}-icon`" />
       <span class="sr-only">{{ account.type }}</span>
     </a>
+    <a href="https://ko-fi.com/C0C86NYJW">
+      <img
+        src="https://storage.ko-fi.com/cdn/cup-border.png"
+        height="30"
+        alt="Support us on Ko-fi!"
+      />
+    </a>
   </div>
 </template>
 
 <script>
 import TwitterIcon from '../image-components/TwitterIcon.vue';
 import InstagramIcon from '../image-components/InstagramIcon.vue';
+import KofiButton from '../components/KofiButton.vue';
 
 export default {
   name: 'SocialLinks',
   components: {
     TwitterIcon,
-    InstagramIcon
+    InstagramIcon,
+    KofiButton
   },
   data() {
     return {

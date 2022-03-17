@@ -5,6 +5,9 @@
     </strong>
     <ul class="site-nav__list">
       <li class="site-nav__list-item">
+        <a class="site-nav__link sponsorship" href="/sponsorship">Support us!</a>
+      </li>
+      <li class="site-nav__list-item">
         <a class="site-nav__link" href="/episodes">Episodes</a>
       </li>
       <li class="site-nav__list-item">
@@ -61,6 +64,13 @@ export default {
     font-size: $body-font-sm;
     display: flex;
     align-items: center;
+
+    &.sponsorship{
+      color: white;
+      background-color: $primary-green;
+      padding: 0 1rem;
+      border-radius: 2rem;
+    }
 
     @media (min-width: $breakpoint-md) {
       font-size: $body-font-md;
