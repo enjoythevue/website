@@ -36,9 +36,16 @@ export default {
         // make sure the dom is loaded.
         await this.$nextTick();
         // find our script we are loading.
-        const kofiWidgetScript = document.querySelector(
+        let kofiWidgetScript = document.querySelector(
           `script[src="${KOFI_SCRIPT}"]`
         );
+        if(!kofiWidgetScript){
+          kofiWidgetScript = document.createElement('script');
+          kofiWidgetScript.src = KOFI_SCRIPT;
+          kofiWidgetScript.defer = true;
+          document.body.append(kofiWidgetScript);
+        }
+        this.kofiWidgetScript = kofiWidgetScript;
         // make sure it is loaded.
         kofiWidgetScript.addEventListener('load', (e) => {
           // set the button.
@@ -57,6 +64,10 @@ export default {
   },
   updated() {
     this.getKofi();
+  },
+  beforeDestroy(){
+    document.body.removeChild(this.kofiWidgetScript);
+    this.kofiWidgetScript = null;
   }
 };
 </script>

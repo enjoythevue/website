@@ -17,7 +17,7 @@ export default {
           <h1>Sponsor us!</h1>
         </div>
       </section>
-      <section class="container__section">
+      <section class="container__section sponsorship">
         <div class="container__section-inner">
           <p>
             Thank you for supporting the show! Individuals and companies can
@@ -47,5 +47,10 @@ export default {
   </layout>
 </template>
 <style lang="scss">
+@import '../styles/variables.scss';
 @import '../styles/layout.scss';
+
+.sponsorship{
+  color: $text-light;
+}
 </style>
