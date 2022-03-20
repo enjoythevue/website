@@ -17,7 +17,7 @@
     "gridsome-plugin-netlify-cms": "^1.0.9",
     "lodash": "^4.17.21",
     "marked": "^0.8.0",
-    "netlify-cms": "^2.10.139"
+    "netlify-cms": "^2.10.189"
   },
   "devDependencies": {
     "eslint": "^6.7.2",
