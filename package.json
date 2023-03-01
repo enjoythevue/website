@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.4.0",
+    "@gridsome/transformer-remark": "^0.6.4",
     "date-fns": "^2.9.0",
     "gridsome": "^0.7.23",
     "gridsome-plugin-netlify-cms": "^1.0.9",
